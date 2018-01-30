@@ -1,11 +1,14 @@
 import React from 'react';
+import Homepage from './Homepage';
+
+const bestPictureWinners = [{name: 'Wings', releaseYear: '1927'}, {name: 'The Broadway Melody', releaseYear: 1928},  {name: 'All Quiet On the Western Front', releaseYear: 1930} ]
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>A place to tick off Oscar best picture winners as I watch them.</h1>
-        This is where App goes
+        <h1>High-level app template.</h1>
+        <Homepage bestPictureWinners={bestPictureWinners}/>
       </div>
     );
   }
