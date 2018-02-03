@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import {Link} from 'react-router';
 
 const bestPictureWinners = [{name: 'Wings', releaseYear: '1927'},
                             {name: 'The Broadway Melody', releaseYear: 1928},
@@ -18,7 +19,7 @@ class Homepage extends React.Component {
           return <li key={index}>Name: {movie.name}, Year of Release:{movie.releaseYear}</li>;
         })}
       </ul>
-
+      <Link to='/about'>ABOUT</Link>
       </div>
     );
   }
