@@ -6,6 +6,6 @@ import routes from './routes.js';
 import './styles/style.css';
 
 render (
-  <Router routes={routes} />,
+  <Router history={browserHistory} routes={routes} />,
   document.getElementById('app')
 );
