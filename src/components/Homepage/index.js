@@ -9,7 +9,6 @@ class Homepage extends React.Component {
     return (
       <div>
         <h1>A place to tick off Oscar best picture winners as I watch them.</h1>
-        This represents the homepage and will be where the full list of movies will go.
       <MovieList bestPictureWinners={bestPictureWinners} />
       <Link to="/about">ABOUT</Link>
       </div>
