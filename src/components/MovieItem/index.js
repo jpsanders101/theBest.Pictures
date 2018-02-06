@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 const MovieItem = (props) => {
   return (
-    <li key={props.key}>{props.name} ({props.releaseYear})
+    <li>{props.name} ({props.releaseYear})
     {props.seen ? "" : <SeenSelect name={props.name} onClick={props.onClick}/>}
     </li>
   );
@@ -17,15 +17,19 @@ const SeenSelect = (props) => {
   return (
     <span onClick={onClick}>- Seen?</span>
   );
-}
-
-
+};
 
 MovieItem.propTypes = {
   key: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   releaseYear: PropTypes.number.isRequired,
-  seen: PropTypes.bool.isRequired
+  seen: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isrequired
+};
+
+SeenSelect.propTypes = {
+  name: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isrequired
 };
 
 export default MovieItem;

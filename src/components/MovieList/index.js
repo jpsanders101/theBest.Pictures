@@ -13,14 +13,14 @@ class MovieList extends React.Component {
     <div>
       <h1>Seen:</h1>
     <ul>
-    {this.state.bestPictureWinners.filter(movie => movie.seen).map((movie, index) => {
-    return <MovieItem key={index} name={movie.name} releaseYear={movie.releaseYear} onClick={this.onClickHandler}/>;
+    {this.state.bestPictureWinners.filter(movie => movie.seen).map((movie) => {
+    return <MovieItem key={movie.awardNumber} name={movie.name} releaseYear={movie.releaseYear} onClick={this.onClickHandler}/>;
     })}
     </ul>
     <h1>Yet to See:</h1>
     <ul>
-      {this.state.bestPictureWinners.filter(movie => !movie.seen).map((movie, index) => {
-        return <MovieItem key={index} name={movie.name} releaseYear={movie.releaseYear} onClick={this.onClickHandler}/>;
+      {this.state.bestPictureWinners.filter(movie => !movie.seen).map((movie) => {
+        return <MovieItem key={movie.awardNumber} name={movie.name} releaseYear={movie.releaseYear} onClick={this.onClickHandler}/>;
       })}
     </ul>
     </div>);
