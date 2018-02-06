@@ -8,6 +8,15 @@ class MovieList extends React.Component {
     this.onClickHandler = this.onClickHandler.bind(this);
   }
 
+  onClickHandler(movieName) {
+    const state = this.state;
+    let index = state.bestPictureWinners.findIndex(movie => {
+      return movie.name === movieName;
+    });
+    state.bestPictureWinners[index].seen = true;
+    this.setState(state);
+  }
+
   render() {
     return (
     <div>
@@ -24,15 +33,6 @@ class MovieList extends React.Component {
       })}
     </ul>
     </div>);
-  }
-
-  onClickHandler(movieName) {
-    const state = this.state;
-    let index = state.bestPictureWinners.findIndex(movie => {
-      return movie.name === movieName;
-    });
-    state.bestPictureWinners[index].seen = true;
-    this.setState(state);
   }
 }
 
