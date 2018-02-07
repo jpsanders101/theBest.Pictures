@@ -6,6 +6,7 @@ class MovieList extends React.Component {
     super(props);
     this.state = props;
     this.onClickHandler = this.onClickHandler.bind(this);
+    this.renderMovieList = this.renderMovieList.bind(this);
   }
 
   onClickHandler(movieName) {
@@ -17,20 +18,20 @@ class MovieList extends React.Component {
     this.setState(state);
   }
 
+  renderMovieList(movie) {
+    return <MovieItem key={movie.awardNumber} name={movie.name} releaseYear={movie.releaseYear} onClick={this.onClickHandler}/>;
+  }
+
   render() {
     return (
     <div>
       <h1>Seen:</h1>
     <ul>
-    {this.state.bestPictureWinners.filter(movie => movie.seen).map((movie) => {
-    return <MovieItem key={movie.awardNumber} name={movie.name} releaseYear={movie.releaseYear} onClick={this.onClickHandler}/>;
-    })}
+    {this.state.bestPictureWinners.filter(movie => movie.seen).map(this.renderMovieList)}
     </ul>
     <h1>Yet to See:</h1>
     <ul>
-      {this.state.bestPictureWinners.filter(movie => !movie.seen).map((movie) => {
-        return <MovieItem key={movie.awardNumber} name={movie.name} releaseYear={movie.releaseYear} onClick={this.onClickHandler}/>;
-      })}
+      {this.state.bestPictureWinners.filter(movie => !movie.seen).map(this.renderMovieList)}
     </ul>
     </div>);
   }
@@ -38,6 +39,6 @@ class MovieList extends React.Component {
 
 MovieList.propTypes = {
   bestPictureWinners: PropTypes.array.isRequired
-}
+};
 
 export default MovieList;
