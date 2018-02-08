@@ -1,5 +1,5 @@
-const bestPictureWinners =
-[
+const STATE = {bestPictureWinners:
+  [
   {
     name:"Wings",
     awardNumber: 1,
@@ -534,6 +534,6 @@ const bestPictureWinners =
     releaseYear:2016,
     seen:false
   }
-];
+]};
 
-export default bestPictureWinners;
+export default STATE;

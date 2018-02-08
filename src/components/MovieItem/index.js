@@ -17,6 +17,4 @@ MovieItem.propTypes = {
   onClick: PropTypes.func.isrequired
 };
 
-
-
 export default MovieItem;
