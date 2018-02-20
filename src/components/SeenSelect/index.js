@@ -13,7 +13,7 @@ const SeenSelect = (props) => {
 
 SeenSelect.propTypes = {
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isrequired
+  onClick: PropTypes.func.isRequired
 };
 
 export default SeenSelect;

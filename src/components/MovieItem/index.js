@@ -10,11 +10,10 @@ const MovieItem = (props) => {
 };
 
 MovieItem.propTypes = {
-  key: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   releaseYear: PropTypes.number.isRequired,
   seen: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isrequired
+  onClick: PropTypes.func.isRequired
 };
 
 export default MovieItem;
