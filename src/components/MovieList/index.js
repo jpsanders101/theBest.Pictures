@@ -1,3 +1,5 @@
+import * as movielistActions from '../../actions/movielistActions';
+import {connect} from 'react-redux';
 import React, {PropTypes} from 'react';
 import MovieItem from '../MovieItem';
 
@@ -15,11 +17,17 @@ class MovieList extends React.Component {
       return movie.name === movieName;
     });
     state.bestPictureWinners[index].seen = true;
-    this.setState(state);
+    this.props.dispatch(movielistActions.markAsSeen(state));
   }
 
   renderMovieList(movie) {
-    return <MovieItem key={movie.awardNumber} name={movie.name} releaseYear={movie.releaseYear} onClick={this.onClickHandler}/>;
+    return (<MovieItem
+              key={movie.awardNumber}
+              name={movie.name}
+              onClick={this.onClickHandler}
+              releaseYear={movie.releaseYear}
+              seen={movie.seen}
+            />);
   }
 
   render() {
@@ -41,4 +49,10 @@ MovieList.propTypes = {
   bestPictureWinners: PropTypes.array.isRequired
 };
 
-export default MovieList;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    movies: state.movies
+  };
+};
+
+export default connect(mapStateToProps)(MovieList);
