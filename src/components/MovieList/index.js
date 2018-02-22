@@ -49,7 +49,7 @@ class MovieList extends React.Component {
 
 MovieList.propTypes = {
   bestPictureWinners: PropTypes.array.isRequired,
-  markAsSeen: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
