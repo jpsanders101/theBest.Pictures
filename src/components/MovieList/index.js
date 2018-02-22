@@ -1,6 +1,6 @@
 import * as movielistActions from '../../actions/movielistActions';
-import {connect} from 'react-redux';
-import React, {PropTypes} from 'react';
+import { connect } from 'react-redux';
+import React, { PropTypes } from 'react';
 import MovieItem from '../MovieItem';
 
 class MovieList extends React.Component {
@@ -17,7 +17,8 @@ class MovieList extends React.Component {
       return movie.name === movieName;
     });
     state.bestPictureWinners[index].seen = true;
-    this.props.dispatch(movielistActions.markAsSeen(state));
+    // this.props.dispatch(movielistActions.markAsSeen(state));
+    this.props.markAsSeen(state);
   }
 
   renderMovieList(movie) {
@@ -56,4 +57,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(MovieList);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    markAsSeen: state => dispatch(movielistActions.markAsSeen(state))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);

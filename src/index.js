@@ -8,7 +8,7 @@ import routes from './routes.js';
 import state from './api/bestPictureWinners';
 import './styles/style.css';
 
-const store = configureStore();
+const store = configureStore({movies: state.bestPictureWinners});
 
 render (
   <Provider store={store}>
