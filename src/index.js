@@ -5,10 +5,12 @@ import {Router, browserHistory} from 'react-router';
 import React from 'react';
 import { render } from  'react-dom';
 import routes from './routes.js';
-import state from './api/bestPictureWinners';
+// import state from './api/bestPictureWinners';
 import './styles/style.css';
+import { loadMovies } from './actions/movielistActions';
 
-const store = configureStore({movies: state.bestPictureWinners});
+const store = configureStore();
+store.dispatch(loadMovies());
 
 render (
   <Provider store={store}>
