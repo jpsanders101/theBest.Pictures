@@ -12,11 +12,12 @@ class MovieList extends React.Component {
   }
 
   onClickHandler(movieName) {
-    let index = this.props.movies.findIndex(movie => {
+    const movieList = [...this.props.movies];
+    let index = movieList.findIndex(movie => {
       return movie.name === movieName;
     });
-    this.props.movies[index].seen = true;
-    this.props.actions.markAsSeen(this.props.movies);
+    movieList[index].seen = true;
+    this.props.actions.markAsSeen(movieList);
   }
 
   renderMovieList(movie) {
