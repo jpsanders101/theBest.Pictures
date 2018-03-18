@@ -5,7 +5,6 @@ import {Router, browserHistory} from 'react-router';
 import React from 'react';
 import { render } from  'react-dom';
 import routes from './routes.js';
-// import state from './api/bestPictureWinners';
 import './styles/style.css';
 import { loadMovies } from './actions/movielistActions';
 

@@ -48,7 +48,7 @@ class MovieList extends React.Component {
 
 MovieList.propTypes = {
   actions: PropTypes.object.isRequired,
-  movies: PropTypes.object.isRequired
+  movies: PropTypes.array.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
