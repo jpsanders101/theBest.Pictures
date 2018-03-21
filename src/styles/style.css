@@ -5,3 +5,8 @@
 h1 {
   color: blue;
 }
+
+.seen-select {
+  color: green;
+  font-weight: bold;
+}
