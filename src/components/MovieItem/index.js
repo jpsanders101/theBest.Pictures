@@ -3,8 +3,9 @@ import SeenSelect from '../SeenSelect';
 
 const MovieItem = (props) => {
   return (
-    <li>{props.name} ({props.releaseYear})
-    {props.seen ? "" : <SeenSelect name={props.name} onClick={props.onClick}/>}
+    <li>
+      <a href={`/movie/${props.releaseYear}`}>{props.name}</a> ({props.releaseYear})
+      {props.seen ? "" : <SeenSelect name={props.name} onClick={props.onClick}/>}
     </li>
   );
 };
