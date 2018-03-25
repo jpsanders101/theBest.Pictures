@@ -12,6 +12,8 @@ h1 {
 }
 
 li.movie-list-item {
+  width: 200px;
+  height: 282px;
   border: 5px;
   border-style: solid;
   border-color: gold;
