@@ -10,3 +10,9 @@ h1 {
   color: green;
   font-weight: bold;
 }
+
+.movie-list-item {
+  border: 5px;
+  border-style: solid;
+  border-color: gold;
+}

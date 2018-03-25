@@ -7,7 +7,7 @@ class About extends React.Component {
       <div>
         <h1>ABOUT</h1>
         A little app used for ticking-off Oscar best-picture winners as I watch them.
-        <Link to='/'>HOME</Link>
+        <Link to="/">HOME</Link>
       </div>
     );
   }
