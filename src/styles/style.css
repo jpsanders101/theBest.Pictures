@@ -11,8 +11,16 @@ h1 {
   font-weight: bold;
 }
 
-.movie-list-item {
+li.movie-list-item {
   border: 5px;
   border-style: solid;
   border-color: gold;
+  padding: 5px;
+  margin: 20px;
+}
+
+ul.movie-list {
+  list-style-type: none;
+  margin: 0 40px;
+  padding: 0;
 }

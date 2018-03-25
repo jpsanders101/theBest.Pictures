@@ -34,11 +34,15 @@ class MovieList extends React.Component {
     return (
       <div>
         <h1>Seen:</h1>
-        <ul>
+        <ul
+          className="movie-list"
+        >
           {this.props.movies.filter(movie => movie.seen).map(this.renderMovieList)}
         </ul>
         <h1>Yet to See:</h1>
-        <ul>
+        <ul
+          className="movie-list"
+        >
           {this.props.movies.filter(movie => !movie.seen).map(this.renderMovieList)}
         </ul>
       </div>
