@@ -6,8 +6,10 @@ const MovieItem = (props) => {
     <li
       className="movie-list-item"
     >
-      <a href={`/movie/${props.releaseYear}`}>{props.name}</a> ({props.releaseYear})
-      {props.seen ? "" : <SeenSelect name={props.name} onClick={props.onClick}/>}
+      <span className="movie-list-item-title">
+        <a href={`/movie/${props.releaseYear}`}>{props.name}</a> ({props.releaseYear})
+        {props.seen ? "" : <SeenSelect name={props.name} onClick={props.onClick}/>}
+      </span>
     </li>
   );
 };
