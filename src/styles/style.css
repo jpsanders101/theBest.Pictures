@@ -15,7 +15,7 @@ li.movie-list-item {
   padding: 5px;
   margin: 20px 20px;
   display: inline-block;
-  overflow: hidden;
+  vertical-align: top;
 }
 
 ul.movie-list {
