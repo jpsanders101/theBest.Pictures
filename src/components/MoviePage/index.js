@@ -15,9 +15,13 @@ export default class MoviePage extends React.Component {
           <div className="movie-details-section">
             <p>Synopsis of the movie goes here.</p>
           </div>
-          <ReviewSection />
+          <ReviewSection movie={this.props.movie}/>
         </div>
       </div>
     );
   }
 }
+
+MoviePage.propTypes = {
+  movie: PropTypes.object
+};

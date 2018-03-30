@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import RatingButtonContainer from './RatingButtonContainer';
 
-export default function ReviewForm() {
+export default function ReviewForm({ movie }) {
   return (
     <form name="review-form">
       <label>
@@ -17,5 +17,8 @@ export default function ReviewForm() {
   );
 }
 
+ReviewForm.propTypes = {
+  movie: PropTypes.object
+};
 
 
