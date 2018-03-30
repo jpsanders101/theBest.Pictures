@@ -29,3 +29,22 @@ span.movie-list-item-title {
   height: 100%;
   color:  black;
 }
+
+div.movie-page-container {
+  display: flex;
+}
+
+div.movie-details-section {
+  flex: 2;
+}
+
+div.review-section {
+  flex: 1;
+}
+form > input {
+  display: block;
+}
+
+button.highlighted {
+  border: 2px solid gold;
+}

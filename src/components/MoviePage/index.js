@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import MovieItem from '../MovieItem';
-import ReviewForm from './ReviewForm';
+import ReviewSection from './ReviewSection';
 
 export default class MoviePage extends React.Component {
   constructor(props) {
@@ -11,8 +11,12 @@ export default class MoviePage extends React.Component {
     return(
       <div>
         <h1>Movie Title - Date</h1>
-        <p>Synopsis of the movie goes here.</p>
-        <ReviewForm />
+        <div className="movie-page-container">
+          <div className="movie-details-section">
+            <p>Synopsis of the movie goes here.</p>
+          </div>
+          <ReviewSection />
+        </div>
       </div>
     );
   }
