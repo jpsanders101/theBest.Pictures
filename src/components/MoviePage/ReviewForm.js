@@ -8,10 +8,15 @@ export default class ReviewForm extends React.Component {
       highlightButtonsUpto: 0
     }
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
   handleMouseEnter(e) {
     this.setState({ highlightButtonsUpto: e.target.value });
+  }
+
+  handleMouseLeave(e) {
+    this.setState({ highlightButtonsUpto: 0 });
   }
 
   renderButtons (buttonQuantity = 5) {
@@ -23,6 +28,7 @@ export default class ReviewForm extends React.Component {
           key={buttonCount}
           value={`${buttonCount}`}
           onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
           highlighted={highlighted}
         />
       );
@@ -50,12 +56,13 @@ export default class ReviewForm extends React.Component {
 }
 
 
-function RatingButton({value, onMouseEnter, highlighted}) {
+function RatingButton({value, onMouseEnter, highlighted, onMouseLeave}) {
   const className = highlighted ? "highlighted" : "";
 
   return (
     <button
       onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       value={value}
       className={className}
     >
