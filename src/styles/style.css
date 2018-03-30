@@ -6,11 +6,6 @@ h1 {
   color: blue;
 }
 
-.seen-select {
-  color: green;
-  font-weight: bold;
-}
-
 li.movie-list-item {
   width: 200px;
   height: 282px;
@@ -18,11 +13,19 @@ li.movie-list-item {
   border-style: solid;
   border-color: gold;
   padding: 5px;
-  margin: 20px;
+  margin: 20px 20px;
+  display: inline-block;
+  overflow: hidden;
 }
 
 ul.movie-list {
+  height: 100%;
   list-style-type: none;
   margin: 0 40px;
   padding: 0;
+}
+
+span.movie-list-item-title {
+  height: 100%;
+  color:  black;
 }
