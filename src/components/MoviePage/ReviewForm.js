@@ -1,4 +1,5 @@
 import React from 'react';
+import RatingButton from './RatingButton';
 
 export default class ReviewForm extends React.Component {
 
@@ -56,17 +57,3 @@ export default class ReviewForm extends React.Component {
 }
 
 
-function RatingButton({value, onMouseEnter, highlighted, onMouseLeave}) {
-  const className = highlighted ? "highlighted" : "";
-
-  return (
-    <button
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      value={value}
-      className={className}
-    >
-      {value}
-    </button>
-  )
-}
