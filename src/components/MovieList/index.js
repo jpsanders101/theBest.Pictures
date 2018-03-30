@@ -30,21 +30,42 @@ class MovieList extends React.Component {
             />);
   }
 
+  nextUp(movies) {
+    const nextUp = this.props.movies.find(movie => !movie.seen);
+    return (
+      nextUp ?
+        <span>
+          <h1>Next up...</h1>
+          {nextUp.name}
+        </span>:
+        ""
+    );
+  }
+
   render() {
     return (
       <div>
-        <h1>Seen:</h1>
-        <ul
-          className="movie-list"
+        {this.nextUp(this.props.movies)}
+        <div
+          className="movie-list-section"
         >
-          {this.props.movies.filter(movie => movie.seen).map(this.renderMovieList)}
-        </ul>
-        <h1>Yet to See:</h1>
-        <ul
-          className="movie-list"
+          <h1>Seen:</h1>
+          <ul
+            className="movie-list"
+          >
+            {this.props.movies.filter(movie => movie.seen).map(this.renderMovieList)}
+          </ul>
+        </div>
+        <div
+          className="movie-list-section"
         >
-          {this.props.movies.filter(movie => !movie.seen).map(this.renderMovieList)}
-        </ul>
+          <h1>Yet to See:</h1>
+          <ul
+            className="movie-list"
+          >
+            {this.props.movies.filter(movie => !movie.seen).map(this.renderMovieList)}
+          </ul>
+          </div>
       </div>
     );
   }
