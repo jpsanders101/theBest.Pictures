@@ -36,6 +36,7 @@ div.movie-page-container {
 
 div.movie-details-section {
   flex: 2;
+  padding: 20px;
 }
 
 div.review-section {
