@@ -8,6 +8,7 @@ import {bindActionCreators} from 'redux';
 
 class MoviePage extends React.Component {
   constructor(props) {
+    console.log(props);
     super(props);
   }
   render() {
@@ -29,9 +30,8 @@ MoviePage.propTypes = {
   movie: PropTypes.object
 };
 
-const mapStateToProps = (state) => {
-  // hardcoded date will later change depending on the page
-  let movie = Object.assign({}, state.movies.find(movie => movie.releaseYear === 1927));
+const mapStateToProps = (state, ownProps) => {
+  let movie = Object.assign({}, state.movies.find(movie => movie.releaseYear === parseInt(ownProps.params.id)))
   return {
     movie: movie
   };
