@@ -1,4 +1,5 @@
 import delay from './delay';
+import DUMMYTEXT from './dummyText';
 
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
@@ -540,6 +541,12 @@ const movies = [
   }
 ];
 
+movies.forEach(movie => {
+	movie.rating = null;
+	movie.review = null;
+	movie.synopsis = DUMMYTEXT;
+});
+
 function replaceAll(str, find, replace) {
   return str.replace(new RegExp(find, 'g'), replace);
 }
@@ -558,27 +565,15 @@ class bestPictureWinnersApi {
     });
   }
 
-  static saveMovie(movie) {
+  static saveReview(movie) {
     movie = Object.assign({}, movie); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
-        const minMovieTitleLength = 1;
-        if (movie.name.length < minMovieTitleLength) {
-          reject(`Title must be at least ${minMovieTitleLength} characters.`);
+        const forbiddenWords = ['overrated', 'Kafkaesque'];
+        if (forbiddenWords.some(word => movie.review.includes(word))) {
+          reject(`Review must not contain any of the following forbidden words: ${forbiddenWords.forEach(word => word)}`);
         }
-
-        if (movie.awardNumber) {
-          const existingAwardNumber = movies.findIndex(a => a.awardNumber == movie.awardNumber);
-          movies.splice(existingAwardNumber, 1, movie);
-        } else {
-          //Just simulating creation here.
-          //The server would generate ids and watchHref's for new courses in a real app.
-          //Cloning so copy returned is passed by value rather than by reference.
-          movie.awardNumber = generateId(movie);
-          movies.push(movie);
-        }
-
         resolve(movie);
       }, delay);
     });
