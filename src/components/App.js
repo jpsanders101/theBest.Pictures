@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react';
-import Homepage from './Homepage';
+import Header from './Header';
 
 class App extends React.Component {
   render() {
     return (
       <div>
+        <Header />
         {this.props.children}
       </div>
     );

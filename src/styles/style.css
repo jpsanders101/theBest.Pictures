@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 #app {
   color: brown;
 }
@@ -48,4 +52,22 @@ form > input {
 
 button.highlighted {
   border: 2px solid gold;
+}
+
+div.header {
+  background-color: grey;
+  height: 50px;
+  padding: 5px 5px 0 5px;
+}
+
+div.header > a {
+  color: white;
+}
+
+div.header > a.home-header-link {
+  font-size: 2em;
+}
+
+div.header > a.about-header-link {
+  float: right;
 }
