@@ -7,6 +7,7 @@ import MovieItem from '../MovieItem';
 class MovieList extends React.Component {
   constructor(props) {
     super(props);
+    console.log('constructor called', props);
     this.onClickHandler = this.onClickHandler.bind(this);
     this.renderMovieList = this.renderMovieList.bind(this);
   }

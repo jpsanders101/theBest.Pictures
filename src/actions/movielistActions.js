@@ -18,3 +18,18 @@ export const loadMovies = () => {
     });
   };
 };
+
+export const saveReviewSuccess = (movie) => {
+
+  return {type: types.SAVE_REVIEW, movie};
+};
+
+export const saveReview = (movie) => {
+  return dispatch => {
+    bestPictureWinnersApi.saveReview(movie).then(movie => {
+      dispatch(saveReviewSuccess(movie));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+};
