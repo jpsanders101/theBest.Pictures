@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import RatingButton from './RatingButton';
 
 
@@ -30,7 +30,6 @@ export default class RatingButtonContainer extends React.Component {
     e.preventDefault();
     this.setState({ highlightButtonsUpto: e.target.value, clicked: true });
     this.props.handleRatingClick(e.target.value);
-    console.log('click handled!');
   }
 
   renderButtons (buttonQuantity = 5) {
@@ -61,3 +60,7 @@ export default class RatingButtonContainer extends React.Component {
   }
 
 }
+
+RatingButtonContainer.propTypes = {
+  handleRatingClick: PropTypes.func.isRequired
+};
