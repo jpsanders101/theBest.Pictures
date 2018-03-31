@@ -6,7 +6,8 @@ export default class RatingButtonContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      highlightButtonsUpto: 0
+      highlightButtonsUpto: 0,
+      clicked: false
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
@@ -14,15 +15,22 @@ export default class RatingButtonContainer extends React.Component {
   }
 
   handleMouseEnter(e) {
-    this.setState({ highlightButtonsUpto: e.target.value });
+    if (!this.state.clicked) {
+      this.setState({ highlightButtonsUpto: e.target.value, clicked: false });
+    }
   }
 
   handleMouseLeave(e) {
-    this.setState({ highlightButtonsUpto: 0 });
+    if (!this.state.clicked) {
+      this.setState({ highlightButtonsUpto: 0, clicked: false });
+    }
   }
 
   handleOnClick(e) {
     e.preventDefault();
+    this.setState({ highlightButtonsUpto: e.target.value, clicked: true });
+    this.props.handleRatingClick(e.target.value);
+    console.log('click handled!');
   }
 
   renderButtons (buttonQuantity = 5) {
@@ -37,6 +45,7 @@ export default class RatingButtonContainer extends React.Component {
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
           highlighted={highlighted}
+          clicked={this.state.clicked}
         />
       );
     }

@@ -12,6 +12,8 @@ export default class ReviewForm extends React.Component {
       review: props.movie.review
     };
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.handleRatingClick = this.handleRatingClick.bind(this);
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
   onChangeHandler(e) {
@@ -22,7 +24,12 @@ export default class ReviewForm extends React.Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const movie = Object.assign({}, this.state);
-    this.props.actions.saveReview(movie);
+    // this.props.actions.saveReview(movie);
+  }
+
+  handleRatingClick(rating) {
+    let state = Object.assign({}, this.state, {rating});
+    this.setState(state);
   }
 
   render() {
@@ -30,7 +37,7 @@ export default class ReviewForm extends React.Component {
       <form name="review-form" onSubmit={this.handleOnSubmit}>
         <label>
           Rating
-          <RatingButtonContainer />
+          <RatingButtonContainer handleRatingClick={this.handleRatingClick} />
         </label>
         <label>
           Thoughts about {this.props.movie.name}...
