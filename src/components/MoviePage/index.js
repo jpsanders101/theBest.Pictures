@@ -8,7 +8,6 @@ import {bindActionCreators} from 'redux';
 
 class MoviePage extends React.Component {
   constructor(props) {
-    console.log(props);
     super(props);
   }
   render() {
@@ -18,6 +17,7 @@ class MoviePage extends React.Component {
         <div className="movie-page-container">
           <div className="movie-details-section">
             <p>{this.props.movie.synopsis}</p>
+            { this.props.movie.review ? `Your review: ${this.props.movie.review}` : ''}
           </div>
           <ReviewSection movie={this.props.movie} actions={this.props.actions}/>
         </div>
@@ -27,7 +27,8 @@ class MoviePage extends React.Component {
 }
 
 MoviePage.propTypes = {
-  movie: PropTypes.object
+  movie: PropTypes.object,
+  actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -43,4 +44,4 @@ const mapDispatchtoProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps)(MoviePage);
+export default connect(mapStateToProps, mapDispatchtoProps)(MoviePage);
