@@ -19,12 +19,10 @@ div.progress-bar {
 
 div.progress-bar > div.progress-bar-completed {
   background: green;
-  flex: 2;
 }
 
 div.progress-bar > div.progress-bar-remaining {
   background:white;
-  flex: 1;
 }
 
 li.movie-list-item {

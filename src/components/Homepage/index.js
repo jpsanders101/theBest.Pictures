@@ -9,7 +9,7 @@ class Homepage extends React.Component {
     return (
       <div>
         <h1>A place to tick off Oscar best picture winners as I watch them.</h1>
-        <ProgressBar />
+        <ProgressBar progress={78} />
         <MovieList />
       </div>
     );
