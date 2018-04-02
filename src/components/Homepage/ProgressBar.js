@@ -6,14 +6,11 @@ export default function ProgressBar(props) {
       <div
         className="progress-bar-completed"
         style={{
-          flex: `${props.progress}`
+          flex: `0 1 ${props.progress}%`
         }}
       ></div>
       <div
         className="progress-bar-remaining"
-        style={{
-          flex: `${100 - props.progress}`
-        }}
       ></div>
     </div>
   );

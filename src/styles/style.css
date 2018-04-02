@@ -23,6 +23,7 @@ div.progress-bar > div.progress-bar-completed {
 
 div.progress-bar > div.progress-bar-remaining {
   background:white;
+  flex: 1;
 }
 
 li.movie-list-item {
