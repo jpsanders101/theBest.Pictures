@@ -1,10 +1,7 @@
-import * as movielistActions from '../../actions/movielistActions';
-import { connect } from 'react-redux';
 import React, { PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
 import MovieItem from '../MovieItem';
 
-class MovieList extends React.Component {
+export default class MovieList extends React.Component {
   constructor(props) {
     super(props);
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -75,17 +72,3 @@ MovieList.propTypes = {
   actions: PropTypes.object.isRequired,
   movies: PropTypes.array.isRequired
 };
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    movies: state.movies
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators(movielistActions, dispatch)
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MovieList);
