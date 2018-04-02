@@ -565,16 +565,17 @@ class bestPictureWinnersApi {
     });
   }
 
-  static saveReview(movie) {
-    movie = Object.assign({}, movie); // to avoid manipulating object passed in.
+  static saveReview(review) {
+    review = Object.assign({}, review); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
         const forbiddenWords = ['overrated', 'Kafkaesque'];
-        if (forbiddenWords.some(word => movie.review.includes(word))) {
-          reject(`Review must not contain any of the following forbidden words: ${forbiddenWords.forEach(word => word)}`);
+        if (forbiddenWords.some(word => review.review.includes(word))) {
+          reject(`Review must not contain any of the following forbidden words: ${forbiddenWords.join(', ')}`);
         }
-        resolve(movie);
+        // review saved on database
+        resolve(review);
       }, delay);
     });
   }
