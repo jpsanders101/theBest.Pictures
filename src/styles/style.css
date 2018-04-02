@@ -10,6 +10,23 @@ h1 {
   color: blue;
 }
 
+div.progress-bar {
+  height: 50px;
+  margin: 20px;
+  border: solid grey;
+  display: flex
+}
+
+div.progress-bar > div.progress-bar-completed {
+  background: green;
+  flex: 2;
+}
+
+div.progress-bar > div.progress-bar-remaining {
+  background:white;
+  flex: 1;
+}
+
 li.movie-list-item {
   width: 200px;
   height: 282px;
