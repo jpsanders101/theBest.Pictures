@@ -7,9 +7,11 @@ export default (state = [], action) => {
     case types.LOAD_MOVIES:
       return action.movies;
     case types.SAVE_REVIEW:
-      const movieIndex = state.findIndex(movie => movie.releaseYear === action.releaseYear);
+      const movieIndex = state.findIndex(movie => movie.releaseYear === action.review.releaseYear);
       const stateCopy = [...state];
-      stateCopy.splice(movieIndex, 1, action);
+      stateCopy[movieIndex].seen = true;
+      stateCopy[movieIndex].review = action.review;
+      stateCopy[movieIndex].rating = action.rating;
       return stateCopy;
     default:
       return state;

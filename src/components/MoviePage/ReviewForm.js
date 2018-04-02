@@ -23,8 +23,8 @@ export default class ReviewForm extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    const movie = Object.assign({}, this.state);
-    // this.props.actions.saveReview(movie);
+    const review = Object.assign({}, this.state, {releaseYear: this.props.movie.releaseYear});
+    this.props.actions.saveReview(review);
   }
 
   handleRatingClick(rating) {

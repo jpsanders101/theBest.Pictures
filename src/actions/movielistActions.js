@@ -19,15 +19,14 @@ export const loadMovies = () => {
   };
 };
 
-export const saveReviewSuccess = (movie) => {
-
-  return {type: types.SAVE_REVIEW, movie};
+export const saveReviewSuccess = (review) => {
+  return {type: types.SAVE_REVIEW, review};
 };
 
-export const saveReview = (movie) => {
+export const saveReview = (review) => {
   return dispatch => {
-    bestPictureWinnersApi.saveReview(movie).then(movie => {
-      dispatch(saveReviewSuccess(movie));
+    bestPictureWinnersApi.saveReview(review).then(review => {
+      dispatch(saveReviewSuccess(review));
     }).catch(error => {
       throw(error);
     });

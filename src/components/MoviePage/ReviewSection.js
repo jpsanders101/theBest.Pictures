@@ -12,5 +12,5 @@ export default function ReviewSection({ movie, actions }) {
 
 ReviewSection.propTypes = {
   movie: PropTypes.object,
-  actions: PropTypes.object
+  actions: PropTypes.object.isRequired
 };

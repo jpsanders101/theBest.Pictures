@@ -6,11 +6,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 class Homepage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  calculateProgress(movies) {
+    return Math.floor((movies.filter(movie => movie.seen).length / movies.length) * 100);
+  }
+
   render() {
     return (
       <div>
-        <h1>A place to tick off Oscar best picture winners as I watch them.</h1>
-        <ProgressBar progress={24} />
+        <h1>A place to tick off Oscar Best Picture winners as I watch them.</h1>
+        <ProgressBar progress={this.calculateProgress(this.props.movies)} />
         <MovieList actions={this.props.actions} movies={this.props.movies}/>
       </div>
     );
@@ -33,6 +41,5 @@ const mapDispatchToProps = (dispatch) => {
     actions: bindActionCreators(movielistActions, dispatch)
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
