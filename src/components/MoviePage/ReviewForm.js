@@ -46,7 +46,7 @@ export default class ReviewForm extends React.Component {
             onChange={this.onChangeHandler}
           ></textarea>
         </label>
-          <input type="submit" value="Save" />
+          <input type="submit" value={this.props.movie.review ? "Update" : "Save"} />
       </form>
     );
   }
