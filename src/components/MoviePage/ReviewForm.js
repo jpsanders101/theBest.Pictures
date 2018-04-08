@@ -9,7 +9,7 @@ export default class ReviewForm extends React.Component {
     super(props);
     this.state = {
       rating: props.movie.rating,
-      review: props.movie.review
+      review: props.movie.review || ""
     };
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.handleRatingClick = this.handleRatingClick.bind(this);
