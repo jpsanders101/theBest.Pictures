@@ -538,6 +538,12 @@ const movies = [
     awardNumber: 89,
     releaseYear:2016,
     seen:false
+  },
+  {
+    name:"The Shape of Water",
+    awardNumer: 90,
+    releaseYear: 2017,
+    seen:false
   }
 ];
 
