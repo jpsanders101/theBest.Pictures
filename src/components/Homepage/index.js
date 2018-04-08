@@ -4,6 +4,7 @@ import ProgressBar from './ProgressBar';
 import * as movielistActions from '../../actions/movielistActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Spinner from '../Spinner';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -16,23 +17,30 @@ class Homepage extends React.Component {
 
   render() {
     return (
+    <div>
+      {true ?
+        <Spinner /> :
       <div>
         <h1>A place to tick off Oscar Best Picture winners as I watch them.</h1>
         <ProgressBar progress={this.calculateProgress(this.props.movies)} />
         <MovieList actions={this.props.actions} movies={this.props.movies}/>
       </div>
+      }
+    </div>
     );
   }
 }
 
 Homepage.propTypes = {
   actions: PropTypes.object.isRequired,
-  movies: PropTypes.array.isRequired
+  movies: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movies: state.movies
+    movies: state.movies,
+    isLoading: state.isLoading
   };
 };
 
