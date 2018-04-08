@@ -1,7 +1,7 @@
 {
   "name": "pluralsight-redux-starter",
   "version": "1.0.0",
-  "description": "Oscar Ticker",
+  "description": "theBest.Pictures",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
@@ -65,6 +65,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonsanders101/oscar-ticker"
+    "url": "https://github.com/jonsanders101/theBest.Pictures"
   }
 }

@@ -1,3 +1,3 @@
-# Oscar Ticker
+# theBest.Pictures
 
-A web-app for counting off Oscar Best Picture winners as I see them.
+A web app for ticking-off and rating every Oscar Best Picture winners as you see them.
