@@ -9,12 +9,6 @@ export default (state = [], action) => {
       return action.movies;
     case types.SAVE_REVIEW:
       return helpers.saveReview(state, action.review);
-      // const movieIndex = state.findIndex(movie => movie.releaseYear === action.review.releaseYear);
-      // const stateCopy = [...state];
-      // stateCopy[movieIndex].seen = true;
-      // stateCopy[movieIndex].review = action.review;
-      // stateCopy[movieIndex].rating = action.rating;
-      // return stateCopy;
     default:
       return state;
   }
