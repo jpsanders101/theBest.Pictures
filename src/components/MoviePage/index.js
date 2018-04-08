@@ -32,7 +32,7 @@ MoviePage.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  let movie = Object.assign({}, state.movies.find(movie => movie.releaseYear === parseInt(ownProps.params.id)))
+  let movie = Object.assign({}, state.movies.find(movie => movie.releaseYear === parseInt(ownProps.params.id)));
   return {
     movie: movie
   };

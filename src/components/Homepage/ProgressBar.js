@@ -18,4 +18,4 @@ export default function ProgressBar(props) {
 
 ProgressBar.propTypes = {
   progress: PropTypes.number.isRequired
-}
+};

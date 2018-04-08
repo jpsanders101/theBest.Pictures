@@ -7,7 +7,7 @@ const SeenSelect = (props) => {
   };
 
   return (
-    <span className='seen-select' onClick={onClick}> - Seen?</span>
+    <span className="seen-select" onClick={onClick}> - Seen?</span>
   );
 };
 
