@@ -14,7 +14,7 @@ div.progress-bar {
   height: 50px;
   margin: 20px;
   border: solid grey;
-  display: flex
+  display: flex;
 }
 
 div.progress-bar > div.progress-bar-completed {
@@ -26,6 +26,15 @@ div.progress-bar > div.progress-bar-remaining {
   flex: 1;
 }
 
+ul.movie-list {
+  height: 100%;
+  list-style-type: none;
+  margin: 0 40px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 li.movie-list-item {
   width: 200px;
   height: 282px;
@@ -34,15 +43,6 @@ li.movie-list-item {
   border-color: gold;
   padding: 5px;
   margin: 20px 20px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-ul.movie-list {
-  height: 100%;
-  list-style-type: none;
-  margin: 0 40px;
-  padding: 0;
 }
 
 span.movie-list-item-title {
