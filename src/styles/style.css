@@ -29,10 +29,11 @@ div.progress-bar > div.progress-bar-remaining {
 ul.movie-list {
   height: 100%;
   list-style-type: none;
-  margin: 0 40px;
+  margin: 0 20px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 li.movie-list-item {
