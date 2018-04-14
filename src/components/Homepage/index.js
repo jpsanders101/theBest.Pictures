@@ -18,7 +18,7 @@ class Homepage extends React.Component {
   render() {
     return (
     <div>
-      {true ?
+      {this.props.isLoading ?
         <Spinner /> :
       <div>
         <h1>A place to tick off Oscar Best Picture winners as I watch them.</h1>
@@ -39,8 +39,8 @@ Homepage.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movies: state.movies,
-    isLoading: state.isLoading
+    isLoading: state.ajaxCalls > 0,
+    movies: state.movies
   };
 };
 
