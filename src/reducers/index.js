@@ -1,4 +1,4 @@
-import ajaxCalls from './spinnerReducer';
+import ajaxCalls from './ajaxCallReducer';
 import {combineReducers} from 'redux';
 import movies from './movielistReducer';
 
