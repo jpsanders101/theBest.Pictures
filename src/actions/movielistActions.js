@@ -1,6 +1,6 @@
 import * as types from './constants.js';
 import bestPictureWinnersApi from  '../api/bestPictureWinnersApi';
-import { beginAjaxCall } from './spinnerActions';
+import { beginAjaxCall, endAjaxCall } from './spinnerActions';
 
 export const markAsSeen = (movies) => {
   return {type: types.MARK_AS_SEEN, movies};
@@ -18,7 +18,7 @@ export const loadMovies = () => {
       dispatch(loadMoviesSuccess(movies));
     })
     .then(() => {
-      dispatch(beginAjaxCall(-1));
+      dispatch(endAjaxCall(1));
     })
     .catch(error => {
       throw(error);
