@@ -5,7 +5,8 @@ import {Router, browserHistory} from 'react-router';
 import React from 'react';
 import { render } from  'react-dom';
 import routes from './routes.js';
-import './styles/style.css';
+import './styles/style.less';
+import './styles/progressBar.less';
 import { loadMovies } from './actions/movielistActions';
 
 const store = configureStore();
