@@ -7,6 +7,7 @@ import { render } from  'react-dom';
 import routes from './routes.js';
 import './styles/style.less';
 import './styles/progressBar.less';
+import './components/Common/LoadingButton/small.less';
 import { loadMovies } from './actions/movielistActions';
 
 const store = configureStore();

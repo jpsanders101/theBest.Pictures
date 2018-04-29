@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import RatingButtonContainer from './RatingButtonContainer';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import LoadingButton from '../Common/LoadingButton';
 
 
 export default class ReviewForm extends React.Component {
@@ -32,6 +33,10 @@ export default class ReviewForm extends React.Component {
     this.setState(state);
   }
 
+  buttonValue() {
+    return this.props.movie.review ? "Update" : "Save";
+  }
+
   render() {
     return (
       <form name="review-form" onSubmit={this.handleOnSubmit}>
@@ -46,7 +51,9 @@ export default class ReviewForm extends React.Component {
             onChange={this.onChangeHandler}
           ></textarea>
         </label>
-          <input type="submit" value={this.props.movie.review ? "Update" : "Save"} />
+        <LoadingButton
+          value={this.buttonValue()}
+        />
       </form>
     );
   }
@@ -56,4 +63,3 @@ ReviewForm.propTypes = {
   actions: PropTypes.object,
   movie: PropTypes.object
 };
-

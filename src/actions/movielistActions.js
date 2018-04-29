@@ -32,8 +32,11 @@ export const saveReviewSuccess = (review) => {
 
 export const saveReview = (review) => {
   return dispatch => {
+    dispatch(beginAjaxCall(1));
     bestPictureWinnersApi.saveReview(review).then(review => {
       dispatch(saveReviewSuccess(review));
+    }).then(() => {
+      dispatch(endAjaxCall(1));
     }).catch(error => {
       throw(error);
     });
