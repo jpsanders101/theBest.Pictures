@@ -26,6 +26,7 @@ export default {
   module: {
     loaders: [
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
+      {test: /(\.css)$/, loaders: ['style', 'css']},
       {test: /(\.less)$/, loaders: ['style', 'css', 'less']},
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'}, // TO-DO: below are for bootstrap which I'm no longer using; delete?
       {test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000'},

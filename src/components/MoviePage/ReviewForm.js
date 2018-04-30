@@ -3,6 +3,7 @@ import RatingButtonContainer from './RatingButtonContainer';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import LoadingButton from '../Common/LoadingButton';
+import toastr from 'toastr';
 
 
 export default class ReviewForm extends React.Component {
@@ -25,7 +26,9 @@ export default class ReviewForm extends React.Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const review = Object.assign({}, this.state, {releaseYear: this.props.movie.releaseYear});
-    this.props.actions.saveReview(review);
+    this.props.actions.saveReview(review).catch(error => {
+      toastr.error(error);
+    });
   }
 
   handleRatingClick(rating) {

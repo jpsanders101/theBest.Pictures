@@ -9,6 +9,7 @@ import './styles/style.less';
 import './styles/progressBar.less';
 import './components/Common/LoadingButton/small.less';
 import { loadMovies } from './actions/movielistActions';
+import '../node_modules/toastr/build/toastr.min.css';
 
 const store = configureStore();
 store.dispatch(loadMovies());
