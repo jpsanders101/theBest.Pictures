@@ -1,6 +1,6 @@
-import * as types from '../actions/constants';
-import * as helpers from './helpers';
-import initialState from './initialState';
+import * as types from "../actions/constants";
+import * as helpers from "./helpers";
+import initialState from "./initialState";
 
 export default (state = initialState.movies, action) => {
   switch (action.type) {

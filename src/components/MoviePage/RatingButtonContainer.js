@@ -1,6 +1,5 @@
-import React, {PropTypes} from 'react';
-import RatingButton from './RatingButton';
-
+import React, { PropTypes } from "react";
+import RatingButton from "./RatingButton";
 
 export default class RatingButtonContainer extends React.Component {
   constructor(props) {
@@ -32,7 +31,7 @@ export default class RatingButtonContainer extends React.Component {
     this.props.handleRatingClick(e.target.value);
   }
 
-  renderButtons (buttonQuantity = 5) {
+  renderButtons(buttonQuantity = 5) {
     const buttons = [];
     for (let buttonCount = 1; buttonCount <= buttonQuantity; buttonCount++) {
       const highlighted = buttonCount <= this.state.highlightButtonsUpto;
@@ -52,13 +51,8 @@ export default class RatingButtonContainer extends React.Component {
   }
 
   render() {
-    return (
-      <div className="rating-buttons">
-        {this.renderButtons()}
-      </div>
-    );
+    return <div className="rating-buttons">{this.renderButtons()}</div>;
   }
-
 }
 
 RatingButtonContainer.propTypes = {

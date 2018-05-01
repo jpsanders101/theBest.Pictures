@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
+import React, { PropTypes } from "react";
+import { connect } from "react-redux";
 
 class LoadingButton extends React.Component {
   constructor(props) {
@@ -9,9 +9,10 @@ class LoadingButton extends React.Component {
   render() {
     return (
       <input
-      className={this.props.isLoading ? 'loading' : ''}
-      type="submit"
-      value={this.props.value} />
+        className={this.props.isLoading ? "loading" : ""}
+        type="submit"
+        value={this.props.value}
+      />
     );
   }
 }
@@ -21,7 +22,7 @@ LoadingButton.propTypes = {
   value: PropTypes.string.isRequired
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     isLoading: state.ajaxCalls > 0
   };

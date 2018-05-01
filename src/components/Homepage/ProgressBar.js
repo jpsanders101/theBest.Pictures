@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from "react";
 
 export default function ProgressBar(props) {
   return (
@@ -8,10 +8,8 @@ export default function ProgressBar(props) {
         style={{
           flex: `0 1 ${props.progress}%`
         }}
-      ></div>
-      <div
-        className="progress-bar-remaining"
-      ></div>
+      />
+      <div className="progress-bar-remaining" />
     </div>
   );
 }

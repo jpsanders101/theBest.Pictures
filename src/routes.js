@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route, IndexRoute } from 'react-router';
-import About from './components/About';
-import App from './components/App';
-import Homepage from './components/Homepage';
-import MoviePage from './components/MoviePage';
+import React from "react";
+import { Route, IndexRoute } from "react-router";
+import About from "./components/About";
+import App from "./components/App";
+import Homepage from "./components/Homepage";
+import MoviePage from "./components/MoviePage";
 
 export default (
   <Route path="/" component={App}>

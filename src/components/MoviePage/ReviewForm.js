@@ -1,10 +1,9 @@
-import React, {PropTypes} from 'react';
-import RatingButtonContainer from './RatingButtonContainer';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import LoadingButton from '../Common/LoadingButton';
-import toastr from 'toastr';
-
+import React, { PropTypes } from "react";
+import RatingButtonContainer from "./RatingButtonContainer";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import LoadingButton from "../Common/LoadingButton";
+import toastr from "toastr";
 
 export default class ReviewForm extends React.Component {
   constructor(props) {
@@ -19,20 +18,22 @@ export default class ReviewForm extends React.Component {
   }
 
   onChangeHandler(e) {
-    let state = Object.assign({}, this.state, {review: e.target.value} );
+    let state = Object.assign({}, this.state, { review: e.target.value });
     this.setState(state);
   }
 
   handleOnSubmit(e) {
     e.preventDefault();
-    const review = Object.assign({}, this.state, {releaseYear: this.props.movie.releaseYear});
+    const review = Object.assign({}, this.state, {
+      releaseYear: this.props.movie.releaseYear
+    });
     this.props.actions.saveReview(review).catch(error => {
       toastr.error(error);
     });
   }
 
   handleRatingClick(rating) {
-    let state = Object.assign({}, this.state, {rating});
+    let state = Object.assign({}, this.state, { rating });
     this.setState(state);
   }
 
@@ -49,14 +50,9 @@ export default class ReviewForm extends React.Component {
         </label>
         <label>
           Thoughts about {this.props.movie.name}...
-          <textarea
-            value={this.state.review}
-            onChange={this.onChangeHandler}
-          ></textarea>
+          <textarea value={this.state.review} onChange={this.onChangeHandler} />
         </label>
-        <LoadingButton
-          value={this.buttonValue()}
-        />
+        <LoadingButton value={this.buttonValue()} />
       </form>
     );
   }

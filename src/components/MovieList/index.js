@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import MovieItem from '../MovieItem';
+import React, { PropTypes } from "react";
+import MovieItem from "../MovieItem";
 
 export default class MovieList extends React.Component {
   constructor(props) {
@@ -18,24 +18,26 @@ export default class MovieList extends React.Component {
   }
 
   renderMovieList(movie) {
-    return (<MovieItem
-              key={movie.awardNumber}
-              name={movie.name}
-              onClick={this.onClickHandler}
-              releaseYear={movie.releaseYear}
-              seen={movie.seen}
-            />);
+    return (
+      <MovieItem
+        key={movie.awardNumber}
+        name={movie.name}
+        onClick={this.onClickHandler}
+        releaseYear={movie.releaseYear}
+        seen={movie.seen}
+      />
+    );
   }
 
   nextUp(movies) {
     const nextUp = this.props.movies.find(movie => !movie.seen);
-    return (
-      nextUp ?
-        <span>
-          <h1>Next up...</h1>
-          {nextUp.name}
-        </span>:
-        ""
+    return nextUp ? (
+      <span>
+        <h1>Next up...</h1>
+        {nextUp.name}
+      </span>
+    ) : (
+      ""
     );
   }
 
@@ -43,26 +45,22 @@ export default class MovieList extends React.Component {
     return (
       <div>
         {this.nextUp(this.props.movies)}
-        <div
-          className="movie-list-section"
-        >
+        <div className="movie-list-section">
           <h1>Seen:</h1>
-          <ul
-            className="movie-list"
-          >
-            {this.props.movies.filter(movie => movie.seen).map(this.renderMovieList)}
+          <ul className="movie-list">
+            {this.props.movies
+              .filter(movie => movie.seen)
+              .map(this.renderMovieList)}
           </ul>
         </div>
-        <div
-          className="movie-list-section"
-        >
+        <div className="movie-list-section">
           <h1>Yet to See:</h1>
-          <ul
-            className="movie-list"
-          >
-            {this.props.movies.filter(movie => !movie.seen).map(this.renderMovieList)}
+          <ul className="movie-list">
+            {this.props.movies
+              .filter(movie => !movie.seen)
+              .map(this.renderMovieList)}
           </ul>
-          </div>
+        </div>
       </div>
     );
   }
