@@ -1,10 +1,10 @@
-import MovieList from "../MovieList";
-import React, { PropTypes } from "react";
-import ProgressBar from "./ProgressBar";
-import * as movielistActions from "../../actions/movielistActions";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import Spinner from "../Spinner";
+import MovieList from '../MovieList';
+import React, { PropTypes } from 'react';
+import ProgressBar from './ProgressBar';
+import * as movielistActions from '../../actions/movielistActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Spinner from '../Spinner';
 
 class Homepage extends React.Component {
   constructor(props) {

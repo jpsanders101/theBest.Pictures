@@ -1,6 +1,6 @@
-import * as types from "./constants.js";
-import bestPictureWinnersApi from "../api/bestPictureWinnersApi";
-import { beginAjaxCall, endAjaxCall } from "./ajaxCallActions";
+import * as types from './constants.js';
+import bestPictureWinnersApi from '../api/bestPictureWinnersApi';
+import { beginAjaxCall, endAjaxCall } from './ajaxCallActions';
 
 export const markAsSeen = movies => {
   return { type: types.MARK_AS_SEEN, movies };

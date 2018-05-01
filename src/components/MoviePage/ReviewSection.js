@@ -1,5 +1,5 @@
-import React, { PropTypes } from "react";
-import ReviewForm from "./ReviewForm";
+import React, { PropTypes } from 'react';
+import ReviewForm from './ReviewForm';
 
 export default function ReviewSection({ movie, actions }) {
   return (

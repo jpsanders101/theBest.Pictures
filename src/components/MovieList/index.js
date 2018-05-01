@@ -1,5 +1,5 @@
-import React, { PropTypes } from "react";
-import MovieItem from "../MovieItem";
+import React, { PropTypes } from 'react';
+import MovieItem from '../MovieItem';
 
 export default class MovieList extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ export default class MovieList extends React.Component {
         {nextUp.name}
       </span>
     ) : (
-      ""
+      ''
     );
   }
 

@@ -1,9 +1,9 @@
-import React, { PropTypes } from "react";
-import MovieItem from "../MovieItem";
-import ReviewSection from "./ReviewSection";
-import { connect } from "react-redux";
-import * as movielistActions from "../../actions/movielistActions";
-import { bindActionCreators } from "redux";
+import React, { PropTypes } from 'react';
+import MovieItem from '../MovieItem';
+import ReviewSection from './ReviewSection';
+import { connect } from 'react-redux';
+import * as movielistActions from '../../actions/movielistActions';
+import { bindActionCreators } from 'redux';
 
 class MoviePage extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class MoviePage extends React.Component {
             <p>{this.props.movie.synopsis}</p>
             {this.props.movie.review
               ? `Your review: ${this.props.movie.review}`
-              : ""}
+              : ''}
           </div>
           <ReviewSection
             movie={this.props.movie}

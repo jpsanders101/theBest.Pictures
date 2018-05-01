@@ -1,4 +1,4 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 
 const SeenSelect = props => {
   const onClick = e => {
@@ -7,7 +7,7 @@ const SeenSelect = props => {
 
   return (
     <span className="seen-select" onClick={onClick}>
-      {" "}
+      {' '}
       - Seen?
     </span>
   );

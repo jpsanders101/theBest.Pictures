@@ -1,4 +1,4 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 
 export default function RatingButton({
   value,
@@ -7,7 +7,7 @@ export default function RatingButton({
   highlighted,
   onMouseLeave
 }) {
-  const className = highlighted ? "highlighted" : "";
+  const className = highlighted ? 'highlighted' : '';
 
   return (
     <button

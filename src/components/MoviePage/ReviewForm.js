@@ -1,16 +1,16 @@
-import React, { PropTypes } from "react";
-import RatingButtonContainer from "./RatingButtonContainer";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import LoadingButton from "../Common/LoadingButton";
-import toastr from "toastr";
+import React, { PropTypes } from 'react';
+import RatingButtonContainer from './RatingButtonContainer';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import LoadingButton from '../Common/LoadingButton';
+import toastr from 'toastr';
 
 export default class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       rating: props.movie.rating,
-      review: props.movie.review || ""
+      review: props.movie.review || ''
     };
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.handleRatingClick = this.handleRatingClick.bind(this);
@@ -38,7 +38,7 @@ export default class ReviewForm extends React.Component {
   }
 
   buttonValue() {
-    return this.props.movie.review ? "Update" : "Save";
+    return this.props.movie.review ? 'Update' : 'Save';
   }
 
   render() {
