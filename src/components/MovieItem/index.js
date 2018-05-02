@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import SeenSelect from '../SeenSelect';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const MovieItem = props => {
   return (

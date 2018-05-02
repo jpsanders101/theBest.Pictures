@@ -4,7 +4,9 @@
     "**/*[sS]pec.js"
   ],
   "helpers": [
-    "helpers/**/*.js"
+    "helpers/babel.js",
+    "helpers/enzyme.js",
+    "helpers/jsdom.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": true

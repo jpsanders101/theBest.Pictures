@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem';
 import ReviewSection from './ReviewSection';
 import { connect } from 'react-redux';
@@ -42,7 +43,7 @@ const mapStateToProps = (state, ownProps) => {
   let movie = Object.assign(
     {},
     state.movies.find(
-      movie => movie.releaseYear === parseInt(ownProps.params.id)
+      movie => movie.releaseYear === parseInt(ownProps.match.params.id)
     )
   );
   return {

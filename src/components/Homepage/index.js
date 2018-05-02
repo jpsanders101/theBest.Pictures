@@ -1,5 +1,6 @@
 import MovieList from '../MovieList';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ProgressBar from './ProgressBar';
 import * as movielistActions from '../../actions/movielistActions';
 import { connect } from 'react-redux';
@@ -23,17 +24,17 @@ class Homepage extends React.Component {
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-          <div>
-            <h1>
-              A place to tick off Oscar Best Picture winners as I watch them.
+            <div>
+              <h1>
+                A place to tick off Oscar Best Picture winners as I watch them.
             </h1>
-            <ProgressBar progress={this.calculateProgress(this.props.movies)} />
-            <MovieList
-              actions={this.props.actions}
-              movies={this.props.movies}
-            />
-          </div>
-        )}
+              <ProgressBar progress={this.calculateProgress(this.props.movies)} />
+              <MovieList
+                actions={this.props.actions}
+                movies={this.props.movies}
+              />
+            </div>
+          )}
       </div>
     );
   }
