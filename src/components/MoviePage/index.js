@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem';
-import ReviewSection from './ReviewSection';
+import ReviewSection from '../ReviewSection';
 import { connect } from 'react-redux';
 import * as movielistActions from '../../actions/movielistActions';
 import { bindActionCreators } from 'redux';

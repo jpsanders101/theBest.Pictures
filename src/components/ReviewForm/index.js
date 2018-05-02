@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RatingButtonContainer from './RatingButtonContainer';
+import RatingButtonContainer from '../RatingButtonContainer';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import LoadingButton from '../Common/LoadingButton';
+import LoadingButton from '../LoadingButton';
 import toastr from 'toastr';
 
 export default class ReviewForm extends React.Component {

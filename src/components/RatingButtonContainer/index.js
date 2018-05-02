@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RatingButton from './RatingButton';
+import RatingButton from '../RatingButton';
 
 export default class RatingButtonContainer extends React.Component {
   constructor(props) {

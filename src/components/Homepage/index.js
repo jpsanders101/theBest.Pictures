@@ -1,7 +1,7 @@
 import MovieList from '../MovieList';
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProgressBar from './ProgressBar';
+import ProgressBar from '../ProgressBar';
 import * as movielistActions from '../../actions/movielistActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';

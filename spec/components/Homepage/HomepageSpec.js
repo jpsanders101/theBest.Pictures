@@ -1,4 +1,4 @@
-import Homepage from '../../src/components/Homepage';
+import Homepage from '../../../src/components/Homepage';
 
 describe('stupid test', () => {
   it('should run', () => {
