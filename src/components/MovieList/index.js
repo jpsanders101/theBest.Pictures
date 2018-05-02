@@ -38,8 +38,8 @@ export default class MovieList extends React.Component {
         {nextUp.name}
       </span>
     ) : (
-        ''
-      );
+      ''
+    );
   }
 
   render() {

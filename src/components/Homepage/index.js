@@ -24,17 +24,17 @@ class Homepage extends React.Component {
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-            <div>
-              <h1>
-                A place to tick off Oscar Best Picture winners as I watch them.
+          <div>
+            <h1>
+              A place to tick off Oscar Best Picture winners as I watch them.
             </h1>
-              <ProgressBar progress={this.calculateProgress(this.props.movies)} />
-              <MovieList
-                actions={this.props.actions}
-                movies={this.props.movies}
-              />
-            </div>
-          )}
+            <ProgressBar progress={this.calculateProgress(this.props.movies)} />
+            <MovieList
+              actions={this.props.actions}
+              movies={this.props.movies}
+            />
+          </div>
+        )}
       </div>
     );
   }
