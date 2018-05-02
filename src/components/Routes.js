@@ -7,21 +7,17 @@ import Homepage from './Homepage';
 import About from './About';
 import MoviePage from './MoviePage';
 
-class App extends React.Component {
+class Routes extends React.Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Route component={Header} />
         <Route exact path="/" component={Homepage} />
         <Route exact path="/about" component={About} />
         <Route path="/movie/:id" component={MoviePage} />
-      </div>
+      </React.Fragment>
     );
   }
 }
 
-// App.propTypes = {
-//   children: PropTypes.object.isRequired
-// };
-
-export default App;
+export default Routes;
