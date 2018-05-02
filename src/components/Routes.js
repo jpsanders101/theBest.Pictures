@@ -12,9 +12,13 @@ class Routes extends React.Component {
     return (
       <React.Fragment>
         <Route component={Header} />
-        <Route exact path="/" component={Homepage} />
-        <Route exact path="/about" component={About} />
-        <Route path="/movie/:id" component={MoviePage} />
+        <main>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/about" component={About} />
+            <Route path="/movie/:id" component={MoviePage} />
+          </Switch>
+        </main>
       </React.Fragment>
     );
   }
