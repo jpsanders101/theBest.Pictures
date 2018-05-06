@@ -1,10 +1,11 @@
 # TheBest.Pictures
 
-A web app for ticking-off and rating every Oscar Best Picture winners as you see them.
+A web app for crossing-off and rating every Oscar Best Picture winners as you see them.
 
 ## Technologies Uses
 
 * React
+* Redux
 * Less
 
 ## Setup
