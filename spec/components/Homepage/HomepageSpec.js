@@ -5,6 +5,7 @@ import configureStore from 'redux-mock-store';
 import { provider } from 'react-redux';
 import Spinner from '../../../src/components/Spinner';
 import MovieList from '../../../src/components/MovieList';
+import ProgressBar from '../../../src/components/ProgressBar';
 
 describe('Connected Homepage', () => {
   let initialState, wrapper, props, state;
@@ -96,7 +97,7 @@ describe('Homepage', () => {
     beforeEach(() => {
       props = {
         isLoading: false,
-        movies: [{ seen: true }],
+        movies: [{ seen: true }, { seen: false }],
         actions: {}
       };
       Homepage = ConnectedHomepage.WrappedComponent;
@@ -107,6 +108,37 @@ describe('Homepage', () => {
     });
     it('should not render the homepage', () => {
       expect(wrapper.find('.homepage')).toExist();
+    });
+    describe('given no pictures are marked as "seen"', () => {
+      beforeEach(() => {
+        props = {
+          isLoading: false,
+          movies: [{ seen: false }, { seen: false }],
+          actions: {}
+        };
+        Homepage = ConnectedHomepage.WrappedComponent;
+        wrapper = shallow(<Homepage {...props} />);
+      });
+      it('should pass correct progress level to ProgressBar', () => {
+        expect(wrapper.find(ProgressBar).props().progress).toEqual(0);
+      });
+    });
+    describe('given all pictures are marked as "seen"', () => {
+      beforeEach(() => {
+        props = {
+          isLoading: false,
+          movies: [{ seen: true }, { seen: true }],
+          actions: {}
+        };
+        Homepage = ConnectedHomepage.WrappedComponent;
+        wrapper = shallow(<Homepage {...props} />);
+      });
+      it('should pass correct progress level to ProgressBar', () => {
+        expect(wrapper.find(ProgressBar).props().progress).toEqual(100);
+      });
+    });
+    it('should pass correct progress level to ProgressBar', () => {
+      expect(wrapper.find(ProgressBar).props().progress).toEqual(50);
     });
   });
 });
