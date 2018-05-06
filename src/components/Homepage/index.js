@@ -24,7 +24,7 @@ class Homepage extends React.Component {
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-          <div>
+          <div className="homepage">
             <h1>
               A place to tick off Oscar Best Picture winners as I watch them.
             </h1>

@@ -1,10 +1,12 @@
 import React from 'react';
-import Homepage from '../../../src/components/Homepage';
+import ConnectedHomepage from '../../../src/components/Homepage';
 import { shallow, mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { provider } from 'react-redux';
+import Spinner from '../../../src/components/Spinner';
+import MovieList from '../../../src/components/MovieList';
 
-describe('Homepage wrapper', () => {
+describe('Connected Homepage', () => {
   let initialState, wrapper, props, state;
   const store = configureStore();
 
@@ -17,7 +19,7 @@ describe('Homepage wrapper', () => {
         }
       ]
     };
-    wrapper = shallow(<Homepage store={store(initialState)} />);
+    wrapper = shallow(<ConnectedHomepage store={store(initialState)} />);
     props = wrapper.props();
   });
 
@@ -43,7 +45,7 @@ describe('Homepage wrapper', () => {
           ]
         };
         state = store(initialState);
-        wrapper = shallow(<Homepage store={state} />);
+        wrapper = shallow(<ConnectedHomepage store={state} />);
         props = wrapper.props();
       });
       it('should pass the correct props from state', () => {
@@ -68,6 +70,43 @@ describe('Homepage wrapper', () => {
         const actionCreators = Object.keys(props.actions);
         expect(actionCreators).toContain(actionCreator);
       });
+    });
+  });
+});
+describe('Homepage', () => {
+  let props, wrapper, Homepage;
+  describe('given that the page is loading', () => {
+    beforeEach(() => {
+      props = {
+        isLoading: true,
+        movies: [{ seen: true }],
+        actions: {}
+      };
+      Homepage = ConnectedHomepage.WrappedComponent;
+      wrapper = shallow(<Homepage {...props} />);
+    });
+    it('should render the Spinner', () => {
+      expect(wrapper.find(Spinner)).toExist();
+    });
+    it('should not render the homepage', () => {
+      expect(wrapper.find('.homepage')).not.toExist();
+    });
+  });
+  describe('given that the page is not loading', () => {
+    beforeEach(() => {
+      props = {
+        isLoading: false,
+        movies: [{ seen: true }],
+        actions: {}
+      };
+      Homepage = ConnectedHomepage.WrappedComponent;
+      wrapper = shallow(<Homepage {...props} />);
+    });
+    it('should not render the Spinner', () => {
+      expect(wrapper.find(Spinner)).not.toExist();
+    });
+    it('should not render the homepage', () => {
+      expect(wrapper.find('.homepage')).toExist();
     });
   });
 });
