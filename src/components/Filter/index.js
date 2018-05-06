@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 export default function Filter({
   filter,
   displayText,
@@ -16,3 +16,10 @@ export default function Filter({
     </span>
   );
 }
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  displayText: PropTypes.string.isRequired,
+  seenFilterOnClickHandler: PropTypes.func.isRequired,
+  isSelected: PropTypes.bool.isRequired
+};
