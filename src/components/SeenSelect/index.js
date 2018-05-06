@@ -7,16 +7,19 @@ const SeenSelect = props => {
   };
 
   return (
-    <span className="seen-select" onClick={onClick}>
-      {' '}
-      - Seen?
+    <span
+      className={`seen-select ${props.seen ? 'seen' : 'not-seen'}`}
+      onClick={onClick}
+    >
+      Seen
     </span>
   );
 };
 
 SeenSelect.propTypes = {
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  seen: PropTypes.bool.isRequired
 };
 
 export default SeenSelect;

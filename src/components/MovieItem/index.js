@@ -8,11 +8,11 @@ const MovieItem = props => {
     <li className="movie-list-item">
       <span className="movie-list-item-title">
         <Link to={`/movie/${props.releaseYear}`}>{props.name}</Link>
-        {props.seen ? (
-          ''
-        ) : (
-          <SeenSelect name={props.name} onClick={props.onClick} />
-        )}
+        <SeenSelect
+          name={props.name}
+          onClick={props.onClick}
+          seen={props.seen}
+        />
       </span>
     </li>
   );

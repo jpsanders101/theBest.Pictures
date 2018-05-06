@@ -7,6 +7,8 @@ import { render } from 'react-dom';
 import './styles/style.less';
 import './components/ProgressBar/small.less';
 import './components/LoadingButton/small.less';
+import './components/SeenSelect/small.less';
+import './components/Filter/small.less';
 import { loadMovies } from './actions/movielistActions';
 import '../node_modules/toastr/build/toastr.min.css';
 import Routes from './components/Routes.js';

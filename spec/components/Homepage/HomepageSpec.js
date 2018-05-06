@@ -54,20 +54,19 @@ describe('Homepage wrapper', () => {
         expect(props).toEqual(jasmine.objectContaining(expectedProps));
       });
     });
-
-    describe('#mapDispatchToProps', () => {
-      const expectedActionCreators = [
-        'markAsSeen',
-        'loadMoviesSuccess',
-        'loadMovies',
-        'saveReviewSuccess',
-        'saveReview'
-      ];
-      expectedActionCreators.forEach(actionCreator => {
-        it(`passes ${actionCreator} to props`, () => {
-          const actionCreators = Object.keys(props.actions);
-          expect(actionCreators).toContain(actionCreator);
-        });
+  });
+  describe('#mapDispatchToProps', () => {
+    const expectedActionCreators = [
+      'markAsSeen',
+      'loadMoviesSuccess',
+      'loadMovies',
+      'saveReviewSuccess',
+      'saveReview'
+    ];
+    expectedActionCreators.forEach(actionCreator => {
+      it(`passes ${actionCreator} to props`, () => {
+        const actionCreators = Object.keys(props.actions);
+        expect(actionCreators).toContain(actionCreator);
       });
     });
   });
