@@ -1,8 +1,7 @@
 import React from 'react';
 import ConnectedHomepage from '../../../src/components/Homepage';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import { provider } from 'react-redux';
 import Spinner from '../../../src/components/Spinner';
 import MovieList from '../../../src/components/MovieList';
 import ProgressBar from '../../../src/components/ProgressBar';
