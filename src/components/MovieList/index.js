@@ -38,7 +38,7 @@ export default class MovieList extends React.Component {
   nextUp(movies) {
     const nextUp = this.props.movies.find(movie => !movie.seen);
     return nextUp ? (
-      <span>
+      <span className="next-up">
         <h1>Next up...</h1>
         {nextUp.name}
       </span>
