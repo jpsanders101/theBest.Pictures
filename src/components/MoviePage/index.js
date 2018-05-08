@@ -20,9 +20,13 @@ class MoviePage extends React.Component {
         <div className="movie-page-container">
           <div className="movie-details-section">
             <p>{this.props.movie.synopsis}</p>
-            {this.props.movie.review
-              ? `Your review: ${this.props.movie.review}`
-              : ''}
+            {this.props.movie.review ? (
+              <div className="movie-review">
+                `Your review: ${this.props.movie.review}`
+              </div>
+            ) : (
+              ''
+            )}
           </div>
           <ReviewSection
             movie={this.props.movie}
