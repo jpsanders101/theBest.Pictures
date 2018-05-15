@@ -39,7 +39,7 @@ export default class RatingButtonContainer extends React.Component {
       buttons.push(
         <RatingButton
           key={buttonCount}
-          value={`${buttonCount}`}
+          value={buttonCount}
           onClick={this.handleOnClick}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
