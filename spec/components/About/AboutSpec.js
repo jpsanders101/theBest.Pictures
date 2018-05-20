@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
-import About from '../../../src/components/About';
 import React from 'react';
+
+import About from '../../../src/components/About';
 
 describe('About', () => {
   it('should render the About pahe', () => {
