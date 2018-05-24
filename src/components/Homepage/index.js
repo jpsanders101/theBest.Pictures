@@ -26,7 +26,7 @@ class Homepage extends React.Component {
         ) : (
           <div className="homepage">
             <h1>
-              A place to tick off Oscar Best Picture winners as I watch them.
+              How many winners of the Oscar for Best Picture have you seen?
             </h1>
             <ProgressBar progress={this.calculateProgress(this.props.movies)} />
             <MovieList
