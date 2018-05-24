@@ -3,12 +3,12 @@ import { shallow } from 'enzyme';
 import RatingForm from '../../../../src/components/ReviewForm';
 import LoadingButton from '../../../../src/components/LoadingButton';
 import RatingButtonContainer from '../../../../src/components/RatingButtonContainer';
-import { movieData } from '../../../data';
+import { reviewData } from '../../../data';
 
 describe('RatingForm', () => {
   let wrapper;
   let saveReviewSpy;
-  const { MOVIE_REVIEW, MOVIE_NAME, MOVIE_RATING, RELEASE_YEAR } = movieData;
+  const { MOVIE_REVIEW, MOVIE_NAME, MOVIE_RATING, RELEASE_YEAR } = reviewData;
   beforeEach(() => {
     saveReviewSpy = jasmine
       .createSpy('saveReview')

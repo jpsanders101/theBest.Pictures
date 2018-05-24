@@ -13,7 +13,7 @@ export const loadMoviesSuccess = movies => {
 export const loadMovies = () => {
   return dispatch => {
     dispatch(beginAjaxCall(1));
-    bestPictureWinnersApi
+    return bestPictureWinnersApi
       .getAllMovies()
       .then(movies => {
         dispatch(loadMoviesSuccess(movies));

@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { movieData } from '../../../data';
+import { reviewData } from '../../../data';
 import SeenSelect from '../../../../src/components/SeenSelect';
 
-const { MOVIE_NAME } = movieData;
+const { MOVIE_NAME } = reviewData;
 
 describe('SeenSelect', () => {
   let wrapper;
