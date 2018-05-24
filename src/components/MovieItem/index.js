@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const MovieItem = props => {
   return (
-    <li className="movie-list-item">
-      <span className="movie-list-item-title">
+    <li className="movie-list_movie-item">
+      <span className="movie-list_title">
         <Link to={`/movie/${props.releaseYear}`}>{props.name}</Link>
         <SeenSelect
           name={props.name}

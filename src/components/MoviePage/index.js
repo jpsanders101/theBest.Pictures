@@ -17,13 +17,11 @@ class MoviePage extends React.Component {
         <h1>
           {this.props.movie.name} - {this.props.movie.releaseYear}
         </h1>
-        <div className="movie-page-container">
-          <div className="movie-details-section">
+        <div className="movie-page">
+          <div className="movie-page_details-section">
             <p>{this.props.movie.synopsis}</p>
             {this.props.movie.review && (
-              <div className="movie-review">
-                Your review: {this.props.movie.review}
-              </div>
+              <div>Your review: {this.props.movie.review}</div>
             )}
           </div>
           <ReviewSection

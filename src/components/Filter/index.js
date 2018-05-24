@@ -8,7 +8,7 @@ export default function Filter({
 }) {
   return (
     <span
-      className={isSelected ? 'selected' : ''}
+      className={'movie-list_filter' + (isSelected ? '--selected' : '')}
       data-filter={filter}
       onClick={seenFilterOnClickHandler}
     >

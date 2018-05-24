@@ -5,12 +5,12 @@ export default function ProgressBar(props) {
   return (
     <div className="progress-bar">
       <div
-        className="progress-bar-completed"
+        className="progress-bar_filler--completed"
         style={{
           flex: `0 1 ${props.progress}%`
         }}
       />
-      <div className="progress-bar-remaining" />
+      <div className="progress-bar_filler--remaining" />
     </div>
   );
 }

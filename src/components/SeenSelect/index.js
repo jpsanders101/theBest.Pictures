@@ -8,7 +8,11 @@ const SeenSelect = props => {
 
   return (
     <span
-      className={`seen-select ${props.seen ? 'seen' : 'not-seen'}`}
+      className={`movie-item_marker ${
+        props.seen
+          ? 'movie-item_marker--seen-true'
+          : 'movie-item_marker--seen-false'
+      }`}
       onClick={onClick}
     >
       Seen

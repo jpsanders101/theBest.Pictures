@@ -59,7 +59,7 @@ export default class MovieList extends React.Component {
     return (
       <div>
         {this.nextUp(this.props.movies)}
-        <div className="movie-list-section">
+        <div>
           <div>
             <Filter
               filter="seen"

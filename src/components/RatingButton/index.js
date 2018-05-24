@@ -8,7 +8,8 @@ export default function RatingButton({
   highlighted,
   onMouseLeave
 }) {
-  const className = highlighted ? 'highlighted' : '';
+  const className =
+    'review-section_review-button' + (highlighted ? '--highlighted' : '');
 
   return (
     <button
