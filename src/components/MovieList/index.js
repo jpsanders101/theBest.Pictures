@@ -38,10 +38,10 @@ export default class MovieList extends React.Component {
   nextUp(movies) {
     const nextUp = this.props.movies.find(movie => !movie.seen);
     return nextUp ? (
-      <span className="next-up">
-        <h1>Next up...</h1>
-        {nextUp.name}
-      </span>
+      <div className="next-up">
+        <h1 className="next-up_title">Next up...</h1>
+        <div className="next-up_movie-item">{nextUp.name}</div>
+      </div>
     ) : (
       ''
     );
