@@ -37,8 +37,8 @@ describe('Connected MoviePage', () => {
     );
     props = wrapper.props();
   });
-  describe('#mapStateToProps', () => {
-    it('should pass correct props from state', () => {
+  describe('mapStateToProps', () => {
+    it('SHOULD pass correct props from state', () => {
       const expectedProps = {
         movie: {
           name: 'Wings',
@@ -50,7 +50,7 @@ describe('Connected MoviePage', () => {
       expect(props).toEqual(jasmine.objectContaining(expectedProps));
     });
   });
-  describe('#mapDispatchToProps', () => {
+  describe('mapDispatchToProps', () => {
     const expectedActionCreators = [
       'markAsSeen',
       'loadMoviesSuccess',
@@ -81,18 +81,18 @@ describe('MoviePage', () => {
     MoviePage = ConnectedMoviePage.WrappedComponent;
     wrapper = shallow(<MoviePage {...props} />);
   });
-  it('should pass the correct props to the ReviewSection', () => {
+  it('SHOULD pass the correct props to the ReviewSection', () => {
     expect(wrapper.find(ReviewSection).props()).toEqual(
       jasmine.objectContaining(props)
     );
   });
-  describe('given there is no review for the movie', () => {
-    it('should not display "Your Review', () => {
+  describe('GIVEN there is no review for the movie', () => {
+    it('SHOULD not display "Your Review', () => {
       expect(wrapper.find('.movie-review')).not.toExist();
     });
   });
-  describe('given there is a review for the movie', () => {
-    it('should display "Your Review', () => {
+  describe('GIVEN there is a review for the movie', () => {
+    it('SHOULD display "Your Review', () => {
       props = {
         movie: {
           name: 'Wings',
@@ -105,7 +105,7 @@ describe('MoviePage', () => {
       };
       MoviePage = ConnectedMoviePage.WrappedComponent;
       wrapper = shallow(<MoviePage {...props} />);
-      expect(wrapper.find('.movie-review').text()).toContain(
+      expect(wrapper.find('.movie-page_review').text()).toContain(
         'Wings was bubbly'
       );
     });

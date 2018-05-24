@@ -17,8 +17,10 @@ describe('SeenSelect', () => {
     wrapper = shallow(<SeenSelect {...props} />);
   });
   describe('GIVEN the prop "seen" is true', () => {
-    it('SHOULD apply the class "seen" to root span', () => {
-      expect(wrapper.first().hasClass('seen')).toEqual(true);
+    it('SHOULD apply the correct class to root span', () => {
+      expect(wrapper.first().hasClass('movie-item_marker--seen-true')).toEqual(
+        true
+      );
     });
   });
   describe('GIVEN the prop "seen" is false', () => {
@@ -31,7 +33,9 @@ describe('SeenSelect', () => {
       wrapper = shallow(<SeenSelect {...props} />);
     });
     it('SHOULD apply the class "not-seen" to root span', () => {
-      expect(wrapper.first().hasClass('not-seen')).toEqual(true);
+      expect(wrapper.first().hasClass('movie-item_marker--seen-false')).toEqual(
+        true
+      );
     });
   });
   describe('WHEN the user clicks on SeenSelect', () => {

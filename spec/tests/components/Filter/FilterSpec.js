@@ -32,7 +32,7 @@ describe('Filter', () => {
       wrapper = shallow(<Filter {...props} />);
     });
     it('SHOULD apply the appropriate class', () => {
-      expect(wrapper.find('.selected')).toExist();
+      expect(wrapper.find('.movie-list_filter--selected')).toExist();
     });
   });
   describe('GIVEN the filter is not selected', () => {

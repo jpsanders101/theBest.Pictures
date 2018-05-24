@@ -21,18 +21,18 @@ describe('MovieItem', () => {
     };
     wrapper = shallow(<MovieItem {...props} />);
   });
-  it('should render a MovieItem', () => {
-    expect(wrapper.find('.movie-list-item').length).toEqual(1);
+  it('SHOULD render a MovieItem', () => {
+    expect(wrapper.find('.movie-list_movie-item').length).toEqual(1);
   });
-  it('should pass correct props to SeenSelect', () => {
+  it('SHOULD pass correct props to SeenSelect', () => {
     expect(wrapper.find(SeenSelect).props()).toEqual(
       jasmine.objectContaining(expectedProps)
     );
   });
-  it('should pass correct props to Link', () => {
+  it('SHOULD pass correct props to Link', () => {
     expect(wrapper.find(Link).props().to).toEqual('/movie/1929');
   });
-  it('should pass correct picture title to the Link', () => {
+  it('SHOULD pass correct picture title to the Link', () => {
     expect(
       wrapper
         .find(Link)
