@@ -1,20 +1,14 @@
 # TheBest.Pictures
 
-A web app for crossing-off and rating every Oscar Best Picture winners as you see them.
+A React.js web app for crossing-off and rating every Oscar Best Picture winners as you see them.
 
-## Technologies Uses
-
-* React
-* Redux
-* Less
-
-## Setup
+## Local Setup
 
 ```bash
 $ npm start
 ```
 
-In a browser, go to `localhost:3000`.
+In a browser, navigate to `localhost:3000`.
 
 ## Testing
 
@@ -26,7 +20,7 @@ In a browser, go to `localhost:3000`.
 To run all unit tests:
 
 ```bash
-$ npm test
+$ npm t
 ```
 
 ## Linting
