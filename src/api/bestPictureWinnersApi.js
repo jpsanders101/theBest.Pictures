@@ -1,6 +1,6 @@
 import delay from './delay';
 import FILLER_TEXT from './fillerText';
-import movies from './bestPictureWinners';
+import { bestPictureWinners as movies } from './bestPictureWinners';
 
 // Adds additional fields to data
 movies.forEach(movie => {

@@ -8,7 +8,12 @@ import { reviewData } from '../../../data';
 describe('RatingForm', () => {
   let wrapper;
   let saveReviewSpy;
-  const { MOVIE_REVIEW, MOVIE_NAME, MOVIE_RATING, RELEASE_YEAR } = reviewData;
+  const {
+    review: MOVIE_REVIEW,
+    name: MOVIE_NAME,
+    rating: MOVIE_RATING,
+    releaseYear: RELEASE_YEAR
+  } = reviewData;
   beforeEach(() => {
     saveReviewSpy = jasmine
       .createSpy('saveReview')
