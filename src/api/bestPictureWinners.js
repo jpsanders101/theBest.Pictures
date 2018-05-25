@@ -1,5 +1,4 @@
-const STATE = {
-  bestPictureWinners: [
+const bestPictureWinners = [
     {
       name: 'Wings',
       awardNumber: 1,
