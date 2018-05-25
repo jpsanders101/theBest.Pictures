@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 export default function Filter({
   filter,
   displayText,
@@ -8,9 +9,9 @@ export default function Filter({
 }) {
   return (
     <span
-      className={
-        'movie-list_filter' + (isSelected ? ' movie-list_filter--selected' : '')
-      }
+      className={classnames('movie-list_filter', {
+        'movie-list_filter--selected': isSelected
+      })}
       data-filter={filter}
       onClick={seenFilterOnClickHandler}
     >

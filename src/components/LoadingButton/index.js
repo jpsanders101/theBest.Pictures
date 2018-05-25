@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import classnames from 'classnames';
 
 class LoadingButton extends React.Component {
   constructor(props) {
@@ -10,9 +11,9 @@ class LoadingButton extends React.Component {
   render() {
     return (
       <input
-        className={
-          'review-form_button' + (this.props.isLoading ? '--loading' : '')
-        }
+        className={classnames('review-form_button', {
+          'review-form_button--loading': this.props.isLoading
+        })}
         type="submit"
         value={this.props.value}
       />

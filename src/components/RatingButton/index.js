@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 export default function RatingButton({
   value,
@@ -8,12 +9,11 @@ export default function RatingButton({
   highlighted,
   onMouseLeave
 }) {
-  const className =
-    'review-section_review-button' + (highlighted ? '--highlighted' : '');
-
   return (
     <button
-      className={className}
+      className={classnames('review-section_review-button', {
+        'review-section_review-button--highlighted': highlighted
+      })}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={onClick}
