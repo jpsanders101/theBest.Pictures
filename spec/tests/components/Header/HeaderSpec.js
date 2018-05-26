@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import proxyquire from 'proxyquire';
 import React from 'react';
 import { shallow } from 'enzyme';
