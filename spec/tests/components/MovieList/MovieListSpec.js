@@ -16,12 +16,12 @@ describe('MovieList', () => {
     };
     wrapper = shallow(<MovieList {...props} />);
   });
-  describe('given there are unseen pictures', () => {
-    it('should disiplay name of first unseen picture in the "Next Up" section', () => {
+  describe('GIVEN there are unseen pictures', () => {
+    it('SHOULD disiplay name of first unseen picture in the "Next Up" section', () => {
       expect(wrapper.find('.next-up').text()).toContain('The Broadway Melody');
     });
   });
-  describe('given there are no unseen pictures', () => {
+  describe('GIVEN there are no unseen pictures', () => {
     beforeEach(() => {
       props = {
         actions: {},
@@ -34,7 +34,7 @@ describe('MovieList', () => {
       wrapper = shallow(<MovieList {...props} />);
     });
 
-    it('should not display "Next Up" section', () => {
+    it('SHOULD not display "Next Up" section', () => {
       expect(wrapper.find('.next-up')).not.toExist();
     });
   });
