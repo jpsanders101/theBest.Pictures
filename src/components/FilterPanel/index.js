@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 export default function FilterPanel({ filter, seenFilterOnClickHandler }) {
   return (
-    <div>
+    <div className="filter-panel">
+      <span className="filter-panel_label">Filters</span>
       <Filter
         filter="seen"
         displayText="Seen"

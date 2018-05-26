@@ -73,18 +73,16 @@ export default class MovieList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="movie-list_container">
         {this.nextUp(this.props.movies)}
-        <div>
-          <FilterPanel
-            filter={this.state.filter}
-            seenFilterOnClickHandler={this.seenFilterOnClickHandler}
-          />
-          <ul className="movie-list">
-            {this.renderMovieList()}
-            {this.renderBottomFillers()}
-          </ul>
-        </div>
+        <FilterPanel
+          filter={this.state.filter}
+          seenFilterOnClickHandler={this.seenFilterOnClickHandler}
+        />
+        <ul className="movie-list">
+          {this.renderMovieList()}
+          {this.renderBottomFillers()}
+        </ul>
       </div>
     );
   }
