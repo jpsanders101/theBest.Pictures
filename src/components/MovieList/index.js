@@ -46,8 +46,8 @@ export default class MovieList extends React.Component {
   }
 
   renderBottomFillers() {
-    return this.props.movies.map(movie => (
-      <span className="movie-list_filler" />
+    return this.props.movies.map((movie, index) => (
+      <span key={index} className="movie-list_filler" />
     ));
   }
 

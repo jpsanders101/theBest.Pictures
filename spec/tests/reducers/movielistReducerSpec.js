@@ -10,7 +10,9 @@ const movielistReducer = proxyquire('../../../src/reducers/movielistReducer', {
   './helpers': helpersMock
 }).default;
 
-const actionMovies = [...moviesData];
+const actionMovies = moviesData.map(movie => {
+  return Object.assign({}, movie);
+});
 
 describe('movielistReducer', () => {
   describe('GIVEN a MARK_AS_SEEN action was dispatched', () => {

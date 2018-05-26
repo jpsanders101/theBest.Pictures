@@ -19,7 +19,7 @@ export const moviesData = [
     name: 'The Broadway Melody',
     awardNumber: 2,
     releaseYear: 1928,
-    seen: true,
+    seen: false,
     rating: null,
     review: null,
     synopsis: 'Movie synopsis'
@@ -49,7 +49,7 @@ export const moviesDataAfterReview = [
     name: 'The Broadway Melody',
     awardNumber: 2,
     releaseYear: 1928,
-    seen: true,
+    seen: false,
     rating: null,
     review: null,
     synopsis: 'Movie synopsis'

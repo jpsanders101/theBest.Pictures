@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { reviewData } from '../../../data';
 import SeenSelect from '../../../../src/components/SeenSelect';
 
-const { MOVIE_NAME } = reviewData;
+const { name: MOVIE_NAME } = reviewData;
 
 describe('SeenSelect', () => {
   let wrapper;
