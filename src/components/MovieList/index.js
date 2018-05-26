@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem';
-import Filter from '../Filter';
+import FilterPanel from '../FilterPanel';
 
 export default class MovieList extends React.Component {
   constructor(props) {
@@ -76,21 +76,10 @@ export default class MovieList extends React.Component {
       <div>
         {this.nextUp(this.props.movies)}
         <div>
-          <div>
-            <Filter
-              filter="seen"
-              displayText="Seen"
-              seenFilterOnClickHandler={this.seenFilterOnClickHandler}
-              isSelected={this.state.filter === 'seen'}
-            />
-            |
-            <Filter
-              filter="unseen"
-              displayText="Yet to See"
-              seenFilterOnClickHandler={this.seenFilterOnClickHandler}
-              isSelected={this.state.filter === 'unseen'}
-            />
-          </div>
+          <FilterPanel
+            filter={this.state.filter}
+            seenFilterOnClickHandler={this.seenFilterOnClickHandler}
+          />
           <ul className="movie-list">
             {this.renderMovieList()}
             {this.renderBottomFillers()}
