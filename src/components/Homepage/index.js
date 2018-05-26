@@ -25,7 +25,7 @@ class Homepage extends React.Component {
           <Spinner />
         ) : (
           <div className="homepage">
-            <h1>
+            <h1 className="homepage_heading">
               How many winners of the Oscar for Best Picture have you seen?
             </h1>
             <ProgressBar progress={this.calculateProgress(this.props.movies)} />
