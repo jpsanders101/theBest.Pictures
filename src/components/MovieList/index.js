@@ -23,16 +23,32 @@ export default class MovieList extends React.Component {
     this.props.actions.markAsSeen(movieList);
   }
 
-  renderMovieList(movie) {
-    return (
-      <MovieItem
-        key={movie.awardNumber}
-        name={movie.name}
-        onClick={this.onClickHandler}
-        releaseYear={movie.releaseYear}
-        seen={movie.seen}
-      />
-    );
+  renderMovieList() {
+    return this.props.movies
+      .filter(movie => {
+        if (this.state.filter === 'none') {
+          return true;
+        } else if (this.state.filter === 'seen') {
+          return movie.seen;
+        } else if (this.state.filter === 'unseen') {
+          return !movie.seen;
+        }
+      })
+      .map(movie => (
+        <MovieItem
+          key={movie.awardNumber}
+          name={movie.name}
+          onClick={this.onClickHandler}
+          releaseYear={movie.releaseYear}
+          seen={movie.seen}
+        />
+      ));
+  }
+
+  renderBottomFillers() {
+    return this.props.movies.map(movie => (
+      <span className="movie-list_filler" />
+    ));
   }
 
   nextUp(movies) {
@@ -76,17 +92,8 @@ export default class MovieList extends React.Component {
             />
           </div>
           <ul className="movie-list">
-            {this.props.movies
-              .filter(movie => {
-                if (this.state.filter === 'none') {
-                  return true;
-                } else if (this.state.filter === 'seen') {
-                  return movie.seen;
-                } else if (this.state.filter === 'unseen') {
-                  return !movie.seen;
-                }
-              })
-              .map(this.renderMovieList)}
+            {this.renderMovieList()}
+            {this.renderBottomFillers()}
           </ul>
         </div>
       </div>
