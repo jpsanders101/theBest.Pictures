@@ -16,6 +16,7 @@ import './components/ReviewSection/small.less';
 import './components/RatingButtonContainer/small.less';
 import './components/FilterPanel/small.less';
 import './components/Homepage/small.less';
+import './components/MovieItem/small.less';
 import { loadMovies } from './actions/movielistActions';
 import '../node_modules/toastr/build/toastr.min.css';
 import Routes from './components/Routes.js';
