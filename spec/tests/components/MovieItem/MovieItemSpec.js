@@ -1,16 +1,26 @@
 import { shallow } from 'enzyme';
-import MovieItem from '../../../../src/components/MovieItem';
 import SeenMarker from '../../../../src/components/SeenMarker';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import proxyquire from 'proxyquire';
+
+proxyquire.noCallThru();
+
+const seenMarkerMock = props => {};
+const linkMock = props => {};
+const onClick = () => {};
+
+const MovieItem = proxyquire('../../../../src/components/MovieItem', {
+  '../SeenMarker': seenMarkerMock,
+  'react-router-dom': { Link: linkMock }
+}).default;
 
 describe('MovieItem', () => {
-  let props, wrapper, onClick, expectedProps;
+  let props, wrapper, expectedProps;
   beforeEach(() => {
-    onClick = () => {};
     props = {
       name: 'Wings',
-      releaseYear: 1929,
+      releaseYear: 1927,
       seen: false,
       onClick: onClick
     };
@@ -25,17 +35,15 @@ describe('MovieItem', () => {
     expect(wrapper.find('.movie-list_movie-item').length).toEqual(1);
   });
   it('SHOULD pass correct props to SeenMarker', () => {
-    expect(wrapper.find(SeenMarker).props()).toEqual(
-      jasmine.objectContaining(expectedProps)
-    );
+    expect(wrapper.find(seenMarkerMock).props()).toEqual(expectedProps);
   });
   it('SHOULD pass correct props to Link', () => {
-    expect(wrapper.find(Link).props().to).toEqual('/movie/1929');
+    expect(wrapper.find(linkMock).props().to).toEqual('/movie/1927');
   });
   it('SHOULD pass correct picture title to the Link', () => {
     expect(
       wrapper
-        .find(Link)
+        .find(linkMock)
         .children()
         .text()
     ).toEqual('Wings');
