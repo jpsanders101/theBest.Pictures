@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieItem from '../MovieItem';
 import ReviewSection from '../ReviewSection';
 import { connect } from 'react-redux';
 import * as movielistActions from '../../actions/movielistActions';
 import { bindActionCreators } from 'redux';
+import Spinner from '../Spinner';
 
 class MoviePage extends React.Component {
   constructor(props) {
@@ -14,23 +14,32 @@ class MoviePage extends React.Component {
   render() {
     return (
       <div>
-        <h1>
-          {this.props.movie.name} - {this.props.movie.releaseYear}
-        </h1>
-        <div className="movie-page">
-          <div className="movie-page_details-section">
-            <p>{this.props.movie.synopsis}</p>
-            {this.props.movie.review && (
-              <div className="movie-page_review">
-                Your review: {this.props.movie.review}
+        {this.props.isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="movie-page_content">
+            <h1 className="movie-page_heading">
+              {this.props.movie.name}{' '}
+              <span className="movie-page_year">
+                {`(${this.props.movie.releaseYear})`}
+              </span>
+            </h1>
+            <div className="movie-page">
+              <div className="movie-page_details-section">
+                <p>{this.props.movie.synopsis}</p>
+                {this.props.movie.review && (
+                  <div className="movie-page_review">
+                    Your review: {this.props.movie.review}
+                  </div>
+                )}
               </div>
-            )}
+              <ReviewSection
+                movie={this.props.movie}
+                actions={this.props.actions}
+              />
+            </div>
           </div>
-          <ReviewSection
-            movie={this.props.movie}
-            actions={this.props.actions}
-          />
-        </div>
+        )}
       </div>
     );
   }
@@ -38,7 +47,8 @@ class MoviePage extends React.Component {
 
 MoviePage.propTypes = {
   movie: PropTypes.object,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -49,7 +59,8 @@ const mapStateToProps = (state, ownProps) => {
     )
   );
   return {
-    movie: movie
+    movie: movie,
+    isLoading: state.ajaxCalls > 0
   };
 };
 
