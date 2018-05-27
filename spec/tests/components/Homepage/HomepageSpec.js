@@ -1,10 +1,19 @@
 import React from 'react';
-import ConnectedHomepage from '../../../../src/components/Homepage';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import Spinner from '../../../../src/components/Spinner';
-import MovieList from '../../../../src/components/MovieList';
-import ProgressBar from '../../../../src/components/ProgressBar';
+import proxyquire from 'proxyquire';
+
+proxyquire.noCallThru();
+
+const spinnerMock = props => {};
+const movieListMock = props => {};
+const progressBarMock = props => {};
+
+const ConnectedHomepage = proxyquire('../../../../src/components/Homepage', {
+  '../MovieList': movieListMock,
+  '../Spinner': spinnerMock,
+  '../ProgressBar': progressBarMock
+}).default;
 
 describe('Connected Homepage', () => {
   let initialState, wrapper, props, state;
@@ -75,7 +84,7 @@ describe('Connected Homepage', () => {
 });
 describe('Homepage', () => {
   let props, wrapper, Homepage;
-  describe('given that the page is loading', () => {
+  describe('GIVEN that the page is loading', () => {
     beforeEach(() => {
       props = {
         isLoading: true,
@@ -85,14 +94,14 @@ describe('Homepage', () => {
       Homepage = ConnectedHomepage.WrappedComponent;
       wrapper = shallow(<Homepage {...props} />);
     });
-    it('should render the Spinner', () => {
-      expect(wrapper.find(Spinner)).toExist();
+    it('SHOULD render the Spinner', () => {
+      expect(wrapper.find(spinnerMock)).toExist();
     });
-    it('should not render the homepage', () => {
+    it('SHOULD not render the homepage', () => {
       expect(wrapper.find('.homepage')).not.toExist();
     });
   });
-  describe('given that the page is not loading', () => {
+  describe('GIVEN that the page is not loading', () => {
     beforeEach(() => {
       props = {
         isLoading: false,
@@ -102,13 +111,13 @@ describe('Homepage', () => {
       Homepage = ConnectedHomepage.WrappedComponent;
       wrapper = shallow(<Homepage {...props} />);
     });
-    it('should not render the Spinner', () => {
-      expect(wrapper.find(Spinner)).not.toExist();
+    it('SHOULD not render the Spinner', () => {
+      expect(wrapper.find(spinnerMock)).not.toExist();
     });
-    it('should not render the homepage', () => {
+    it('SHOULD not render the homepage', () => {
       expect(wrapper.find('.homepage')).toExist();
     });
-    describe('given no pictures are marked as "seen"', () => {
+    describe('GIVEN no pictures are marked as "seen"', () => {
       beforeEach(() => {
         props = {
           isLoading: false,
@@ -118,11 +127,11 @@ describe('Homepage', () => {
         Homepage = ConnectedHomepage.WrappedComponent;
         wrapper = shallow(<Homepage {...props} />);
       });
-      it('should pass correct progress level to ProgressBar', () => {
-        expect(wrapper.find(ProgressBar).props().progress).toEqual(0);
+      it('SHOULD pass correct progress level to ProgressBar', () => {
+        expect(wrapper.find(progressBarMock).props().progress).toEqual(0);
       });
     });
-    describe('given all pictures are marked as "seen"', () => {
+    describe('GIVEN all pictures are marked as "seen"', () => {
       beforeEach(() => {
         props = {
           isLoading: false,
@@ -132,12 +141,12 @@ describe('Homepage', () => {
         Homepage = ConnectedHomepage.WrappedComponent;
         wrapper = shallow(<Homepage {...props} />);
       });
-      it('should pass correct progress level to ProgressBar', () => {
-        expect(wrapper.find(ProgressBar).props().progress).toEqual(100);
+      it('SHOULD pass correct progress level to ProgressBar', () => {
+        expect(wrapper.find(progressBarMock).props().progress).toEqual(100);
       });
     });
-    it('should pass correct progress level to ProgressBar', () => {
-      expect(wrapper.find(ProgressBar).props().progress).toEqual(50);
+    it('SHOULD pass correct progress level to ProgressBar', () => {
+      expect(wrapper.find(progressBarMock).props().progress).toEqual(50);
     });
   });
 });
