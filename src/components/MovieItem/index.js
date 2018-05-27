@@ -8,12 +8,8 @@ const MovieItem = props => {
     <li className="movie-list_movie-item">
       <span className="movie-list_title">
         <Link to={`/movie/${props.releaseYear}`}>{props.name}</Link>
-        <SeenSelect
-          name={props.name}
-          onClick={props.onClick}
-          seen={props.seen}
-        />
       </span>
+      <SeenSelect name={props.name} onClick={props.onClick} seen={props.seen} />
     </li>
   );
 };
