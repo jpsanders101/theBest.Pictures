@@ -14,10 +14,11 @@ const ConnectedMoviePage = proxyquire('../../../../src/components/MoviePage', {
   '../Spinner': spinnerMock
 }).default;
 
-let initialState, wrapper, props, state, initialProps, expectedProps;
-describe('Connected MoviePage', () => {
-  const store = configureStore();
+const store = configureStore();
 
+let initialState, state, props, expectedProps, wrapper;
+
+describe('Connected MoviePage', () => {
   beforeEach(() => {
     initialState = {
       movies: [
@@ -42,15 +43,14 @@ describe('Connected MoviePage', () => {
       ],
       ajaxCalls: 0
     };
-    initialProps = { match: { params: { id: '1927' } } };
+    props = { match: { params: { id: '1927' } } };
     wrapper = shallow(
-      <ConnectedMoviePage store={store(initialState)} {...initialProps} />
+      <ConnectedMoviePage store={store(initialState)} {...props} />
     );
-    props = wrapper.props();
   });
   describe('mapStateToProps', () => {
     it('SHOULD pass correct props from state', () => {
-      const expectedProps = {
+      expectedProps = {
         movie: {
           name: 'Wings',
           awardNumber: 1,
@@ -59,7 +59,7 @@ describe('Connected MoviePage', () => {
         },
         isLoading: false
       };
-      expect(props).toEqual(jasmine.objectContaining(expectedProps));
+      expect(wrapper.props()).toEqual(jasmine.objectContaining(expectedProps));
     });
   });
   describe('mapDispatchToProps', () => {
@@ -70,16 +70,14 @@ describe('Connected MoviePage', () => {
       'saveReviewSuccess',
       'saveReview'
     ];
-    expectedActionCreators.forEach(actionCreator => {
-      it(`passes ${actionCreator} to props`, () => {
-        const actionCreators = Object.keys(props.actions);
-        expect(actionCreators).toContain(actionCreator);
-      });
+    it('SHOULD pass correct action creators to props', () => {
+      expect(Object.keys(wrapper.props().actions)).toEqual(
+        expectedActionCreators
+      );
     });
   });
 });
 describe('MoviePage', () => {
-  let props, wrapper, MoviePage;
   beforeEach(() => {
     props = {
       movie: {
@@ -100,7 +98,7 @@ describe('MoviePage', () => {
       },
       actions: {}
     };
-    MoviePage = ConnectedMoviePage.WrappedComponent;
+    let MoviePage = ConnectedMoviePage.WrappedComponent;
     wrapper = shallow(<MoviePage {...props} />);
   });
   it('SHOULD pass the correct props to the ReviewSection', () => {
@@ -121,9 +119,10 @@ describe('MoviePage', () => {
           seen: false,
           review: 'Wings was bubbly'
         },
-        actions: {}
+        actions: {},
+        isLoading: false
       };
-      MoviePage = ConnectedMoviePage.WrappedComponent;
+      let MoviePage = ConnectedMoviePage.WrappedComponent;
       wrapper = shallow(<MoviePage {...props} />);
       expect(wrapper.find('.movie-page_review').text()).toContain(
         'Wings was bubbly'
@@ -150,7 +149,7 @@ describe('MoviePage', () => {
         actions: {},
         isLoading: true
       };
-      MoviePage = ConnectedMoviePage.WrappedComponent;
+      let MoviePage = ConnectedMoviePage.WrappedComponent;
       wrapper = shallow(<MoviePage {...props} />);
     });
     it('SHOULD display a Spinner', () => {
