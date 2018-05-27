@@ -7,7 +7,7 @@ import { render } from 'react-dom';
 import './styles/style.less';
 import './components/ProgressBar/small.less';
 import './components/LoadingButton/small.less';
-import './components/SeenSelect/small.less';
+import './components/SeenMarker/small.less';
 import './components/Filter/small.less';
 import './components/MovieList/small.less';
 import './components/MoviePage/small.less';

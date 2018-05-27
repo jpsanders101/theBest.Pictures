@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { reviewData } from '../../../data';
-import SeenSelect from '../../../../src/components/SeenSelect';
+import SeenMarker from '../../../../src/components/SeenMarker';
 
 const { name: MOVIE_NAME } = reviewData;
 
-describe('SeenSelect', () => {
+describe('SeenMarker', () => {
   let wrapper;
   let onClickSpy = jasmine.createSpy('onClick');
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('SeenSelect', () => {
       onClick: onClickSpy,
       seen: true
     };
-    wrapper = shallow(<SeenSelect {...props} />);
+    wrapper = shallow(<SeenMarker {...props} />);
   });
   describe('GIVEN the prop "seen" is true', () => {
     it('SHOULD apply the correct class to root span', () => {
@@ -30,7 +30,7 @@ describe('SeenSelect', () => {
         onClick: onClickSpy,
         seen: false
       };
-      wrapper = shallow(<SeenSelect {...props} />);
+      wrapper = shallow(<SeenMarker {...props} />);
     });
     it('SHOULD apply the class "not-seen" to root span', () => {
       expect(wrapper.first().hasClass('movie-item_marker--seen-false')).toEqual(
@@ -38,7 +38,7 @@ describe('SeenSelect', () => {
       );
     });
   });
-  describe('WHEN the user clicks on SeenSelect', () => {
+  describe('WHEN the user clicks on SeenMarker', () => {
     beforeEach(() => {
       wrapper.simulate('click');
     });

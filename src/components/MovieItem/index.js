@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SeenSelect from '../SeenSelect';
+import SeenMarker from '../SeenMarker';
 import { Link } from 'react-router-dom';
 
 const MovieItem = props => {
@@ -9,7 +9,7 @@ const MovieItem = props => {
       <span className="movie-list_title">
         <Link to={`/movie/${props.releaseYear}`}>{props.name}</Link>
       </span>
-      <SeenSelect name={props.name} onClick={props.onClick} seen={props.seen} />
+      <SeenMarker name={props.name} onClick={props.onClick} seen={props.seen} />
     </li>
   );
 };

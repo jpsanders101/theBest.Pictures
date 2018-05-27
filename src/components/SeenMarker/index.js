@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const SeenSelect = props => {
+const SeenMarker = props => {
   const onClick = e => {
     props.onClick(props.name);
   };
@@ -20,10 +20,10 @@ const SeenSelect = props => {
   );
 };
 
-SeenSelect.propTypes = {
+SeenMarker.propTypes = {
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   seen: PropTypes.bool.isRequired
 };
 
-export default SeenSelect;
+export default SeenMarker;

@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import MovieItem from '../../../../src/components/MovieItem';
-import SeenSelect from '../../../../src/components/SeenSelect';
+import SeenMarker from '../../../../src/components/SeenMarker';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -24,8 +24,8 @@ describe('MovieItem', () => {
   it('SHOULD render a MovieItem', () => {
     expect(wrapper.find('.movie-list_movie-item').length).toEqual(1);
   });
-  it('SHOULD pass correct props to SeenSelect', () => {
-    expect(wrapper.find(SeenSelect).props()).toEqual(
+  it('SHOULD pass correct props to SeenMarker', () => {
+    expect(wrapper.find(SeenMarker).props()).toEqual(
       jasmine.objectContaining(expectedProps)
     );
   });
