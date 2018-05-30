@@ -12,7 +12,8 @@ export default function RatingButton({
   return (
     <button
       className={classnames('review-section_review-button', {
-        'review-section_review-button--highlighted': highlighted
+        'review-section_review-button--highlighted-true': highlighted,
+        'review-section_review-button--highlighted-false': !highlighted
       })}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

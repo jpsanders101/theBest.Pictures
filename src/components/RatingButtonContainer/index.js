@@ -53,7 +53,9 @@ export default class RatingButtonContainer extends React.Component {
 
   render() {
     return (
-      <div className="review-form_rating-buttons">{this.renderButtons()}</div>
+      <div className="review-form_rating-buttons" id="rating">
+        {this.renderButtons()}
+      </div>
     );
   }
 }
