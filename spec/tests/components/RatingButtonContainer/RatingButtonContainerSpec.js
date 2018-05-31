@@ -1,7 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RatingButtonContainer from '../../../../src/components/RatingButtonContainer';
-import RatingButton from '../../../../src/components/RatingButton';
+import proxyquire from 'proxyquire';
+
+proxyquire.noCallThru();
+
+const ratingButtonMock = props => {};
+
+const RatingButtonContainer = proxyquire(
+  '../../../../src/components/RatingButtonContainer',
+  { '../RatingButton': ratingButtonMock }
+).default;
 
 describe('RatingButtonContainer', () => {
   let wrapper, ratingButton, ratingButtonValue;
@@ -9,12 +17,12 @@ describe('RatingButtonContainer', () => {
     wrapper = shallow(<RatingButtonContainer handleRatingClick={() => {}} />);
   });
   it('SHOULD render five RatingButton components', () => {
-    expect(wrapper.find(RatingButton).length).toEqual(5);
+    expect(wrapper.find(ratingButtonMock).length).toEqual(5);
   });
   describe('GIVEN that a rating button has not been clicked', () => {
     describe('AND the mouse enters one button', () => {
       beforeEach(() => {
-        ratingButton = wrapper.find(RatingButton).at(2);
+        ratingButton = wrapper.find(ratingButtonMock).at(2);
         ratingButtonValue = ratingButton.props().value;
         ratingButton.simulate('mouseEnter', {
           target: { value: ratingButtonValue }
@@ -27,10 +35,10 @@ describe('RatingButtonContainer', () => {
   });
   describe('GIVEN that a RatingButton has been clicked', () => {
     beforeEach(() => {
-      ratingButton = wrapper.find(RatingButton).at(3);
+      ratingButton = wrapper.find(ratingButtonMock).at(3);
       ratingButtonValue = ratingButton.props().value;
       wrapper
-        .find(RatingButton)
+        .find(ratingButtonMock)
         .at(ratingButtonValue)
         .simulate('click', {
           preventDefault: () => {},
@@ -38,13 +46,13 @@ describe('RatingButtonContainer', () => {
         });
     });
     it('SHOULD pass value of clicked button as "clicked" prop', () => {
-      wrapper.find(RatingButton).forEach(button => {
+      wrapper.find(ratingButtonMock).forEach(button => {
         expect(button.props().clicked).toEqual(ratingButtonValue);
       });
     });
     describe('AND the mouse enters one button', () => {
       beforeEach(() => {
-        ratingButton = wrapper.find(RatingButton).at(1);
+        ratingButton = wrapper.find(ratingButtonMock).at(1);
         ratingButtonValue = ratingButton.props().value;
         ratingButton.simulate('mouseEnter', {
           target: { value: ratingButtonValue }
@@ -56,7 +64,7 @@ describe('RatingButtonContainer', () => {
     });
     describe('AND given that another RatingButton is clicked', () => {
       beforeEach(() => {
-        ratingButton = wrapper.find(RatingButton).at(1);
+        ratingButton = wrapper.find(ratingButtonMock).at(1);
         ratingButtonValue = ratingButton.props().value;
         ratingButton.simulate('click', {
           preventDefault: () => {},
