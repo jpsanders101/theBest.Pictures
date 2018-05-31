@@ -32,5 +32,6 @@ RatingButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired
+  value: PropTypes.number.isRequired,
+  clicked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired
 };

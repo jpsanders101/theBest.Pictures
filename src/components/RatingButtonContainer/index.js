@@ -7,7 +7,7 @@ export default class RatingButtonContainer extends React.Component {
     super(props);
     this.state = {
       highlightButtonsUpto: 0,
-      clicked: null
+      clicked: false
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
