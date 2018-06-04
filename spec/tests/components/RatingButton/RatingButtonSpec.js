@@ -14,11 +14,11 @@ describe('RatingButton', () => {
       onClick: onClickSpy,
       onMouseEnter: onEnterSpy,
       onMouseLeave: onLeaveSpy,
-      value: 1
+      value: 1,
+      clicked: false
     };
     wrapper = shallow(<RatingButton {...props} />);
   });
-
   it('SHOULD call click handler', () => {
     wrapper.simulate('click');
     expect(onClickSpy).toHaveBeenCalled();
@@ -33,5 +33,68 @@ describe('RatingButton', () => {
   });
   it('SHOULD display its value', () => {
     expect(wrapper.text()).toEqual('1');
+  });
+  describe('GIVEN the mouse has not entered the button', () => {
+    it('SHOULD apply the highlighted false class', () => {
+      expect(
+        wrapper.hasClass('review-section_review-button--highlighted-false')
+      ).toBe(true);
+    });
+  });
+  describe('GIVEN the mouse has entered the button', () => {
+    beforeEach(() => {
+      const props = {
+        highlighted: true,
+        onClick: onClickSpy,
+        onMouseEnter: onEnterSpy,
+        onMouseLeave: onLeaveSpy,
+        value: 1,
+        clicked: false
+      };
+      wrapper = shallow(<RatingButton {...props} />);
+    });
+    it('SHOULD apply the highlighted true class', () => {
+      expect(
+        wrapper.hasClass('review-section_review-button--highlighted-true')
+      ).toBe(true);
+    });
+  });
+  describe('GIVEN the current button has been clicked', () => {
+    beforeEach(() => {
+      const props = {
+        highlighted: true,
+        onClick: onClickSpy,
+        onMouseEnter: onEnterSpy,
+        onMouseLeave: onLeaveSpy,
+        value: 1,
+        clicked: '1'
+      };
+      wrapper = shallow(<RatingButton {...props} />);
+    });
+
+    it('SHOULD apply the button clicked class', () => {
+      expect(wrapper.hasClass('review-section_review-button--clicked')).toBe(
+        true
+      );
+    });
+  });
+  describe('GIVEN a button other than the current button has been clicked', () => {
+    beforeEach(() => {
+      const props = {
+        highlighted: true,
+        onClick: onClickSpy,
+        onMouseEnter: onEnterSpy,
+        onMouseLeave: onLeaveSpy,
+        value: 1,
+        clicked: '2'
+      };
+      wrapper = shallow(<RatingButton {...props} />);
+    });
+
+    it('SHOULD not apply the button clicked class', () => {
+      expect(wrapper.hasClass('review-section_review-button--clicked')).toBe(
+        false
+      );
+    });
   });
 });
