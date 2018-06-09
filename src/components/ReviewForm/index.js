@@ -52,12 +52,14 @@ export default class ReviewForm extends React.Component {
         <label className="review-form_label" for="review">
           Thoughts about {this.props.movie.name}...
         </label>
-        <textarea
-          className="review-form_text-box"
-          id="review"
-          value={this.state.review}
-          onChange={this.onChangeHandler}
-        />
+        <div className="review-form_text-box-container">
+          <textarea
+            className="review-form_text-box"
+            id="review"
+            value={this.state.review}
+            onChange={this.onChangeHandler}
+          />
+        </div>
         <LoadingButton value={this.buttonValue()} />
       </form>
     );
