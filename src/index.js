@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
 import { render } from 'react-dom';
-import './styles/style.less';
+import './assets/root-style.less';
 import './components/ProgressBar/small.less';
 import './components/LoadingButton/small.less';
 import './components/SeenMarker/small.less';
