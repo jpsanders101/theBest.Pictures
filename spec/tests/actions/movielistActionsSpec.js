@@ -101,9 +101,8 @@ describe('saveReview', () => {
     });
     it('SHOULD dispatch a beginAjaxCall action', done => {
       setImmediate(() => {
-        saveReview(reviewData)(dispatchSpy).finally(
-          expect(beginAjaxCallSpy).toHaveBeenCalledWith(1)
-        );
+        saveReview(reviewData)(dispatchSpy);
+        expect(beginAjaxCallSpy).toHaveBeenCalledWith(1);
         done();
       });
     });
