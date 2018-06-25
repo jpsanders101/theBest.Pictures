@@ -1,6 +1,6 @@
 # TheBest.Pictures
 
-A React.js web app for crossing-off and rating every Oscar Best Picture winners as you see them.
+A web app for crossing-off and rating every Oscar Best Picture winner as you see them.
 
 ## Local Setup
 
@@ -9,6 +9,11 @@ $ npm start
 ```
 
 In a browser, navigate to `localhost:3000`.
+
+## Stack
+
+* React
+* Redux
 
 ## Testing
 
