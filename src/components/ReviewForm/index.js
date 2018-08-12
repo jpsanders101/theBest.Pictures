@@ -45,11 +45,11 @@ export default class ReviewForm extends React.Component {
   render() {
     return (
       <form name="review-form" onSubmit={this.handleOnSubmit}>
-        <label for="rating" className="review-form_label">
+        <label htmlFor="rating" className="review-form_label">
           Rating
         </label>
         <RatingButtonContainer handleRatingClick={this.handleRatingClick} />
-        <label className="review-form_label" for="review">
+        <label className="review-form_label" htmlFor="review">
           Thoughts about {this.props.movie.name}...
         </label>
         <div className="review-form_text-box-container">
