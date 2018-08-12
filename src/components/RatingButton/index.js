@@ -11,19 +11,23 @@ export default function RatingButton({
   clicked
 }) {
   return (
-    <button
-      className={classnames('review-section_review-button', {
-        'review-section_review-button--highlighted-true': highlighted,
-        'review-section_review-button--highlighted-false': !highlighted,
-        'review-section_review-button--clicked': parseInt(clicked) === value
-      })}
+    <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      onClick={onClick}
-      value={value}
+      data-value={value}
     >
-      {value}
-    </button>
+      <button
+        className={classnames('review-section_review-button', {
+          'review-section_review-button--highlighted-true': highlighted,
+          'review-section_review-button--highlighted-false': !highlighted,
+          'review-section_review-button--clicked': parseInt(clicked) === value
+        })}
+        onClick={onClick}
+        value={value}
+      >
+        {value}
+      </button>
+    </div>
   );
 }
 

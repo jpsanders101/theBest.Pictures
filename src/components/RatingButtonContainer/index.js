@@ -16,7 +16,10 @@ export default class RatingButtonContainer extends React.Component {
 
   handleMouseEnter(e) {
     if (!this.state.clicked) {
-      this.setState({ highlightButtonsUpto: e.target.value, clicked: false });
+      this.setState({
+        highlightButtonsUpto: e.currentTarget.dataset.value,
+        clicked: false
+      });
     }
   }
 

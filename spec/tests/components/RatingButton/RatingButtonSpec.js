@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import RatingButton from '../../../../src/components/RatingButton';
 
 describe('RatingButton', () => {
-  let wrapper;
+  let wrapper, button;
   const onClickSpy = jasmine.createSpy();
   const onEnterSpy = jasmine.createSpy();
   const onLeaveSpy = jasmine.createSpy();
@@ -18,9 +18,10 @@ describe('RatingButton', () => {
       clicked: false
     };
     wrapper = shallow(<RatingButton {...props} />);
+    button = wrapper.find('.review-section_review-button');
   });
   it('SHOULD call click handler', () => {
-    wrapper.simulate('click');
+    button.simulate('click');
     expect(onClickSpy).toHaveBeenCalled();
   });
   it('SHOULD call onEnter handler', () => {
@@ -37,7 +38,7 @@ describe('RatingButton', () => {
   describe('GIVEN the mouse has not entered the button', () => {
     it('SHOULD apply the highlighted false class', () => {
       expect(
-        wrapper.hasClass('review-section_review-button--highlighted-false')
+        button.hasClass('review-section_review-button--highlighted-false')
       ).toBe(true);
     });
   });
@@ -52,10 +53,11 @@ describe('RatingButton', () => {
         clicked: false
       };
       wrapper = shallow(<RatingButton {...props} />);
+      button = wrapper.find('.review-section_review-button');
     });
     it('SHOULD apply the highlighted true class', () => {
       expect(
-        wrapper.hasClass('review-section_review-button--highlighted-true')
+        button.hasClass('review-section_review-button--highlighted-true')
       ).toBe(true);
     });
   });
@@ -70,10 +72,11 @@ describe('RatingButton', () => {
         clicked: '1'
       };
       wrapper = shallow(<RatingButton {...props} />);
+      button = wrapper.find('.review-section_review-button');
     });
 
     it('SHOULD apply the button clicked class', () => {
-      expect(wrapper.hasClass('review-section_review-button--clicked')).toBe(
+      expect(button.hasClass('review-section_review-button--clicked')).toBe(
         true
       );
     });

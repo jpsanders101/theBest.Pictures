@@ -25,10 +25,10 @@ describe('RatingButtonContainer', () => {
         ratingButton = wrapper.find(ratingButtonMock).at(2);
         ratingButtonValue = ratingButton.props().value;
         ratingButton.simulate('mouseEnter', {
-          target: { value: ratingButtonValue }
+          currentTarget: { dataset: { value: ratingButtonValue } }
         });
       });
-      it('should highlight all buttons up to the one selected', () => {
+      it('SHOULD highlight all buttons up to the one selected', () => {
         expect(wrapper.state().highlightButtonsUpto).toEqual(3);
       });
     });
@@ -58,7 +58,7 @@ describe('RatingButtonContainer', () => {
           target: { value: ratingButtonValue }
         });
       });
-      it('should highlight all buttons up to the one clicked', () => {
+      it('SHOULD highlight all buttons up to the one clicked', () => {
         expect(wrapper.state().highlightButtonsUpto).toEqual(4);
       });
     });
@@ -71,7 +71,7 @@ describe('RatingButtonContainer', () => {
           target: { value: ratingButtonValue }
         });
       });
-      it('should highlight all buttons up to the second button clicked', () => {
+      it('SHOULD highlight all buttons up to the second button clicked', () => {
         expect(wrapper.state().highlightButtonsUpto).toEqual(2);
       });
     });
