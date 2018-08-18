@@ -57,7 +57,7 @@
     "jasmine": "^3.1.0",
     "jasmine-enzyme": "^6.0.0",
     "jquery": "^3.3.1",
-    "less": "^3.0.2",
+    "less": "3.8.1",
     "less-loader": "^4.1.0",
     "nock": "8.0.0",
     "npm-run-all": "1.8.0",
