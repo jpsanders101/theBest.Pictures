@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';

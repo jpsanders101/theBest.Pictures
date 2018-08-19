@@ -2,9 +2,8 @@ import webpack from 'webpack';
 import path from 'path';
 
 export default {
-  debug: true,
+  mode: 'development',
   devtool: 'inline-source-map',
-  noInfo: false,
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
@@ -17,26 +16,31 @@ export default {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'src')
+    contentBase: path.resolve(__dirname, 'src'),
+    noInfo: false
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({ debug: true })
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         include: path.join(__dirname, 'src'),
-        loaders: ['babel']
+        loaders: ['babel-loader']
       },
-      { test: /(\.css)$/, loaders: ['style', 'css'] },
-      { test: /(\.less)$/, loaders: ['style', 'css', 'less'] },
+      { test: /(\.css)$/, loaders: ['style-loader', 'css-loader'] },
+      {
+        test: /(\.less)$/,
+        loaders: ['style-loader', 'css-loader', 'less-loader']
+      },
       {
         test: /\.(png|jpg)$/,
-        loader: 'file'
+        loader: 'file-loader'
       },
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' }, // TO-DO: below are for bootstrap which I'm no longer using; delete?
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader' }, // TO-DO: below are for bootstrap which I'm no longer using; delete?
       { test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000' },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
