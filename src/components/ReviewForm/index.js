@@ -45,16 +45,17 @@ export default class ReviewForm extends React.Component {
   render() {
     return (
       <form name="review-form" onSubmit={this.handleOnSubmit}>
-        <label htmlFor="rating" className="review-form_label">
+        <label htmlFor="rating" className="review-form__label">
           Rating
         </label>
         <RatingButtonContainer handleRatingClick={this.handleRatingClick} />
-        <label className="review-form_label" htmlFor="review">
-          Thoughts about {this.props.movie.name}...
+        <label className="review-form__label" htmlFor="review">
+          Thoughts about {this.props.movie.name}
+          ...
         </label>
-        <div className="review-form_text-box-container">
+        <div className="review-form__text-box-container">
           <textarea
-            className="review-form_text-box"
+            className="review-form__text-box"
             id="review"
             value={this.state.review}
             onChange={this.onChangeHandler}

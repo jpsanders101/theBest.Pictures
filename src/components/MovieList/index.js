@@ -47,7 +47,7 @@ export default class MovieList extends React.Component {
 
   renderBottomFillers() {
     return this.props.movies.map((movie, index) => (
-      <span key={index} className="movie-list_filler" />
+      <span key={index} className="movie-list__filler" />
     ));
   }
 
@@ -55,8 +55,8 @@ export default class MovieList extends React.Component {
     const nextUp = this.props.movies.find(movie => !movie.seen);
     return nextUp ? (
       <div className="next-up">
-        <h1 className="next-up_title">Next up...</h1>
-        <div className="next-up_movie-item">{nextUp.name}</div>
+        <h1 className="next-up__title">Next up...</h1>
+        <div className="next-up__movie-item">{nextUp.name}</div>
       </div>
     ) : (
       ''
@@ -73,7 +73,7 @@ export default class MovieList extends React.Component {
 
   render() {
     return (
-      <div className="movie-list_container">
+      <div className="movie-list__container">
         {this.nextUp(this.props.movies)}
         <FilterPanel
           filter={this.state.filter}

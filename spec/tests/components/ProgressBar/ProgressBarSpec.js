@@ -6,7 +6,7 @@ describe('ProgressBar', () => {
   it('SHOULD display progress to the correct level', () => {
     const wrapper = shallow(<ProgressBar progress={10} />);
     expect(
-      wrapper.find('.progress-bar_filler--completed').props().style.flex
+      wrapper.find('.progress-bar__filler--completed').props().style.flex
     ).toEqual('0 1 10%');
   });
 });

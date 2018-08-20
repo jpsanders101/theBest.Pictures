@@ -30,7 +30,7 @@ describe('LoadingButton', () => {
     };
     const wrapper = shallow(<LoadingButton {...props} />);
     it('should contain the className "loading"', () => {
-      expect(wrapper.find('.review-form_button--loading')).toExist();
+      expect(wrapper.find('.review-form__button--loading')).toExist();
     });
   });
   describe('given that something is not loading', () => {
@@ -41,7 +41,7 @@ describe('LoadingButton', () => {
     };
     const wrapper = shallow(<LoadingButton {...props} />);
     it('should not contain the className "loading"', () => {
-      expect(wrapper.find('.review-form_button--loading')).not.toExist();
+      expect(wrapper.find('.review-form__button--loading')).not.toExist();
     });
   });
 });

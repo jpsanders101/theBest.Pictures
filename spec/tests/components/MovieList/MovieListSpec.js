@@ -27,7 +27,7 @@ describe('MovieList', () => {
       wrapper = shallow(<MovieList {...props} />);
     });
     it('SHOULD disiplay name of first unseen picture in the "Next Up" section', () => {
-      expect(wrapper.find('.next-up_movie-item').text()).toContain(
+      expect(wrapper.find('.next-up__movie-item').text()).toContain(
         'The Broadway Melody'
       );
     });

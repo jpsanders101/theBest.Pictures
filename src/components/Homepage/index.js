@@ -14,7 +14,7 @@ class Homepage extends React.Component {
 
   calculateProgress(movies) {
     return Math.floor(
-      movies.filter(movie => movie.seen).length / movies.length * 100
+      (movies.filter(movie => movie.seen).length / movies.length) * 100
     );
   }
 
@@ -25,7 +25,7 @@ class Homepage extends React.Component {
           <Spinner />
         ) : (
           <div className="homepage">
-            <h1 className="homepage_heading">
+            <h1 className="homepage__heading">
               How many winners of the Oscar for Best Picture have you seen?
             </h1>
             <ProgressBar progress={this.calculateProgress(this.props.movies)} />
@@ -59,4 +59,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Homepage);

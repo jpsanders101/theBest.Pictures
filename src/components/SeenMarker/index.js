@@ -9,9 +9,9 @@ const SeenMarker = props => {
 
   return (
     <span
-      className={classnames('movie-item_marker', {
-        'movie-item_marker--seen-true': props.seen,
-        'movie-item_marker--seen-false': !props.seen
+      className={classnames('movie-item__marker', {
+        'movie-item__marker--seen-true': props.seen,
+        'movie-item__marker--seen-false': !props.seen
       })}
       onClick={onClick}
     >

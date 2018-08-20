@@ -32,7 +32,7 @@ describe('MovieItem', () => {
     wrapper = shallow(<MovieItem {...props} />);
   });
   it('SHOULD render a MovieItem', () => {
-    expect(wrapper.find('.movie-list_movie-item').length).toEqual(1);
+    expect(wrapper.find('.movie-list__movie-item').length).toEqual(1);
   });
   it('SHOULD pass correct props to SeenMarker', () => {
     expect(wrapper.find(seenMarkerMock).props()).toEqual(expectedProps);

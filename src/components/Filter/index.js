@@ -10,7 +10,7 @@ export default function Filter({
   return (
     <span
       className={classnames('movie-list_filter', {
-        'movie-list_filter--selected': isSelected
+        'movie-list__filter--selected': isSelected
       })}
       data-filter={filter}
       onClick={seenFilterOnClickHandler}

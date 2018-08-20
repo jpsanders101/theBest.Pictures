@@ -18,7 +18,7 @@ describe('RatingButton', () => {
       clicked: false
     };
     wrapper = shallow(<RatingButton {...props} />);
-    button = wrapper.find('.review-section_review-button');
+    button = wrapper.find('.review-section__review-button');
   });
   it('SHOULD call click handler', () => {
     button.simulate('click');
@@ -38,7 +38,7 @@ describe('RatingButton', () => {
   describe('GIVEN the mouse has not entered the button', () => {
     it('SHOULD apply the highlighted false class', () => {
       expect(
-        button.hasClass('review-section_review-button--highlighted-false')
+        button.hasClass('review-section__review-button--highlighted-false')
       ).toBe(true);
     });
   });
@@ -53,11 +53,11 @@ describe('RatingButton', () => {
         clicked: false
       };
       wrapper = shallow(<RatingButton {...props} />);
-      button = wrapper.find('.review-section_review-button');
+      button = wrapper.find('.review-section__review-button');
     });
     it('SHOULD apply the highlighted true class', () => {
       expect(
-        button.hasClass('review-section_review-button--highlighted-true')
+        button.hasClass('review-section__review-button--highlighted-true')
       ).toBe(true);
     });
   });
@@ -72,11 +72,11 @@ describe('RatingButton', () => {
         clicked: '1'
       };
       wrapper = shallow(<RatingButton {...props} />);
-      button = wrapper.find('.review-section_review-button');
+      button = wrapper.find('.review-section__review-button');
     });
 
     it('SHOULD apply the button clicked class', () => {
-      expect(button.hasClass('review-section_review-button--clicked')).toBe(
+      expect(button.hasClass('review-section__review-button--clicked')).toBe(
         true
       );
     });
@@ -95,7 +95,7 @@ describe('RatingButton', () => {
     });
 
     it('SHOULD not apply the button clicked class', () => {
-      expect(wrapper.hasClass('review-section_review-button--clicked')).toBe(
+      expect(wrapper.hasClass('review-section__review-button--clicked')).toBe(
         false
       );
     });

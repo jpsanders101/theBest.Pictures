@@ -18,14 +18,14 @@ class MoviePage extends React.Component {
           <Spinner />
         ) : (
           <div className="movie-page_content">
-            <h1 className="movie-page_heading">
+            <h1 className="movie-page__heading">
               {this.props.movie.name}{' '}
-              <span className="movie-page_year">
+              <span className="movie-page__year">
                 {`(${this.props.movie.releaseYear})`}
               </span>
             </h1>
             <div className="movie-page">
-              <div className="movie-page_details-section">
+              <div className="movie-page__details-section">
                 <p>{this.props.movie.synopsis}</p>
                 {this.props.movie.review && (
                   <div className="movie-page_review">
@@ -70,4 +70,7 @@ const mapDispatchtoProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchtoProps)(MoviePage);
+export default connect(
+  mapStateToProps,
+  mapDispatchtoProps
+)(MoviePage);

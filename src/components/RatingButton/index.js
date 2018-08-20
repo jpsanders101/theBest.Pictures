@@ -17,10 +17,10 @@ export default function RatingButton({
       data-value={value}
     >
       <button
-        className={classnames('review-section_review-button', {
-          'review-section_review-button--highlighted-true': highlighted,
-          'review-section_review-button--highlighted-false': !highlighted,
-          'review-section_review-button--clicked': parseInt(clicked) === value
+        className={classnames('review-section__review-button', {
+          'review-section__review-button--highlighted-true': highlighted,
+          'review-section__review-button--highlighted-false': !highlighted,
+          'review-section__review-button--clicked': parseInt(clicked) === value
         })}
         onClick={onClick}
         value={value}

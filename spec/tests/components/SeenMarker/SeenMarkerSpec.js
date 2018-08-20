@@ -18,7 +18,7 @@ describe('SeenMarker', () => {
   });
   describe('GIVEN the prop "seen" is true', () => {
     it('SHOULD apply the correct class to root span', () => {
-      expect(wrapper.first().hasClass('movie-item_marker--seen-true')).toEqual(
+      expect(wrapper.first().hasClass('movie-item__marker--seen-true')).toEqual(
         true
       );
     });
@@ -33,9 +33,9 @@ describe('SeenMarker', () => {
       wrapper = shallow(<SeenMarker {...props} />);
     });
     it('SHOULD apply the class "not-seen" to root span', () => {
-      expect(wrapper.first().hasClass('movie-item_marker--seen-false')).toEqual(
-        true
-      );
+      expect(
+        wrapper.first().hasClass('movie-item__marker--seen-false')
+      ).toEqual(true);
     });
   });
   describe('WHEN the user clicks on SeenMarker', () => {

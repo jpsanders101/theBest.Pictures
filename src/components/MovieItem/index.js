@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const MovieItem = props => {
   return (
-    <li className="movie-list_movie-item">
-      <span className="movie-list_title">
+    <li className="movie-list__movie-item">
+      <span className="movie-list__title">
         <Link to={`/movie/${props.releaseYear}`}>{props.name}</Link>
       </span>
       <SeenMarker name={props.name} onClick={props.onClick} seen={props.seen} />

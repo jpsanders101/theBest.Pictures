@@ -11,8 +11,8 @@ class LoadingButton extends React.Component {
   render() {
     return (
       <input
-        className={classnames('review-form_button', {
-          'review-form_button--loading': this.props.isLoading
+        className={classnames('review-form__button', {
+          'review-form__button--loading': this.props.isLoading
         })}
         type="submit"
         value={this.props.value}
