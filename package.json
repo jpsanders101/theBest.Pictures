@@ -58,7 +58,6 @@
     "jsdom": "^12.0.0",
     "less": "3.8.1",
     "less-loader": "^4.1.0",
-    "nock": "8.0.0",
     "npm-run-all": "1.8.0",
     "open": "0.0.5",
     "prettier": "^1.12.1",
