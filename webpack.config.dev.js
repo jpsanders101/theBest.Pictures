@@ -5,7 +5,6 @@ export default {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: [
-    'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
     path.resolve(__dirname, 'src/index')
   ],
