@@ -6,7 +6,7 @@ import opn from 'opn';
 
 /* eslint-disable no-console */
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 const compiler = webpack(config);
 
@@ -27,6 +27,7 @@ app.listen(port, function(err) {
   if (err) {
     console.log(err);
   } else {
-    opn(`http://localhost:${port}`);
+    // TO-DO - only do this in dev mode, or open Heroku if you've just deployed there
+    // opn(`http://localhost:${port}`);
   }
 });
