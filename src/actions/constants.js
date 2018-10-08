@@ -3,3 +3,5 @@ export const END_AJAX_CALL = 'END_AJAX_CALL';
 export const MARK_AS_SEEN = 'MARK_AS_SEEN';
 export const LOAD_MOVIES = 'LOAD_MOVIES';
 export const SAVE_REVIEW = 'SAVE_REVIEW';
+export const SET_ERROR_STATE = 'SET_ERROR_STATE';
+export const REMOVE_ERROR_STATE = 'REMOVE_ERROR_STATE';

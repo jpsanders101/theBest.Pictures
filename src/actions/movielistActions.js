@@ -1,6 +1,7 @@
 import * as types from './constants.js';
 import bestPictureWinnersApi from '../api/bestPictureWinnersApi';
 import { beginAjaxCall, endAjaxCall } from './ajaxCallActions';
+import { setErrorState, removeErrorState } from './appActions';
 
 export const markAsSeen = movies => {
   return { type: types.MARK_AS_SEEN, movies };
@@ -41,10 +42,11 @@ export const saveReview = review => {
       })
       .then(() => {
         dispatch(endAjaxCall(1));
+        dispatch(removeErrorState());
       })
       .catch(error => {
         dispatch(endAjaxCall(1));
-        throw error;
+        dispatch(setErrorState());
       });
   };
 };
