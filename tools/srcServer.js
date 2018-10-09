@@ -3,10 +3,12 @@ import webpack from 'webpack';
 import path from 'path';
 import config from '../webpack.config.dev';
 import opn from 'opn';
+require('./startMessage.js');
+import { DEV } from './envConstants';
 
 /* eslint-disable no-console */
 
-const port = process.env.PORT || 3000;
+const port = process.env.NODE_ENV === DEV ? 3000 : process.env.PORT;
 const app = express();
 const compiler = webpack(config);
 
@@ -27,7 +29,8 @@ app.listen(port, function(err) {
   if (err) {
     console.log(err);
   } else {
-    // TO-DO - only do this in dev mode, or open Heroku if you've just deployed there
-    // opn(`http://localhost:${port}`);
+    if (process.env.NODE_ENV === DEV) {
+      opn(`http://localhost:${port}`);
+    }
   }
 });
