@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RatingButtonContainer from '../RatingButtonContainer';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import LoadingButton from '../LoadingButton';
 
-export default class ReviewForm extends React.Component {
+class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,12 +59,24 @@ export default class ReviewForm extends React.Component {
           />
         </div>
         <LoadingButton value={this.buttonValue()} />
+        {this.props.errorState && (
+          <span className="review-form__error-message">
+            "didn't save properly you nob"
+          </span>
+        )}
       </form>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  errorState: state.app.errorState
+});
+
 ReviewForm.propTypes = {
   actions: PropTypes.object,
-  movie: PropTypes.object
+  movie: PropTypes.object,
+  errorState: PropTypes.bool.isRequired
 };
+
+export default connect(mapStateToProps)(ReviewForm);

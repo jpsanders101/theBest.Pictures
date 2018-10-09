@@ -1,4 +1,7 @@
 export default {
   ajaxCalls: 0,
-  movies: []
+  movies: [],
+  app: {
+    errorState: false
+  }
 };
