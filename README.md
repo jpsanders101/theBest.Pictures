@@ -1,26 +1,28 @@
 # TheBest.Pictures
 
-A web app for crossing-off and rating every Oscar Best Picture winner as you see them.
+A web app for crossing-off and rating every Oscar Best Picture winner as you watch them.
 
 ## Local Setup
 
+Dev Mode:
+
 ```bash
-$ npm start
+$ npm run dev
 ```
 
 In a browser, navigate to `localhost:3000`.
 
 ## Stack
 
-* React
-* Redux
+- React
+- Redux
 
 ## Testing
 
 ### Tools
 
-* Jasmine
-* Enzyme
+- Jasmine
+- Enzyme
 
 To run all unit tests:
 
@@ -32,8 +34,8 @@ $ npm t
 
 ### Tools
 
-* ESLint
-* Prettier plugin.
+- ESLint
+- Prettier plugin.
 
 To apply Prettier rules across the project:
 
