@@ -9,13 +9,14 @@ class LoadingButton extends React.Component {
   }
 
   render() {
+    const { isLoading, value } = this.props;
     return (
       <input
         className={classnames('review-form__button', {
-          'review-form__button--loading': this.props.isLoading
+          'review-form__button--loading': isLoading
         })}
         type="submit"
-        value={this.props.value}
+        value={value}
       />
     );
   }
