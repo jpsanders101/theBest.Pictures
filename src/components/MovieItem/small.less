@@ -1,4 +1,6 @@
 .movie-list__movie-item {
+  transition-property: height, width;
+  transition-duration: 0.25s;
   width: 200px;
   height: 282px;
   border: 5px;
@@ -8,6 +10,11 @@
   padding: 5px;
   margin: 20px 20px;
   display: flex;
+}
+
+.movie-list__movie-item:hover {
+  width: 220px;
+  height: 300px;
 }
 
 .movie-list__title {
