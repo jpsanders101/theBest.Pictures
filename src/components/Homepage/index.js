@@ -19,20 +19,18 @@ class Homepage extends React.Component {
   }
 
   render() {
+    const { isLoading, movies, actions } = this.props;
     return (
       <div>
-        {this.props.isLoading ? (
+        {isLoading ? (
           <Spinner />
         ) : (
           <div className="homepage">
             <h1 className="homepage__heading">
               How many winners of the Oscar for Best Picture have you seen?
             </h1>
-            <ProgressBar progress={this.calculateProgress(this.props.movies)} />
-            <MovieList
-              actions={this.props.actions}
-              movies={this.props.movies}
-            />
+            <ProgressBar progress={this.calculateProgress(movies)} />
+            <MovieList actions={actions} movies={movies} />
           </div>
         )}
       </div>
