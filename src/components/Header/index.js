@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-export default function Header(props) {
+export default function Header() {
   return (
     <nav className="header">
       <Link to="/" className="header__link header_home-link">
