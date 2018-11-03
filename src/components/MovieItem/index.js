@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import SeenMarker from '../SeenMarker';
 import { Link } from 'react-router-dom';
 
-const MovieItem = props => {
+const MovieItem = ({ releaseYear, name, onClick, seen }) => {
   return (
     <li className="movie-list__movie-item">
       <span className="movie-list__title">
-        <Link to={`/movie/${props.releaseYear}`}>{props.name}</Link>
+        <Link to={`/movie/${releaseYear}`}>{name}</Link>
       </span>
-      <SeenMarker name={props.name} onClick={props.onClick} seen={props.seen} />
+      <SeenMarker name={name} onClick={onClick} seen={seen} />
     </li>
   );
 };
