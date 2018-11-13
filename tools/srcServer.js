@@ -1,14 +1,21 @@
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
-import config from '../webpack.config.dev';
 import opn from 'opn';
 require('./startMessage.js');
-import { DEV } from './envConstants';
+import { DEV, PROD } from './envConstants';
 
 /* eslint-disable no-console */
 
-const port = process.env.NODE_ENV === DEV ? 3000 : process.env.PORT;
+let config;
+
+if (process.env.NODE_ENV === DEV) {
+  config = require('../webpack.config.dev').default;
+} else if (process.env.NODE_ENV === PROD) {
+  config = require('../webpack.config.prod').default;
+}
+
+const port = process.env.NODE_ENV === DEV ? 3000 : process.env.PORT || 3000;
 const app = express();
 const compiler = webpack(config);
 
