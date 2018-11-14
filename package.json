@@ -6,10 +6,10 @@
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm run open:src",
     "dev": "npm-run-all --parallel open:src-dev lint:watch",
-    "prod": "npm-run-all --parallel open:src-prod lint:watch",
+    "prod": "npm-run-all --parallel open:src-prod",
     "open:src": "babel-node tools/srcServer.js",
-    "open:src-dev": "NODE_ENV=DEV babel-node tools/srcServer.js",
-    "open:src-prod": "NODE_ENV=PROD babel-node tools/srcServer.js",
+    "open:src-dev": "NODE_ENV=development babel-node tools/srcServer.js",
+    "open:src-prod": "NODE_ENV=production babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
     "test": "jasmine"

@@ -1,3 +1,3 @@
-export const DEV = 'DEV';
-export const TEST = 'TEST';
-export const PROD = 'PROD';
+export const DEVELOPMENT = 'development';
+export const TEST = 'test';
+export const PRODUCTION = 'production';
