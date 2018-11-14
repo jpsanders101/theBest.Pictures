@@ -3,7 +3,7 @@ import path from 'path';
 
 export default {
   mode: 'production',
-  devtool: 'inline-source-map',
+  devtool: 'cheap-eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
     path.resolve(__dirname, 'src/index')
