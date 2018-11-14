@@ -4,10 +4,7 @@ import path from 'path';
 export default {
   mode: 'production',
   devtool: 'cheap-eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
-    path.resolve(__dirname, 'src/index')
-  ],
+  entry: path.resolve(__dirname, 'src/index'),
   target: 'web',
   output: {
     path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
