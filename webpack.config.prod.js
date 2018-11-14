@@ -15,11 +15,7 @@ export default {
     contentBase: path.resolve(__dirname, 'src'),
     noInfo: false
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.LoaderOptionsPlugin({ debug: true })
-  ],
+  plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
   module: {
     rules: [
       {
