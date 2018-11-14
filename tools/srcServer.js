@@ -8,15 +8,15 @@ import { DEVELOPMENT, PRODUCTION } from './envConstants';
 /* eslint-disable no-console */
 
 let config;
+let nodeEnv = process.env.NODE_ENV;
 
-if (process.env.NODE_ENV === DEVELOPMENT) {
+if (nodeEnv === DEVELOPMENT) {
   config = require('../webpack.config.dev').default;
-} else if (process.env.NODE_ENV === PRODUCTION) {
+} else if (nodeEnv === PRODUCTION) {
   config = require('../webpack.config.prod').default;
 }
 
-const port =
-  process.env.NODE_ENV === DEVELOPMENT ? 3000 : process.env.PORT || 3000;
+const port = nodeEnv === DEVELOPMENT ? 3000 : process.env.PORT || 3000;
 const app = express();
 const compiler = webpack(config);
 
@@ -37,7 +37,7 @@ app.listen(port, function(err) {
   if (err) {
     console.log(err);
   } else {
-    if (process.env.NODE_ENV === DEVELOPMENT) {
+    if (nodeEnv === DEVELOPMENT) {
       opn(`http://localhost:${port}`);
     }
   }
