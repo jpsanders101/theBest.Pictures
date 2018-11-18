@@ -6,7 +6,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import './assets/root-style.less';
 import { loadMovies } from './actions/movielistActions';
-import '../node_modules/toastr/build/toastr.min.css';
 import Routes from './components/Routes.js';
 
 const store = configureStore();

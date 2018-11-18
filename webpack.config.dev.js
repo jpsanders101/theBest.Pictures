@@ -30,7 +30,6 @@ export default {
         include: path.join(__dirname, 'src'),
         loaders: ['babel-loader']
       },
-      { test: /(\.css)$/, loaders: ['style-loader', 'css-loader'] },
       {
         test: /(\.less)$/,
         loaders: ['style-loader', 'css-loader', 'less-loader']

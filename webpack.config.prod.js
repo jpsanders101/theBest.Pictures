@@ -27,11 +27,6 @@ export default {
         include: path.join(__dirname, 'src'),
         loaders: ['babel-loader']
       },
-
-      {
-        test: /(\.css)$/,
-        loaders: [MiniCssExtractPlugin.loader, 'css-loader']
-      },
       {
         test: /(\.less)$/,
         loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
