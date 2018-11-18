@@ -7,7 +7,7 @@
     "dev": "npm-run-all --parallel open:src-dev lint:watch",
     "prod": "npm-run-all buildHtml open:src-prod",
     "buildHtml": "babel-node tools/buildHtml.js",
-    "open:src-dev": "NODE_ENV=development babel-node tools/srcServer.js",
+    "open:src-dev": "NODE_ENV=development babel-node tools/devServer.js",
     "open:src-prod": "NODE_ENV=production babel-node tools/prodServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
