@@ -4,11 +4,12 @@
   "description": "Every Oscar Winner for Best Picture. How many of The Best Pictures have you seen?",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "dev": "npm-run-all --parallel open:src-dev lint:watch",
-    "prod": "npm-run-all buildHtml open:src-prod",
+    "dev": "npm-run-all --parallel serveDev lint:watch",
+    "prod": "npm-run-all clearAssets buildHtml serveProd",
+    "clearAssets": "babel-node tools/clearAssets.js",
     "buildHtml": "babel-node tools/buildHtml.js",
-    "open:src-dev": "NODE_ENV=development babel-node tools/devServer.js",
-    "open:src-prod": "NODE_ENV=production babel-node tools/prodServer.js",
+    "serveDev": "NODE_ENV=development babel-node tools/devServer.js",
+    "serveProd": "NODE_ENV=production babel-node tools/prodServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
     "test": "jasmine"

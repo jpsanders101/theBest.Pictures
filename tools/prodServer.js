@@ -1,7 +1,6 @@
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
-import rimraf from 'rimraf';
 require('./startMessage.js');
 
 /* eslint-disable no-console */
@@ -10,14 +9,6 @@ const config = require('../webpack.config.prod').default;
 
 const port = process.env.PORT || 3000;
 const app = express();
-
-console.log('Deleting old assets...');
-
-rimraf('dist', err => {
-  if (err) {
-    throw new Error(err);
-  }
-});
 
 console.log('Building assets...');
 
