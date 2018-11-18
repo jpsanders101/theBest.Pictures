@@ -11,6 +11,7 @@ const modeConsoleOutput = () => {
   if (nodeEnv === 'development') {
     return 'DEV'.cyan;
   }
+  return 'nodeEnv not set!';
 };
 
 console.log(
