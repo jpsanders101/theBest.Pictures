@@ -61,7 +61,7 @@ class ReviewForm extends React.Component {
         <LoadingButton value={this.buttonValue()} />
         {this.props.errorState && (
           <span className="review-form__error-message">
-            "didn't save properly you nob"
+            "Oops! Something went wrong."
           </span>
         )}
       </form>
