@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import WrappedReviewForm from '../../../../src/components/ReviewForm';
 import LoadingButton from '../../../../src/components/LoadingButton';
-import RatingButtonContainer from '../../../../src/components/RatingButtonContainer';
 import { reviewData } from '../../../data';
 
 describe('ReviewForm', () => {

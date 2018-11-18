@@ -6,7 +6,7 @@ proxyquire.noCallThru();
 
 const mockReviewForm = props => {};
 
-const RatingForm = proxyquire('../../../../src/components/ReviewSection', {
+const ReviewForm = proxyquire('../../../../src/components/ReviewSection', {
   '../ReviewForm': mockReviewForm
 }).default;
 
@@ -18,7 +18,7 @@ describe('ReviewSection', () => {
       movie: {},
       actions: {}
     };
-    wrapper = shallow(<RatingForm {...props} />);
+    wrapper = shallow(<ReviewForm {...props} />);
   });
   it('SHOULD render a ReviewForm with correct props', () => {
     const expectedProps = {
