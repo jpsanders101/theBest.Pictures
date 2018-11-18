@@ -21,7 +21,8 @@ describe('ReviewForm', () => {
       .and.returnValue({ catch: jasmine.createSpy() });
     const props = {
       actions: { saveReview: saveReviewSpy },
-      movie: { review: '', name: MOVIE_NAME, releaseYear: RELEASE_YEAR }
+      movie: { review: '', name: MOVIE_NAME, releaseYear: RELEASE_YEAR },
+      errorState: false
     };
     wrapper = shallow(<ReviewForm {...props} />);
   });
@@ -46,7 +47,8 @@ describe('ReviewForm', () => {
           review: MOVIE_REVIEW,
           name: MOVIE_NAME,
           releaseYear: RELEASE_YEAR
-        }
+        },
+        errorState: false
       };
       wrapper = shallow(<ReviewForm {...props} />);
     });
@@ -57,6 +59,23 @@ describe('ReviewForm', () => {
           .first()
           .props().value
       ).toEqual('Update');
+    });
+  });
+  describe('GIVEN there has been an error  while submitting the review', () => {
+    beforeEach(() => {
+      const props = {
+        actions: { saveReview: saveReviewSpy },
+        movie: {
+          review: MOVIE_REVIEW,
+          name: MOVIE_NAME,
+          releaseYear: RELEASE_YEAR
+        },
+        errorState: true
+      };
+      wrapper = shallow(<ReviewForm {...props} />);
+    });
+    it('SHOULD display an error message', () => {
+      expect(wrapper.find('.review-form__error-message').length).toEqual(1);
     });
   });
   describe('GIVEN a user has clicked a rating button', () => {
