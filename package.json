@@ -4,6 +4,7 @@
   "description": "Every Oscar Winner for Best Picture. How many of The Best Pictures have you seen?",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
+    "start": "npm run prod",
     "dev": "npm-run-all --parallel serveDev lint:watch",
     "prod": "npm-run-all clearAssets buildHtml serveProd",
     "clearAssets": "babel-node tools/clearAssets.js",
