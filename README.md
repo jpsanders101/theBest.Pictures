@@ -10,6 +10,12 @@ Dev Mode:
 $ npm run dev
 ```
 
+Production Mode:
+
+```bash
+$ npm run prod
+```
+
 In a browser, navigate to `localhost:3000`.
 
 ## Stack
