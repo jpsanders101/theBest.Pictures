@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RatingForm from '../../../../src/components/ReviewForm';
+import WrappedReviewForm from '../../../../src/components/ReviewForm';
 import LoadingButton from '../../../../src/components/LoadingButton';
 import RatingButtonContainer from '../../../../src/components/RatingButtonContainer';
 import { reviewData } from '../../../data';
 
-describe('RatingForm', () => {
+describe('ReviewForm', () => {
   let wrapper;
   let saveReviewSpy;
   const {
@@ -14,6 +14,7 @@ describe('RatingForm', () => {
     rating: MOVIE_RATING,
     releaseYear: RELEASE_YEAR
   } = reviewData;
+  const ReviewForm = WrappedReviewForm.WrappedComponent;
   beforeEach(() => {
     saveReviewSpy = jasmine
       .createSpy('saveReview')
@@ -22,7 +23,7 @@ describe('RatingForm', () => {
       actions: { saveReview: saveReviewSpy },
       movie: { review: '', name: MOVIE_NAME, releaseYear: RELEASE_YEAR }
     };
-    wrapper = shallow(<RatingForm {...props} />);
+    wrapper = shallow(<ReviewForm {...props} />);
   });
   it('SHOULD display the movie title', () => {
     expect(wrapper.text()).toContain(MOVIE_NAME);
@@ -47,7 +48,7 @@ describe('RatingForm', () => {
           releaseYear: RELEASE_YEAR
         }
       };
-      wrapper = shallow(<RatingForm {...props} />);
+      wrapper = shallow(<ReviewForm {...props} />);
     });
     it('SHOULD render a button which displays "Update"', () => {
       expect(
