@@ -21,17 +21,31 @@ const port = nodeEnvVar === DEVELOPMENT ? 3000 : portVar || 3000;
 const app = express();
 const compiler = webpack(config);
 
-app.use(
-  require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath
-  })
-);
+if (nodeEnvVar === DEVELOPMENT) {
+  app.use(
+    require('webpack-dev-middleware')(compiler, {
+      noInfo: true,
+      publicPath: config.output.publicPath
+    })
+  );
+  app.use(require('webpack-hot-middleware')(compiler));
+}
+if (nodeEnvVar === PRODUCTION) {
+  app.use(express.static('dist'));
+}
 
-app.use(require('webpack-hot-middleware')(compiler));
+const indexPath = () => {
+  if (nodeEnvVar === PRODUCTION) {
+    return '../dist/index.html';
+  }
+  if (nodeEnvVar === DEVELOPMENT) {
+    return '../src/index.html';
+  }
+  throw new Error("There's no index path available. Check the node env var.");
+};
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../src/index.html'));
+  res.sendFile(path.join(__dirname, indexPath()));
 });
 
 app.listen(port, function(err) {

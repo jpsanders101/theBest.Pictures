@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
   mode: 'production',
@@ -12,10 +13,13 @@ export default {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'src'),
+    contentBase: path.resolve(__dirname, 'dist'),
     noInfo: false
   },
-  plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
+  plugins: [
+    new webpack.LoaderOptionsPlugin({ debug: true }),
+    new MiniCssExtractPlugin({ filename: 'style.css' })
+  ],
   module: {
     rules: [
       {
@@ -23,10 +27,14 @@ export default {
         include: path.join(__dirname, 'src'),
         loaders: ['babel-loader']
       },
-      { test: /(\.css)$/, loaders: ['style-loader', 'css-loader'] },
+
+      {
+        test: /(\.css)$/,
+        loaders: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
       {
         test: /(\.less)$/,
-        loaders: ['style-loader', 'css-loader', 'less-loader']
+        loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
       },
       {
         test: /\.(png|jpg)$/,
