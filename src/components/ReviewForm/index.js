@@ -7,13 +7,15 @@ import LoadingButton from '../LoadingButton';
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       rating: props.movie.rating,
       review: props.movie.review || ''
     };
+
     this.handleReviewChange = this.handleReviewChange.bind(this);
     this.handleRatingClick = this.handleRatingClick.bind(this);
-    this.handleOnSubmit = this.handleOnSubmit.bind(this);
+    this.handleReviewSubmit = this.handleReviewSubmit.bind(this);
   }
 
   handleReviewChange(e) {
@@ -21,7 +23,7 @@ class ReviewForm extends React.Component {
     this.setState(state);
   }
 
-  handleOnSubmit(e) {
+  handleReviewSubmit(e) {
     e.preventDefault();
     const review = Object.assign({}, this.state, {
       releaseYear: this.props.movie.releaseYear
@@ -41,7 +43,7 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
-      <form name="review-form" onSubmit={this.handleOnSubmit}>
+      <form name="review-form" onSubmit={this.handleReviewSubmit}>
         <label htmlFor="rating" className="review-form__label">
           Rating
         </label>
