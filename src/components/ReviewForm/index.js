@@ -11,12 +11,12 @@ class ReviewForm extends React.Component {
       rating: props.movie.rating,
       review: props.movie.review || ''
     };
-    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.handleReviewChange = this.handleReviewChange.bind(this);
     this.handleRatingClick = this.handleRatingClick.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
-  onChangeHandler(e) {
+  handleReviewChange(e) {
     let state = Object.assign({}, this.state, { review: e.target.value });
     this.setState(state);
   }
@@ -55,7 +55,7 @@ class ReviewForm extends React.Component {
             className="review-form__text-box"
             id="review"
             value={this.state.review}
-            onChange={this.onChangeHandler}
+            onChange={this.handleReviewChange}
           />
         </div>
         <LoadingButton value={this.buttonValue()} />
