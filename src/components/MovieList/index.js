@@ -6,15 +6,16 @@ import FilterPanel from '../FilterPanel';
 export default class MovieList extends React.Component {
   constructor(props) {
     super(props);
-    this.onClickHandler = this.onClickHandler.bind(this);
-    this.renderMovieList = this.renderMovieList.bind(this);
-    this.seenFilterOnClickHandler = this.seenFilterOnClickHandler.bind(this);
+
     this.state = {
       filter: 'none'
     };
+
+    this.handleMovieClick = this.handleMovieClick.bind(this);
+    this.handleFilterClick = this.handleFilterClick.bind(this);
   }
 
-  onClickHandler(movieName) {
+  handleMovieClick(movieName) {
     const movieList = [...this.props.movies];
     let index = movieList.findIndex(movie => {
       return movie.name === movieName;
@@ -38,7 +39,7 @@ export default class MovieList extends React.Component {
         <MovieItem
           key={movie.awardNumber}
           name={movie.name}
-          onClick={this.onClickHandler}
+          onClick={this.handleMovieClick}
           releaseYear={movie.releaseYear}
           seen={movie.seen}
         />
@@ -59,11 +60,11 @@ export default class MovieList extends React.Component {
         <div className="next-up__movie-item">{nextUp.name}</div>
       </div>
     ) : (
-      ''
-    );
+        ''
+      );
   }
 
-  seenFilterOnClickHandler(e) {
+  handleFilterClick(e) {
     if (this.state.filter === e.target.dataset.filter) {
       this.setState({ filter: 'none' });
     } else {
@@ -77,7 +78,7 @@ export default class MovieList extends React.Component {
         {this.nextUp(this.props.movies)}
         <FilterPanel
           filter={this.state.filter}
-          seenFilterOnClickHandler={this.seenFilterOnClickHandler}
+          seenFilterOnClickHandler={this.handleFilterClick}
         />
         <ul className="movie-list">
           {this.renderMovieList()}
