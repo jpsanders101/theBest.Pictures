@@ -2,6 +2,9 @@
   "name": "thebest.pictures",
   "version": "1.0.0",
   "description": "Every Oscar Winner for Best Picture. How many of The Best Pictures have you seen?",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm run prod",
