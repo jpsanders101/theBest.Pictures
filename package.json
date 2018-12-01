@@ -7,7 +7,7 @@
   },
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm run prod",
+    "start": "npm run dev",
     "dev": "npm-run-all --parallel serveDev lint:watch",
     "prod": "npm-run-all clearAssets buildHtml serveProd",
     "clearAssets": "babel-node tools/clearAssets.js",
