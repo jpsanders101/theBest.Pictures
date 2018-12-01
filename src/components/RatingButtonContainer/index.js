@@ -5,13 +5,15 @@ import RatingButton from '../RatingButton';
 export default class RatingButtonContainer extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       highlightButtonsUpto: 0,
       clicked: false
     };
+
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleRatingClick = this.handleRatingClick.bind(this);
   }
 
   handleMouseEnter(e) {
@@ -29,7 +31,7 @@ export default class RatingButtonContainer extends React.Component {
     }
   }
 
-  handleOnClick(e) {
+  handleRatingClick(e) {
     e.preventDefault();
     this.setState({
       highlightButtonsUpto: e.target.value,
@@ -46,7 +48,7 @@ export default class RatingButtonContainer extends React.Component {
         <RatingButton
           key={buttonCount}
           value={buttonCount}
-          onClick={this.handleOnClick}
+          onClick={this.handleRatingClick}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
           highlighted={highlighted}
