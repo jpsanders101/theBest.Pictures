@@ -1,6 +1,7 @@
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
+import colors from 'colors';
 require('./startMessage.js');
 
 /* eslint-disable no-console */
@@ -21,12 +22,14 @@ webpack(config).run((err, stats) => {
 
 app.use(express.static('dist'));
 
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-app.listen(port, function(err) {
+app.listen(port, function (err) {
   if (err) {
     console.log(err);
+  } else {
+    console.log(`Now listening on PORT ${port}`.bgGreen)
   }
 });
