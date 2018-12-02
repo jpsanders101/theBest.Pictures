@@ -4,7 +4,7 @@
   position: absolute;
   right: 15px;
   top: 15px;
-  height: 20px;
+  height: 15px;
 }
 .movie-item__marker--seen-false {
   color: grey;
@@ -12,6 +12,11 @@
 }
 .movie-item__marker--seen-true {
   color: green;
-  border: solid 3px;
   background-color: lightgreen;
+}
+
+@media (min-width: @xs-breakpoint) {
+  .movie-item__marker {
+    height: 20px;
+  }
 }

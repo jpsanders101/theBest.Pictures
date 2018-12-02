@@ -22,6 +22,7 @@
   border-color: gold;
   background-color: lightgray;
   display: flex;
+  font-size: 0.7em;
 }
 
 .movie-list__movie-item:hover {
@@ -30,7 +31,7 @@
 }
 
 .movie-list__title {
-  width: 130px;
+  width: 70px;
   color: black;
   position: absolute;
   top: 15px; 
@@ -47,10 +48,14 @@
   .movie-list__movie-item {
     width: @movie-item-width * 0.95;
     height: @movie-item-height * 0.95;
+    font-size: 1em;
   }
 
   .movie-list__movie-item:hover {
     width: @movie-item-width;
     height: @movie-item-height;
+  }
+  .movie-list__title {
+    width: 130px;
   }
 }
