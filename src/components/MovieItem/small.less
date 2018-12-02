@@ -1,23 +1,32 @@
 @movie-item-width: 200px;
 @movie-item-height: 282px;
 
+.movie-list__movie-item-container {
+  width: @movie-item-width;
+  height: @movie-item-height;
+  padding: 5px;
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .movie-list__movie-item {
   transition-property: height, width;
   transition-duration: 0.25s;
-  width: @movie-item-width;
-  height: @movie-item-height;
+  width: @movie-item-width * 0.95;
+  height: @movie-item-height * 0.95;
   border: 5px;
   border-style: solid;
   border-color: gold;
   background-color: lightgray;
-  padding: 5px;
-  margin: 20px 20px;
   display: flex;
 }
 
 .movie-list__movie-item:hover {
-  width: @movie-item-width * 1.05;
-  height: @movie-item-height * 1.05;
+  width: @movie-item-width;
+  height: @movie-item-height;
 }
 
 .movie-list__title {
