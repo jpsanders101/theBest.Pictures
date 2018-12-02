@@ -19,12 +19,18 @@ webpack(config).run((err, stats) => {
   }
   console.log('Finished building assets');
 });
+app.get('*.js', (req, res, next) => {
+  req.url = `${req.url}.gz`;
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 
 app.use(express.static('dist'));
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
+
 
 app.listen(port, function (err) {
   if (err) {
