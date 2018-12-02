@@ -2,10 +2,9 @@
 @movie-item-height: 282px;
 
 .movie-list__movie-item-container {
-  width: @movie-item-width;
-  height: @movie-item-height;
+  width: @movie-item-width * 0.7;
+  height: @movie-item-height * 0.7;
   padding: 5px;
-  margin: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,8 +15,8 @@
 .movie-list__movie-item {
   transition-property: height, width;
   transition-duration: 0.25s;
-  width: @movie-item-width * 0.95;
-  height: @movie-item-height * 0.95;
+  width: @movie-item-width * 0.95 * 0.7;
+  height: @movie-item-height * 0.95 * 0.7;
   border: 5px;
   border-style: solid;
   border-color: gold;
@@ -26,8 +25,8 @@
 }
 
 .movie-list__movie-item:hover {
-  width: @movie-item-width;
-  height: @movie-item-height;
+  width: @movie-item-width * 0.7;
+  height: @movie-item-height * 0.7;
 }
 
 .movie-list__title {
@@ -36,4 +35,22 @@
   position: absolute;
   top: 15px; 
   left: 15px;
+}
+
+@media (min-width: @xs-breakpoint) {
+  .movie-list__movie-item-container {
+    width: @movie-item-width;
+    height: @movie-item-height;
+    margin: 5px;
+  }
+
+  .movie-list__movie-item {
+    width: @movie-item-width * 0.95;
+    height: @movie-item-height * 0.95;
+  }
+
+  .movie-list__movie-item:hover {
+    width: @movie-item-width;
+    height: @movie-item-height;
+  }
 }
