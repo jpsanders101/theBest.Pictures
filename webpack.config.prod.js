@@ -32,7 +32,7 @@ export default {
     new CompressionPlugin({
       filename: "[path].gz[query]",
       algorithm: "gzip",
-      test: /\.js$|\.css$|\.html$/,
+      test: /\.js$|\.css$/,
       minRatio: 0.8
     })
   ],
