@@ -5,6 +5,6 @@ import { shallow } from 'enzyme';
 describe('About', () => {
   it('SHOULD render the About page', () => {
     const wrapper = shallow(<About />);
-    expect(wrapper.contains(<h1>About</h1>)).toBe(true);
+    expect(wrapper.exists('.about-page__heading')).toBe(true);
   });
 });
