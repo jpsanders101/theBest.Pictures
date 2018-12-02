@@ -19,7 +19,8 @@ webpack(config).run((err, stats) => {
   }
   console.log('Finished building assets');
 });
-app.get('*.js', (req, res, next) => {
+
+app.get(['*.js', '*.css'], (req, res, next) => {
   req.url = `${req.url}.gz`;
   res.set('Content-Encoding', 'gzip');
   next();
