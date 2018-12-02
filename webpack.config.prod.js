@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 export default {
   mode: 'production',
@@ -15,6 +17,13 @@ export default {
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     noInfo: false
+  },
+  optimization: {
+    minimizer: [new UglifyJsPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: true
+    }), new OptimizeCSSAssetsPlugin({})]
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({ debug: true }),
