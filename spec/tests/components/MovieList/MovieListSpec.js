@@ -11,12 +11,12 @@ const MovieList = proxyquire('../../../../src/components/MovieList', {
   '../MovieItem': mockMovieItem
 }).default;
 
-describe('MovieList', () => {
+fdescribe('MovieList', () => {
   let props, wrapper, moviesProp;
   describe('GIVEN there are unseen pictures', () => {
     beforeEach(() => {
       moviesProp = moviesData.map(movie => {
-        return Object.assign({}, movie);
+        return { ...movie };
       });
       moviesProp[0].seen = true;
 
@@ -35,7 +35,7 @@ describe('MovieList', () => {
   describe('GIVEN there are no unseen pictures', () => {
     beforeEach(() => {
       moviesProp = moviesData.map(movie => {
-        return Object.assign({}, movie);
+        return { ...movie };
       });
       moviesProp[0].seen = true;
       moviesProp[1].seen = true;

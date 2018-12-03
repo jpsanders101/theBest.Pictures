@@ -19,21 +19,24 @@ class ReviewForm extends React.Component {
   }
 
   handleReviewChange(e) {
-    let state = Object.assign({}, this.state, { review: e.target.value });
+    let state = { ...this.state, ...{ review: e.target.value } };
     this.setState(state);
   }
 
   handleReviewSubmit(e) {
     e.preventDefault();
-    const review = Object.assign({}, this.state, {
-      releaseYear: this.props.movie.releaseYear
-    });
+    const review = {
+      ...this.state,
+      ...{
+        releaseYear: this.props.movie.releaseYear
+      }
+    };
     // TODO: DON'T PASS ACTIONS AS PROPS
     this.props.actions.saveReview(review);
   }
 
   handleRatingClick(rating) {
-    let state = Object.assign({}, this.state, { rating });
+    let state = { ...this.state, ...{ rating } };
     this.setState(state);
   }
 

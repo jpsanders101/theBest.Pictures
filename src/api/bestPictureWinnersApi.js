@@ -13,13 +13,13 @@ class bestPictureWinnersApi {
   static getAllMovies() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assign([], movies));
+        resolve([...moves]);
       }, delay);
     });
   }
 
   static saveReview(review) {
-    review = Object.assign({}, review);
+    review = { ...review };
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation

@@ -11,7 +11,7 @@ const movielistReducer = proxyquire('../../../src/reducers/movielistReducer', {
 }).default;
 
 const actionMovies = moviesData.map(movie => {
-  return Object.assign({}, movie);
+  return { ...movie };
 });
 
 describe('movielistReducer', () => {
