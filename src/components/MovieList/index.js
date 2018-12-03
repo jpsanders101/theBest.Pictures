@@ -60,8 +60,8 @@ export default class MovieList extends React.Component {
         <div className="next-up__movie-item">{nextUp.name}</div>
       </div>
     ) : (
-        ''
-      );
+      ''
+    );
   }
 
   handleFilterClick(e) {

@@ -20,18 +20,21 @@ export default {
     noInfo: false
   },
   optimization: {
-    minimizer: [new UglifyJsPlugin({
-      cache: true,
-      parallel: true,
-      sourceMap: true
-    }), new OptimizeCSSAssetsPlugin({})]
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({ debug: true }),
     new MiniCssExtractPlugin({ filename: 'style.css' }),
     new CompressionPlugin({
-      filename: "[path].gz[query]",
-      algorithm: "gzip",
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
       test: /\.js$|\.css$/,
       minRatio: 0.8
     })

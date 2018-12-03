@@ -28,14 +28,14 @@ app.get(['*.js', '*.css'], (req, res, next) => {
 
 app.use(express.static('dist'));
 
-app.get('*', function (req, res) {
+app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-app.listen(port, function (err) {
+app.listen(port, function(err) {
   if (err) {
     console.log(err);
   } else {
-    console.log(`Now listening on PORT ${port}`.bgGreen)
+    console.log(`Now listening on PORT ${port}`.bgGreen);
   }
 });
