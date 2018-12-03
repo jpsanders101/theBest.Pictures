@@ -52,12 +52,11 @@ MoviePage.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  let movie = Object.assign(
-    {},
-    state.movies.find(
+  let movie = {
+    ...state.movies.find(
       movie => movie.releaseYear === parseInt(ownProps.match.params.id)
     )
-  );
+  };
   return {
     movie: movie,
     isLoading: state.ajaxCalls > 0
