@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import RatingButtonContainer from '../RatingButtonContainer';
 import { connect } from 'react-redux';
 import LoadingButton from '../LoadingButton';
+import { saveReview } from '../../actions/movielistActions.js';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -31,8 +32,7 @@ class ReviewForm extends React.Component {
         releaseYear: this.props.movie.releaseYear
       }
     };
-    // TODO: DON'T PASS ACTIONS AS PROPS
-    this.props.actions.saveReview(review);
+    this.props.saveReview(review);
   }
 
   handleRatingClick(rating) {
@@ -81,7 +81,8 @@ const mapStateToProps = state => ({
 ReviewForm.propTypes = {
   actions: PropTypes.object,
   movie: PropTypes.object,
-  errorState: PropTypes.bool.isRequired
+  errorState: PropTypes.bool.isRequired,
+  saveReview: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps)(ReviewForm);
+export default connect(mapStateToProps, { saveReview })(ReviewForm);

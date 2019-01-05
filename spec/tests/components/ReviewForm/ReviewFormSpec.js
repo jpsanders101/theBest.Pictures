@@ -7,6 +7,7 @@ import { reviewData } from '../../../data';
 describe('ReviewForm', () => {
   let wrapper;
   let saveReviewSpy;
+  let props;
   const {
     review: MOVIE_REVIEW,
     name: MOVIE_NAME,
@@ -14,20 +15,23 @@ describe('ReviewForm', () => {
     releaseYear: RELEASE_YEAR
   } = reviewData;
   const ReviewForm = WrappedReviewForm.WrappedComponent;
+
   beforeEach(() => {
     saveReviewSpy = jasmine
       .createSpy('saveReview')
       .and.returnValue({ catch: jasmine.createSpy() });
-    const props = {
-      actions: { saveReview: saveReviewSpy },
+    props = {
+      saveReview: saveReviewSpy,
       movie: { review: '', name: MOVIE_NAME, releaseYear: RELEASE_YEAR },
       errorState: false
     };
     wrapper = shallow(<ReviewForm {...props} />);
   });
+
   it('SHOULD display the movie title', () => {
     expect(wrapper.text()).toContain(MOVIE_NAME);
   });
+
   describe('GIVEN there is no review for the current movie', () => {
     it('SHOULD render a button which displays "Save"', () => {
       expect(
@@ -40,17 +44,14 @@ describe('ReviewForm', () => {
   });
   describe('GIVEN a user has already submitted a review', () => {
     beforeEach(() => {
-      const props = {
-        actions: { saveReview: saveReviewSpy },
-        movie: {
-          review: MOVIE_REVIEW,
-          name: MOVIE_NAME,
-          releaseYear: RELEASE_YEAR
-        },
-        errorState: false
-      };
+      props.movie = {
+        review: MOVIE_REVIEW,
+        name: MOVIE_NAME,
+        releaseYear: RELEASE_YEAR
+      }
       wrapper = shallow(<ReviewForm {...props} />);
     });
+
     it('SHOULD render a button which displays "Update"', () => {
       expect(
         wrapper
@@ -59,24 +60,18 @@ describe('ReviewForm', () => {
           .props().value
       ).toEqual('Update');
     });
-  });
-  describe('GIVEN there has been an error  while submitting the review', () => {
-    beforeEach(() => {
-      const props = {
-        actions: { saveReview: saveReviewSpy },
-        movie: {
-          review: MOVIE_REVIEW,
-          name: MOVIE_NAME,
-          releaseYear: RELEASE_YEAR
-        },
-        errorState: true
-      };
-      wrapper = shallow(<ReviewForm {...props} />);
-    });
-    it('SHOULD display an error message', () => {
-      expect(wrapper.find('.review-form__error-message').length).toEqual(1);
+    describe('AND GIVEN there has been an error while submitting the review', () => {
+      beforeEach(() => {
+
+        props.errorState = true;
+        wrapper = shallow(<ReviewForm {...props} />);
+      });
+      it('SHOULD display an error message', () => {
+        expect(wrapper.find('.review-form__error-message').length).toEqual(1);
+      });
     });
   });
+
   describe('GIVEN a user has clicked a rating button', () => {
     beforeEach(() => {
       wrapper.instance().handleRatingClick(MOVIE_RATING);
