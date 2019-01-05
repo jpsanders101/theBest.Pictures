@@ -19,7 +19,7 @@ webpack(config).run((err, stats) => {
     if (err || stats.hasErrors()) {
         console.log(err || stats);
     }
-    console.log('Finished building assets');
+    console.log('Finished building assets. TheBest.Pcitures is ready to view.');
 });
 
 app.get(['*.js', '*.css'], (req, res, next) => {
@@ -34,7 +34,6 @@ app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-//TODO: should only start listening after assets have finished being built
 app.listen(port, function (err) {
     if (err) {
         console.log(err);
