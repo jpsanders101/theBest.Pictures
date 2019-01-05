@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem';
 import FilterPanel from '../FilterPanel';
+import { connect } from 'react-redux';
+import { markAsSeen } from '../../actions/movielistActions';
 
-export default class MovieList extends React.Component {
+
+class MovieList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,7 +24,7 @@ export default class MovieList extends React.Component {
       return movie.name === movieName;
     });
     movieList[index].seen = true;
-    this.props.actions.markAsSeen(movieList);
+    this.props.markAsSeen(movieList);
   }
 
   renderMovieList() {
@@ -60,8 +63,8 @@ export default class MovieList extends React.Component {
         <div className="next-up__movie-item">{nextUp.name}</div>
       </div>
     ) : (
-      ''
-    );
+        ''
+      );
   }
 
   handleFilterClick(e) {
@@ -90,6 +93,8 @@ export default class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-  actions: PropTypes.object.isRequired,
+  markAsSeen: PropTypes.func.isRequired,
   movies: PropTypes.array.isRequired
 };
+
+export default connect(undefined, { markAsSeen })(MovieList);

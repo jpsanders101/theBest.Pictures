@@ -9,7 +9,7 @@ const mockMovieItem = props => <div>MovieItem</div>;
 
 const MovieList = proxyquire('../../../../src/components/MovieList', {
   '../MovieItem': mockMovieItem
-}).default;
+}).default.WrappedComponent;
 
 describe('MovieList', () => {
   let props, wrapper, moviesProp;
@@ -21,7 +21,7 @@ describe('MovieList', () => {
       moviesProp[0].seen = true;
 
       props = {
-        actions: {},
+        markAsSeen: () => { },
         movies: moviesProp
       };
       wrapper = shallow(<MovieList {...props} />);
@@ -41,7 +41,7 @@ describe('MovieList', () => {
       moviesProp[1].seen = true;
       moviesProp[2].seen = true;
       props = {
-        actions: {},
+        markAsSeen: () => { },
         movies: moviesProp
       };
       wrapper = shallow(<MovieList {...props} />);
