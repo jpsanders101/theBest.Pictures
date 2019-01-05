@@ -6,9 +6,7 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "prestart": "npm-run-all clearAssets transpileStartMessage && node dist/tools/startMessage.js",
-    "transpileStartMessage": "babel tools/startMessage.js -d dist/tools",
-    "transpileBuildHtml": "babel tools/buildHtml.js -d dist/tools",
+    "build": "NODE_ENV=production node tools/buildServer.js",
     "start": "npm run dev",
     "dev": "npm-run-all --parallel serveDev lint:watch",
     "prod": "npm-run-all clearAssets transpileBuildHtml buildHtml serveProd",

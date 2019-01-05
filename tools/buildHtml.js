@@ -1,5 +1,5 @@
-import fs from 'fs';
-import cheerio from 'cheerio';
+const fs = require('fs');
+const cheerio = require('cheerio');
 
 fs.readFile('src/index.html', 'utf-8', (error, markup) => {
   if (error) {
