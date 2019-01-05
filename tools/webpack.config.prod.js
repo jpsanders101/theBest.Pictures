@@ -16,10 +16,6 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: { //TODO: don't think this is needed for production build
-    contentBase: path.resolve(__dirname, '../dist'),
-    noInfo: false
-  },
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
