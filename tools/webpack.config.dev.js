@@ -1,22 +1,18 @@
-import webpack from 'webpack';
-import path from 'path';
+const webpack = require('webpack');
+const path = require('path');
 
-export default {
+module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
-    path.resolve(__dirname, 'src/index')
+    path.resolve(__dirname, '../src/index')
   ],
   target: 'web',
   output: {
-    path: __dirname + '/dist',
+    path: __dirname,
     publicPath: '/',
     filename: 'bundle.js'
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'src'),
-    noInfo: false
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -27,7 +23,7 @@ export default {
     rules: [
       {
         test: /\.js$/,
-        include: path.join(__dirname, 'src'),
+        include: path.join(__dirname, '../src'),
         loaders: ['babel-loader']
       },
       {
