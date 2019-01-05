@@ -1,24 +1,10 @@
 const express = require('express');
 const webpack = require('webpack');
 const path = require('path');
-const colors = require('colors');
-const { PRODUCTION } = require('./envConstants.js');
 
 /* eslint-disable no-console */
 
-const nodeEnv = process.env.NODE_ENV;
-
-if (nodeEnv !== PRODUCTION) {
-    throw Error('buildServer.js should only be used in "production" mode');
-}
-
-console.log(
-    'Starting'.green,
-    'TheBest.Pictures'.green.bold,
-    'in'.green,
-    nodeEnv,
-    'mode...'.green
-);
+require('./startMessage');
 
 const config = require('./webpack.config.prod');
 
