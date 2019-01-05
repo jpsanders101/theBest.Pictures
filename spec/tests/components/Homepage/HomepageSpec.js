@@ -5,9 +5,9 @@ import proxyquire from 'proxyquire';
 
 proxyquire.noCallThru();
 
-const spinnerMock = props => {};
-const movieListMock = props => {};
-const progressBarMock = props => {};
+const spinnerMock = props => { };
+const movieListMock = props => { };
+const progressBarMock = props => { };
 
 const ConnectedHomepage = proxyquire('../../../../src/components/Homepage', {
   '../MovieList': movieListMock,
@@ -66,21 +66,6 @@ describe('Connected Homepage', () => {
       });
     });
   });
-  describe('#mapDispatchToProps', () => {
-    const expectedActionCreators = [
-      'markAsSeen',
-      'loadMoviesSuccess',
-      'loadMovies',
-      'saveReviewSuccess',
-      'saveReview'
-    ];
-    expectedActionCreators.forEach(actionCreator => {
-      it(`passes ${actionCreator} to props`, () => {
-        const actionCreators = Object.keys(props.actions);
-        expect(actionCreators).toContain(actionCreator);
-      });
-    });
-  });
 });
 describe('Homepage', () => {
   let props, wrapper, Homepage;
@@ -89,7 +74,6 @@ describe('Homepage', () => {
       props = {
         isLoading: true,
         movies: [{ seen: true }],
-        actions: {}
       };
       Homepage = ConnectedHomepage.WrappedComponent;
       wrapper = shallow(<Homepage {...props} />);
@@ -106,7 +90,6 @@ describe('Homepage', () => {
       props = {
         isLoading: false,
         movies: [{ seen: true }, { seen: false }],
-        actions: {}
       };
       Homepage = ConnectedHomepage.WrappedComponent;
       wrapper = shallow(<Homepage {...props} />);
