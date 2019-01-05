@@ -6,10 +6,9 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "build": "NODE_ENV=production node tools/buildServer.js",
+    "prod": "NODE_ENV=production node tools/prodServer.js",
     "dev": "run-p serveDev lint:watch",
     "start": "npm run dev",
-    "prod": "npm-run-all clearAssets transpileStart serveProd",
     "serveDev": "NODE_ENV=development node tools/devServer.js",
     "lint": "node_modules/.bin/esw src tools",
     "lint:watch": "npm run lint -- --watch",
