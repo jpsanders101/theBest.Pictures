@@ -8,7 +8,14 @@ export const getMovies = () => {
             res.on('data', chunk => {
                 moviesData += chunk;
             }).on('end', () => {
-                resolve(JSON.parse(moviesData));
+                try {
+                    const parsedData = JSON.parse(moviesData);
+                    resolve(parsedData);
+                } catch (e) {
+                    reject(e);
+                }
+            }).on('error', e => {
+                reject(e);
             });
         });
     });
