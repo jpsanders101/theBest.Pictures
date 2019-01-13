@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProgressBar from '../ProgressBar';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Spinner from '../Spinner';
+import BasePage from '../BasePage';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -20,19 +20,21 @@ class Homepage extends React.Component {
   render() {
     const { isLoading, movies } = this.props;
     return (
-      <div>
-        {isLoading ? (
-          <Spinner />
-        ) : (
-            <div className="homepage">
-              <h1 className="homepage__heading">
-                How many winners of the Oscar for Best Picture have you seen?
+      <BasePage>
+        <div>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+              <div className="homepage">
+                <h1 className="homepage__heading">
+                  How many winners of the Oscar for Best Picture have you seen?
             </h1>
-              <ProgressBar progress={this.calculateProgress(movies)} />
-              <MovieList movies={movies} />
-            </div>
-          )}
-      </div>
+                <ProgressBar progress={this.calculateProgress(movies)} />
+                <MovieList movies={movies} />
+              </div>
+            )}
+        </div>
+      </BasePage>
     );
   }
 }

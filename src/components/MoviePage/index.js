@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as movielistActions from '../../actions/movielistActions';
 import { bindActionCreators } from 'redux';
 import Spinner from '../Spinner';
+import BasePage from '../BasePage';
 
 class MoviePage extends React.Component {
   constructor(props) {
@@ -13,34 +14,34 @@ class MoviePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <BasePage><div>
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-          <div className="movie-page_content">
-            <h1 className="movie-page__heading">
-              {this.props.movie.name}{' '}
-              <span className="movie-page__year">
-                {`(${this.props.movie.releaseYear})`}
-              </span>
-            </h1>
-            <div className="movie-page">
-              <div className="movie-page__details-section">
-                <p>{this.props.movie.synopsis}</p>
-                {this.props.movie.review && (
-                  <div className="movie-page_review">
-                    Your review: {this.props.movie.review}
-                  </div>
-                )}
+            <div className="movie-page_content">
+              <h1 className="movie-page__heading">
+                {this.props.movie.name}{' '}
+                <span className="movie-page__year">
+                  {`(${this.props.movie.releaseYear})`}
+                </span>
+              </h1>
+              <div className="movie-page">
+                <div className="movie-page__details-section">
+                  <p>{this.props.movie.synopsis}</p>
+                  {this.props.movie.review && (
+                    <div className="movie-page_review">
+                      Your review: {this.props.movie.review}
+                    </div>
+                  )}
+                </div>
+                <ReviewSection
+                  movie={this.props.movie}
+                  actions={this.props.actions}
+                />
               </div>
-              <ReviewSection
-                movie={this.props.movie}
-                actions={this.props.actions}
-              />
             </div>
-          </div>
-        )}
-      </div>
+          )}
+      </div></BasePage>
     );
   }
 }
