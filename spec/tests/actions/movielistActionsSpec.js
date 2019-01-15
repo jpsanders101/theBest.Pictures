@@ -13,13 +13,12 @@ const beginAjaxCallSpy = jasmine.createSpy('beginAjaxCallSpy');
 const endAjaxCallSpy = jasmine.createSpy('endAjaxCallSpy');
 const saveReviewSpy = jasmine.createSpy('saveReviewSpy');
 const dispatchSpy = jasmine.createSpy('dispatchSpy');
-const getAllMoviesSpy = jasmine.createSpy('getAllMovies');
+const getMoviesSpy = jasmine.createSpy('getMoviesSpy');
 const removeErrorStateSpy = jasmine.createSpy('removeErrorStateSpy');
 const setErrorStateSpy = jasmine.createSpy('setErrorState');
 
 const bestPictureWinnersApiSpy = {
-  saveReview: saveReviewSpy,
-  getAllMovies: getAllMoviesSpy
+  saveReview: saveReviewSpy
 };
 
 const { markAsSeen, loadMovies, saveReview } = proxyquire(
@@ -33,7 +32,8 @@ const { markAsSeen, loadMovies, saveReview } = proxyquire(
     './appActions': {
       removeErrorState: removeErrorStateSpy,
       setErrorState: setErrorStateSpy
-    }
+    },
+    '../requests/get-movies': { getMovies: getMoviesSpy }
   }
 );
 
@@ -47,7 +47,7 @@ describe('markAsSeen', () => {
 describe('loadMovies', () => {
   describe('GIVEN the call to the API was successful', () => {
     beforeEach(() => {
-      getAllMoviesSpy.and.callFake(() => {
+      getMoviesSpy.and.callFake(() => {
         return Promise.resolve(moviesData);
       });
       mockBeginAjaxCallAction = { type: 'BEGIN_AJAX_CALL', ajaxCalls: 1 };
@@ -80,10 +80,12 @@ describe('loadMovies', () => {
   });
   describe('GIVEN the call to the API threw an error', () => {
     beforeEach(() => {
-      getAllMoviesSpy.and.callFake(() => {
+      getMoviesSpy.and.callFake(() => {
         return Promise.reject('API reject error');
       });
-      loadMovies()(dispatchSpy).catch(error => (caughtError = error));
+      loadMovies()(dispatchSpy).catch(error => {
+        (caughtError = error)
+      });
     });
     it('SHOULD throw an error', done => {
       setImmediate(() => {
