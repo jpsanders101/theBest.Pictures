@@ -11,7 +11,7 @@ const MovieList = proxyquire('../../../../src/components/MovieList', {
   '../MovieItem': mockMovieItem
 }).default.WrappedComponent;
 
-fdescribe('MovieList', () => {
+describe('MovieList', () => {
   let props, wrapper, moviesProp;
   describe('GIVEN there are unseen pictures', () => {
     beforeEach(() => {
