@@ -1,7 +1,12 @@
 import * as types from '../actions/constants';
-import initialState from './initialState';
+import cookie from 'cookie';
 
-export default (state = initialState.app, action) => {
+const initialState = {
+  errorState: false,
+  showLandingPage: !cookie.parse(document.cookie).seen_landing
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case types.SET_ERROR_STATE:
       return { ...state, errorState: true };
