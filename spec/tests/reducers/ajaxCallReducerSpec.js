@@ -1,6 +1,6 @@
 import ajaxCallReducer from '../../../src/reducers/ajaxCallReducer';
 
-describe('ajaxCallReducer', () => {
+describe('Ajax Call Reducer', () => {
   describe('GIVEN a BEGIN_AJAX_CALL action has been dispatched', () => {
     it('SHOULD return correctly updated state', () => {
       expect(

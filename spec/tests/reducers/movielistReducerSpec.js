@@ -14,7 +14,7 @@ const actionMovies = moviesData.map(movie => {
   return { ...movie };
 });
 
-describe('movielistReducer', () => {
+describe('Movie List Reducer', () => {
   describe('GIVEN a MARK_AS_SEEN action was dispatched', () => {
     it('SHOULD return correctly updated state', () => {
       expect(

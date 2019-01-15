@@ -1,8 +1,7 @@
 import * as types from '../actions/constants';
 import * as helpers from './helpers';
-import initialState from './initialState';
 
-export default (state = initialState.movies, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case types.MARK_AS_SEEN:
       return [...action.movies];
