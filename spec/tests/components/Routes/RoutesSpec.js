@@ -1,55 +1,33 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Route, Switch } from 'react-router-dom';
+import Routes from '../../../../src/components/Routes';
+import Homepage from '../../../../src/components/Homepage';
+import About from '../../../../src/components/About';
+import MoviePage from '../../../../src/components/MoviePage';
 
-import proxyquire from 'proxyquire';
-proxyquire.noCallThru();
 
-const mockRoute = props => {};
-const mockSwitch = props => {};
-const mockHeader = props => {};
-const mockHomepage = props => {};
-const mockAbout = props => {};
-const mockMoviePage = props => {};
-
-const Routes = proxyquire('../../../../src/components/Routes', {
-  'react-router-dom': {
-    Route: mockRoute,
-    Switch: mockSwitch
-  },
-  './Header': mockHeader,
-  './Homepage': mockHomepage,
-  './About': mockAbout,
-  './MoviePage': mockMoviePage
-}).default;
-
-describe('Routes', () => {
+describe('<Routes/>', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<Routes />);
   });
-  it('SHOULD render a route for the Header with no path argument', () => {
-    expect(
-      wrapper
-        .find(mockRoute)
-        .findWhere(route => route.props().component === mockHeader).length
-    ).toEqual(1);
+  it('SHOULD render <Switch/> with three <Routes/>', () => {
+    expect(wrapper.find(Switch).exists()).toBe(true)
   });
-  it('SHOULD render Routes inside a Switch with the correct paths', () => {
-    const routeData = [
-      { exact: true, path: '/', component: mockHomepage },
-      { exact: true, path: '/about', component: mockAbout },
-      { exact: undefined, path: '/movie/:id', component: mockMoviePage }
+  it('SHOULD render <Route /> components with correct props', () => {
+    const routeComponents = wrapper.find(Route);
+    const expectedRoutes = [
+      { exact: true, path: '/', component: Homepage },
+      { exact: true, path: '/about', component: About },
+      { exact: undefined, path: '/movie/:id', component: MoviePage }
     ];
-    const switchRoutes = wrapper
-      .find(mockSwitch)
-      .children()
-      .map(routeWrapper => {
-        return {
-          exact: routeWrapper.props().exact,
-          path: routeWrapper.props().path,
-          component: routeWrapper.props().component
-        };
-      });
-    expect(switchRoutes).toEqual(jasmine.arrayContaining(routeData));
-  });
+    routeComponents.forEach((routeComponent, nthRoute) => {
+      const expectedProps = expectedRoutes[nthRoute]
+      for (let prop in expectedProps) {
+        expect(routeComponent.props()[prop]).toEqual(expectedProps[prop]);
+      }
+    })
+
+  })
 });
