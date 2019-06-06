@@ -19,9 +19,9 @@ const LandingPage = props => {
   return (
     <div className="landing-page">
       <div className="landing-page__message">
-        <span className="landing-page__question">
+        <h1 className="landing-page__question">
           Do you like going to the pictures?
-        </span>
+        </h1>
       </div>
       <button
         className="landing-page__button"
