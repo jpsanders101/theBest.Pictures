@@ -1,0 +1,43 @@
+.landing-page {
+  background: no-repeat center/cover url('../../assets/images/clappers.gif'),
+    black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__message {
+    border-radius: 25px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    color: #efc514;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px black;
+  }
+  &__button {
+    margin-top: 100px;
+    border: solid #efc514;
+    background: #c9cacc80;
+    border-radius: 7px;
+    font-size: 3em;
+    padding: 10px 30px;
+
+    &:focus,
+    &:hover {
+      outline: none;
+      font-style: bold;
+      background: #efc520;
+    }
+
+    &:active {
+      background: #c9a92a;
+      border: solid #c9a92a;
+    }
+  }
+}

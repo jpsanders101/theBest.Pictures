@@ -18,7 +18,11 @@ const LandingPage = props => {
   };
   return (
     <div className="landing-page">
-      <div className="landing-page__message">Do you like movies?</div>
+      <div className="landing-page__message">
+        <span className="landing-page__question">
+          Do you like going to the pictures?
+        </span>
+      </div>
       <button
         className="landing-page__button"
         onClick={handleLandingButtonClick}
