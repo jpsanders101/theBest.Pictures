@@ -5,26 +5,19 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 
   &__message {
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
-  }
-  &__question {
-    color: #efc514;
+    margin: 0;
+    color: @gold-1;
     font-size: 1.5em;
     text-shadow: 1px 1px 2px black;
     font-weight: normal;
+    text-align: center;
   }
   &__button {
-    margin-top: 100px;
-    border: solid #efc514;
+    border: solid @gold-1;
     background: #c9cacc80;
     border-radius: 7px;
     font-size: 3em;
@@ -34,12 +27,12 @@
     &:hover {
       outline: none;
       font-style: bold;
-      background: #efc520;
+      background: @gold-1;
     }
 
     &:active {
-      background: #c9a92a;
-      border: solid #c9a92a;
+      background: @gold-2;
+      border: solid @gold-2;
     }
   }
 }
