@@ -1,6 +1,7 @@
 import React from 'react';
 import { dismissLandingPage } from '../../actions/appActions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -26,6 +27,10 @@ const LandingPage = props => {
       </button>
     </div>
   );
+};
+
+LandingPage.propTypes = {
+  dismissLandingPage: PropTypes.func.isRequired
 };
 
 export default connect(

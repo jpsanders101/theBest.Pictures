@@ -11,7 +11,7 @@ const wrapper = shallow(
 );
 import Proxyquire from 'proxyquire';
 
-fdescribe('<LandingPage />', () => {
+describe('<LandingPage />', () => {
   it('SHOULD render the landing page', () => {
     expect(wrapper.find('.landing-page').exists()).toBe(true);
   });
@@ -24,7 +24,7 @@ fdescribe('<LandingPage />', () => {
     it('SHOULD call the dismissLandingPage prop', () => {
       expect(dismissLandingPageSpy).toHaveBeenCalled();
     });
-    fit('SHOULD set the seen_landing cookie', () => {
+    it('SHOULD set the seen_landing cookie', () => {
       expect(global.document.cookie).toEqual('seen_landing=true');
     });
   });
