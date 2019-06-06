@@ -5,7 +5,6 @@ import FilterPanel from '../FilterPanel';
 import { connect } from 'react-redux';
 import { markAsSeen } from '../../actions/movielistActions';
 
-
 class MovieList extends React.Component {
   constructor(props) {
     super(props);
@@ -63,8 +62,8 @@ class MovieList extends React.Component {
         <div className="next-up__movie-item">{nextUp.name}</div>
       </div>
     ) : (
-        ''
-      );
+      ''
+    );
   }
 
   handleFilterClick(e) {
@@ -97,4 +96,7 @@ MovieList.propTypes = {
   movies: PropTypes.array.isRequired
 };
 
-export default connect(undefined, { markAsSeen })(MovieList);
+export default connect(
+  undefined,
+  { markAsSeen }
+)(MovieList);

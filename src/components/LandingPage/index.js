@@ -5,19 +5,30 @@ import { connect } from 'react-redux';
 const mapDispatchToProps = dispatch => {
   return {
     dismissLandingPage: () => {
-      dispatch(dismissLandingPage())
+      dispatch(dismissLandingPage());
     }
-  }
+  };
 };
-const LandingPage = (props) => {
+const LandingPage = props => {
   const handleLandingButtonClick = e => {
     e.preventDefault();
-    console.log(document);
     document.cookie = 'seen_landing=true';
     props.dismissLandingPage();
   };
-  return (<div className="landing-page"><div className="landing-page__message">Do you like movies?</div><button className="landing-page__button" onClick={handleLandingButtonClick}>Yes</button></div >)
-}
+  return (
+    <div className="landing-page">
+      <div className="landing-page__message">Do you like movies?</div>
+      <button
+        className="landing-page__button"
+        onClick={handleLandingButtonClick}
+      >
+        Yes
+      </button>
+    </div>
+  );
+};
 
-export default connect(() => ({}), mapDispatchToProps)(LandingPage);
-
+export default connect(
+  () => ({}),
+  mapDispatchToProps
+)(LandingPage);

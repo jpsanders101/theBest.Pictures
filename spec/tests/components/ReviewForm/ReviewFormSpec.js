@@ -48,7 +48,7 @@ describe('ReviewForm', () => {
         review: MOVIE_REVIEW,
         name: MOVIE_NAME,
         releaseYear: RELEASE_YEAR
-      }
+      };
       wrapper = shallow(<ReviewForm {...props} />);
     });
 
@@ -62,7 +62,6 @@ describe('ReviewForm', () => {
     });
     describe('AND GIVEN there has been an error while submitting the review', () => {
       beforeEach(() => {
-
         props.errorState = true;
         wrapper = shallow(<ReviewForm {...props} />);
       });

@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     case types.REMOVE_ERROR_STATE:
       return { ...state, errorState: false };
     case types.DISMISS_LANDING_PAGE:
-      return { ...state, showLandingPage: false }
+      return { ...state, showLandingPage: false };
     default:
       return state;
   }

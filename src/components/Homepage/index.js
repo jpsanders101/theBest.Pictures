@@ -25,14 +25,14 @@ class Homepage extends React.Component {
           {isLoading ? (
             <Spinner />
           ) : (
-              <div className="homepage">
-                <h1 className="homepage__heading">
-                  How many winners of the Oscar for Best Picture have you seen?
-            </h1>
-                <ProgressBar progress={this.calculateProgress(movies)} />
-                <MovieList movies={movies} />
-              </div>
-            )}
+            <div className="homepage">
+              <h1 className="homepage__heading">
+                How many winners of the Oscar for Best Picture have you seen?
+              </h1>
+              <ProgressBar progress={this.calculateProgress(movies)} />
+              <MovieList movies={movies} />
+            </div>
+          )}
         </div>
       </BasePage>
     );
@@ -44,13 +44,11 @@ Homepage.propTypes = {
   isLoading: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     isLoading: state.ajaxCalls > 0,
     movies: state.movies
   };
 };
 
-export default connect(
-  mapStateToProps
-)(Homepage);
+export default connect(mapStateToProps)(Homepage);

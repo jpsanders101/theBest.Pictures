@@ -21,7 +21,7 @@ describe('MovieList', () => {
       moviesProp[0].seen = true;
 
       props = {
-        markAsSeen: () => { },
+        markAsSeen: () => {},
         movies: moviesProp
       };
       wrapper = shallow(<MovieList {...props} />);
@@ -41,7 +41,7 @@ describe('MovieList', () => {
       moviesProp[1].seen = true;
       moviesProp[2].seen = true;
       props = {
-        markAsSeen: () => { },
+        markAsSeen: () => {},
         movies: moviesProp
       };
       wrapper = shallow(<MovieList {...props} />);

@@ -6,14 +6,13 @@ import Homepage from '../../../../src/components/Homepage';
 import About from '../../../../src/components/About';
 import MoviePage from '../../../../src/components/MoviePage';
 
-
 describe('<Routes/>', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<Routes />);
   });
   it('SHOULD render <Switch/> with three <Routes/>', () => {
-    expect(wrapper.find(Switch).exists()).toBe(true)
+    expect(wrapper.find(Switch).exists()).toBe(true);
   });
   it('SHOULD render <Route /> components with correct props', () => {
     const routeComponents = wrapper.find(Route);
@@ -23,11 +22,10 @@ describe('<Routes/>', () => {
       { exact: undefined, path: '/movie/:id', component: MoviePage }
     ];
     routeComponents.forEach((routeComponent, nthRoute) => {
-      const expectedProps = expectedRoutes[nthRoute]
+      const expectedProps = expectedRoutes[nthRoute];
       for (let prop in expectedProps) {
         expect(routeComponent.props()[prop]).toEqual(expectedProps[prop]);
       }
-    })
-
-  })
+    });
+  });
 });

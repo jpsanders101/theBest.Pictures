@@ -14,10 +14,11 @@ class MoviePage extends React.Component {
 
   render() {
     return (
-      <BasePage><div>
-        {this.props.isLoading ? (
-          <Spinner />
-        ) : (
+      <BasePage>
+        <div>
+          {this.props.isLoading ? (
+            <Spinner />
+          ) : (
             <div className="movie-page_content">
               <h1 className="movie-page__heading">
                 {this.props.movie.name}{' '}
@@ -41,7 +42,8 @@ class MoviePage extends React.Component {
               </div>
             </div>
           )}
-      </div></BasePage>
+        </div>
+      </BasePage>
     );
   }
 }

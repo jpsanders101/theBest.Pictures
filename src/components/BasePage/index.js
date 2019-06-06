@@ -9,12 +9,19 @@ class BasePage extends React.Component {
   }
 
   render() {
-    return this.props.showLandingPage ? <LandingPage /> : (<React.Fragment><Header /><main>{this.props.children}</main></React.Fragment>)
+    return this.props.showLandingPage ? (
+      <LandingPage />
+    ) : (
+      <React.Fragment>
+        <Header />
+        <main>{this.props.children}</main>
+      </React.Fragment>
+    );
   }
 }
 
 const mapStateToProps = state => ({
   showLandingPage: state.app.showLandingPage
-})
+});
 
 export default connect(mapStateToProps)(BasePage);

@@ -85,4 +85,7 @@ ReviewForm.propTypes = {
   saveReview: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, { saveReview })(ReviewForm);
+export default connect(
+  mapStateToProps,
+  { saveReview }
+)(ReviewForm);

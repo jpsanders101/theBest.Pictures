@@ -5,12 +5,17 @@ import React from 'react';
 Proxyquire.noCallThru();
 
 const document = {};
-const ConnectedLandingPage = Proxyquire('../../../../src/components/LandingPage', {}, { document, console: "hi" }).default;
+const ConnectedLandingPage = Proxyquire(
+  '../../../../src/components/LandingPage',
+  {},
+  { document, console: 'hi' }
+).default;
 const dismissLandingPageSpy = jasmine.createSpy('dismissLandingPageSpy');
 const LandingPage = ConnectedLandingPage.WrappedComponent;
-const wrapper = shallow(<LandingPage dismissLandingPage={dismissLandingPageSpy} />);
+const wrapper = shallow(
+  <LandingPage dismissLandingPage={dismissLandingPageSpy} />
+);
 import Proxyquire from 'proxyquire';
-
 
 fdescribe('<LandingPage />', () => {
   it('SHOULD render the landing page', () => {
@@ -18,7 +23,9 @@ fdescribe('<LandingPage />', () => {
   });
   describe('GIVEN the "Yes" button is clicked', () => {
     beforeEach(() => {
-      wrapper.find('.landing-page__button').simulate('click', { preventDefault: () => { } });
+      wrapper
+        .find('.landing-page__button')
+        .simulate('click', { preventDefault: () => {} });
     });
     it('SHOULD call the dismissLandingPage prop', () => {
       expect(dismissLandingPageSpy).toHaveBeenCalled();

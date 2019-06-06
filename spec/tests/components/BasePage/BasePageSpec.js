@@ -27,7 +27,9 @@ describe('BasePage', () => {
   describe('GIVEN showLandingPage is false', () => {
     it('SHOULD render main page content', () => {
       const shallowChildMock = <div className="shallowChildMock" />;
-      const wrapper = shallow(<BasePage showLandingPage={false} children={shallowChildMock} />);
+      const wrapper = shallow(
+        <BasePage showLandingPage={false} children={shallowChildMock} />
+      );
       expect(wrapper.find('main').exists()).toBe(true);
       expect(wrapper.find('.shallowChildMock').exists()).toBe(true);
     });

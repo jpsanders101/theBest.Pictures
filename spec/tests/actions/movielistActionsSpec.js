@@ -84,7 +84,7 @@ describe('loadMovies', () => {
         return Promise.reject('API reject error');
       });
       loadMovies()(dispatchSpy).catch(error => {
-        (caughtError = error)
+        caughtError = error;
       });
     });
     it('SHOULD throw an error', done => {

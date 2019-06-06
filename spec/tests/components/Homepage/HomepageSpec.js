@@ -5,9 +5,9 @@ import proxyquire from 'proxyquire';
 
 proxyquire.noCallThru();
 
-const spinnerMock = props => { };
-const movieListMock = props => { };
-const progressBarMock = props => { };
+const spinnerMock = props => {};
+const movieListMock = props => {};
+const progressBarMock = props => {};
 
 const ConnectedHomepage = proxyquire('../../../../src/components/Homepage', {
   '../MovieList': movieListMock,
@@ -73,7 +73,7 @@ describe('Homepage', () => {
     beforeEach(() => {
       props = {
         isLoading: true,
-        movies: [{ seen: true }],
+        movies: [{ seen: true }]
       };
       Homepage = ConnectedHomepage.WrappedComponent;
       wrapper = shallow(<Homepage {...props} />);
@@ -89,7 +89,7 @@ describe('Homepage', () => {
     beforeEach(() => {
       props = {
         isLoading: false,
-        movies: [{ seen: true }, { seen: false }],
+        movies: [{ seen: true }, { seen: false }]
       };
       Homepage = ConnectedHomepage.WrappedComponent;
       wrapper = shallow(<Homepage {...props} />);
