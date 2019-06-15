@@ -1,14 +1,8 @@
-@movie-item-width: 200px;
-@movie-item-height: 282px;
-
 .movie-list__movie-item-container {
   width: 100%;
-  height: @movie-item-height * 0.7;
+  height: 11em;
   padding: 5px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
 
   &:nth-child(2n - 1) {
@@ -25,10 +19,6 @@
 }
 
 @media (min-width: @xs-breakpoint) {
-  .movie-list__movie-item:hover {
-    width: @movie-item-width;
-    height: @movie-item-height;
-  }
   .movie-list__title {
     width: 130px;
   }
