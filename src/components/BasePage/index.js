@@ -14,7 +14,7 @@ class BasePage extends React.Component {
     ) : (
       <React.Fragment>
         <Header />
-        <main>{this.props.children}</main>
+        <main class="base-page">{this.props.children}</main>
       </React.Fragment>
     );
   }
