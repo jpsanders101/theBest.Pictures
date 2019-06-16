@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem';
-import FilterPanel from '../FilterPanel';
 import { connect } from 'react-redux';
 import { markAsSeen } from '../../actions/movielistActions';
 
 class MovieList extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      filter: 'none'
-    };
 
     this.handleMovieClick = this.handleMovieClick.bind(this);
     this.handleFilterClick = this.handleFilterClick.bind(this);
@@ -29,11 +24,11 @@ class MovieList extends React.Component {
   renderMovieList() {
     return this.props.movies
       .filter(movie => {
-        if (this.state.filter === 'none') {
+        if (this.props.filters.seen === 'none') {
           return true;
-        } else if (this.state.filter === 'seen') {
+        } else if (this.props.filters.seen === 'seen') {
           return movie.seen;
-        } else if (this.state.filter === 'unseen') {
+        } else if (this.props.filters.seen === 'unseen') {
           return !movie.seen;
         }
       })
@@ -49,7 +44,7 @@ class MovieList extends React.Component {
   }
 
   handleFilterClick(e) {
-    if (this.state.filter === e.target.dataset.filter) {
+    if (this.props.filters.seen === e.target.dataset.filter) {
       this.setState({ filter: 'none' });
     } else {
       this.setState({ filter: e.target.dataset.filter });
@@ -59,10 +54,6 @@ class MovieList extends React.Component {
   render() {
     return (
       <div className="movie-list__container">
-        <FilterPanel
-          filter={this.state.filter}
-          seenFilterOnClickHandler={this.handleFilterClick}
-        />
         <ul className="movie-list">{this.renderMovieList()}</ul>
       </div>
     );
@@ -70,11 +61,14 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
+  filters: PropTypes.shape.isRequired,
   markAsSeen: PropTypes.func.isRequired,
   movies: PropTypes.array.isRequired
 };
 
 export default connect(
-  undefined,
+  state => ({
+    filters: state.app.filters
+  }),
   { markAsSeen }
 )(MovieList);

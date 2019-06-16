@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
+import { applySeenFilter } from '../../actions/appActions';
 
-export default function Filter({
-  filter,
-  displayText,
-  seenFilterOnClickHandler,
-  isSelected
-}) {
+function Filter({ filter, displayText, isSelected, applySeenFilter }) {
+  const seenFilterOnClickHandler = e => {
+    applySeenFilter();
+  };
   return (
     <span
       className={classnames('movie-list_filter', {
@@ -27,3 +27,12 @@ Filter.propTypes = {
   seenFilterOnClickHandler: PropTypes.func.isRequired,
   isSelected: PropTypes.bool.isRequired
 };
+
+export default connect(
+  () => ({}),
+  (dispatch, ownProps) => ({
+    applySeenFilter: () => {
+      dispatch(applySeenFilter(ownProps.filter));
+    }
+  })
+)(Filter);
