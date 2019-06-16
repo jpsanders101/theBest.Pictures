@@ -5,7 +5,7 @@ import ProgressBar from '../ProgressBar';
 import { connect } from 'react-redux';
 import Spinner from '../Spinner';
 import BasePage from '../BasePage';
-import FilterPanel from '../FilterPanel';
+import SeenFilterPanel from '../SeenFilterPanel';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class Homepage extends React.Component {
               </h1>
               <div className="homepage__widgets">
                 <ProgressBar progress={this.calculateProgress(movies)} />
-                <FilterPanel />
+                <SeenFilterPanel />
               </div>
               <MovieList movies={movies} />
             </div>

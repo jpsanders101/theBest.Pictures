@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { applySeenFilter } from '../../actions/appActions';
 
-function Filter({ filter, displayText, isSelected, applySeenFilter }) {
+function SeenFilter({ filter, displayText, isSelected, applySeenFilter }) {
   const seenFilterOnClickHandler = e => {
     e.preventDefault();
     applySeenFilter(filter);
@@ -32,7 +32,7 @@ function Filter({ filter, displayText, isSelected, applySeenFilter }) {
   );
 }
 
-Filter.propTypes = {
+SeenFilter.propTypes = {
   filter: PropTypes.string.isRequired,
   displayText: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired
@@ -45,4 +45,4 @@ export default connect(
       dispatch(applySeenFilter(ownProps.filter));
     }
   })
-)(Filter);
+)(SeenFilter);
