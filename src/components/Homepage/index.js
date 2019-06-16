@@ -31,8 +31,10 @@ class Homepage extends React.Component {
                 There are 91 movies which have won the Oscar for Best Picture.
                 How many have you seen?
               </heading>
-              <ProgressBar progress={this.calculateProgress(movies)} />
-              <FilterPanel />
+              <div className="homepage__widgets">
+                <ProgressBar progress={this.calculateProgress(movies)} />
+                <FilterPanel />
+              </div>
               <MovieList movies={movies} />
             </div>
           )}
