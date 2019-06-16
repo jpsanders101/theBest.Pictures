@@ -9,31 +9,32 @@ function Filter({ filter, displayText, isSelected, applySeenFilter }) {
     e.preventDefault();
     applySeenFilter(filter);
   };
-  return [
-    <input
-      type="radio"
-      name="seen-filter"
-      id={`${filter}-filter`}
-      onClick={seenFilterOnClickHandler}
-      checked={isSelected}
-    />,
-    <label
-      for={`${filter}-filter`}
-      className={classnames('movie-list_filter', {
-        'movie-list__filter--selected': isSelected
-      })}
-      data-filter={filter}
-      onClick={seenFilterOnClickHandler}
-    >
-      {displayText}
-    </label>
-  ];
+  return (
+    <React.Fragment>
+      <input
+        type="radio"
+        name="seen-filter"
+        id={`${filter}-filter`}
+        onClick={seenFilterOnClickHandler}
+        checked={isSelected}
+      />
+      <label
+        htmlFor={`${filter}-filter`}
+        className={classnames('movie-list_filter', {
+          'movie-list__filter--selected': isSelected
+        })}
+        data-filter={filter}
+        onClick={seenFilterOnClickHandler}
+      >
+        {displayText}
+      </label>
+    </React.Fragment>
+  );
 }
 
 Filter.propTypes = {
   filter: PropTypes.string.isRequired,
   displayText: PropTypes.string.isRequired,
-  seenFilterOnClickHandler: PropTypes.func.isRequired,
   isSelected: PropTypes.bool.isRequired
 };
 

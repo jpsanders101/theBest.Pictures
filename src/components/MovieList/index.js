@@ -61,7 +61,7 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-  filters: PropTypes.shape.isRequired,
+  filters: PropTypes.shape({ seen: PropTypes.string }).isRequired,
   markAsSeen: PropTypes.func.isRequired,
   movies: PropTypes.array.isRequired
 };

@@ -27,10 +27,10 @@ class Homepage extends React.Component {
             <Spinner />
           ) : (
             <div className="homepage">
-              <heading className="homepage__heading">
+              <h1 className="homepage__heading">
                 There are 91 movies which have won the Oscar for Best Picture.
                 How many have you seen?
-              </heading>
+              </h1>
               <div className="homepage__widgets">
                 <ProgressBar progress={this.calculateProgress(movies)} />
                 <FilterPanel />
