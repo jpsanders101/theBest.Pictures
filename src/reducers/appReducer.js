@@ -18,7 +18,9 @@ export default (state = initialState, action) => {
     case types.DISMISS_LANDING_PAGE:
       return { ...state, showLandingPage: false };
     case types.APPLY_SEEN_FILTER:
-      return { ...state, filters: { ...state.filters, seen: action.value } };
+      const filter =
+        action.value === state.filters.seen ? 'none' : action.value;
+      return { ...state, filters: { ...state.filters, seen: filter } };
     default:
       return state;
   }
