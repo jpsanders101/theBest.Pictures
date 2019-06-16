@@ -27,7 +27,8 @@ class Homepage extends React.Component {
           ) : (
             <div className="homepage">
               <heading className="homepage__heading">
-                How many winners of the Oscar for Best Picture have you seen?
+                There are 91 movies which have won the Oscar for Best Picture.
+                How many have you seen?
               </heading>
               <ProgressBar progress={this.calculateProgress(movies)} />
               <MovieList movies={movies} />

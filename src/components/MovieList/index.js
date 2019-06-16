@@ -48,24 +48,6 @@ class MovieList extends React.Component {
       ));
   }
 
-  renderBottomFillers() {
-    return this.props.movies.map((movie, index) => (
-      <span key={index} className="movie-list__filler" />
-    ));
-  }
-
-  nextUp(movies) {
-    const nextUp = this.props.movies.find(movie => !movie.seen);
-    return nextUp ? (
-      <div className="next-up">
-        <h1 className="next-up__title">Next up...</h1>
-        <div className="next-up__movie-item">{nextUp.name}</div>
-      </div>
-    ) : (
-      ''
-    );
-  }
-
   handleFilterClick(e) {
     if (this.state.filter === e.target.dataset.filter) {
       this.setState({ filter: 'none' });
@@ -77,15 +59,11 @@ class MovieList extends React.Component {
   render() {
     return (
       <div className="movie-list__container">
-        {this.nextUp(this.props.movies)}
         <FilterPanel
           filter={this.state.filter}
           seenFilterOnClickHandler={this.handleFilterClick}
         />
-        <ul className="movie-list">
-          {this.renderMovieList()}
-          {this.renderBottomFillers()}
-        </ul>
+        <ul className="movie-list">{this.renderMovieList()}</ul>
       </div>
     );
   }
