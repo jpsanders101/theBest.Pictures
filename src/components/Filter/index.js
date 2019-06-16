@@ -6,10 +6,19 @@ import { applySeenFilter } from '../../actions/appActions';
 
 function Filter({ filter, displayText, isSelected, applySeenFilter }) {
   const seenFilterOnClickHandler = e => {
-    applySeenFilter();
+    e.preventDefault();
+    applySeenFilter(filter);
   };
-  return (
-    <span
+  return [
+    <input
+      type="radio"
+      name="seen-filter"
+      id={`${filter}-filter`}
+      onClick={seenFilterOnClickHandler}
+      checked={isSelected}
+    />,
+    <label
+      for={`${filter}-filter`}
       className={classnames('movie-list_filter', {
         'movie-list__filter--selected': isSelected
       })}
@@ -17,8 +26,8 @@ function Filter({ filter, displayText, isSelected, applySeenFilter }) {
       onClick={seenFilterOnClickHandler}
     >
       {displayText}
-    </span>
-  );
+    </label>
+  ];
 }
 
 Filter.propTypes = {
