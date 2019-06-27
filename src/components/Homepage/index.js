@@ -22,25 +22,23 @@ class Homepage extends React.Component {
     const { isLoading, movies } = this.props;
     return (
       <BasePage>
-        <div>
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <div className="homepage">
-              <div className="homepage__heading-section">
-                <h1 className="homepage__heading">
-                  There are 91 movies which have won the Oscar for Best Picture.
-                </h1>
-                <h2>How many have you seen?</h2>
-                <ProgressBar progress={this.calculateProgress(movies)} />
-              </div>
-              <div className="homepage__widgets">
-                <SeenFilterPanel />
-              </div>
-              <MovieList movies={movies} />
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="homepage">
+            <div className="homepage__heading-section">
+              <h1 className="homepage__heading">
+                There are 91 movies which have won the Oscar for Best Picture.
+              </h1>
+              <h2>How many have you seen?</h2>
+              <ProgressBar progress={this.calculateProgress(movies)} />
             </div>
-          )}
-        </div>
+            <div className="homepage__widgets">
+              <SeenFilterPanel />
+            </div>
+            <MovieList movies={movies} />
+          </div>
+        )}
       </BasePage>
     );
   }
