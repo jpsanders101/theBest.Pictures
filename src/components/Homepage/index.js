@@ -27,12 +27,14 @@ class Homepage extends React.Component {
             <Spinner />
           ) : (
             <div className="homepage">
-              <h1 className="homepage__heading">
-                There are 91 movies which have won the Oscar for Best Picture.
-                How many have you seen?
-              </h1>
-              <div className="homepage__widgets">
+              <div className="homepage__heading-container">
+                <h1 className="homepage__heading">
+                  There are 91 movies which have won the Oscar for Best Picture.
+                </h1>
+                <h2>How many have you seen?</h2>
                 <ProgressBar progress={this.calculateProgress(movies)} />
+              </div>
+              <div className="homepage__widgets">
                 <SeenFilterPanel />
               </div>
               <MovieList movies={movies} />
