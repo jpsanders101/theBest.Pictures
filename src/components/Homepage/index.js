@@ -27,14 +27,16 @@ class Homepage extends React.Component {
         ) : (
           <div className="homepage">
             <div className="homepage__heading-section">
-              <h1 className="homepage__heading">
-                There are 91 movies which have won the Oscar for Best Picture.
-              </h1>
-              <h2>How many have you seen?</h2>
-              <ProgressBar progress={this.calculateProgress(movies)} />
-            </div>
-            <div className="homepage__widgets">
-              <SeenFilterPanel />
+              <div className="homepage__title-section">
+                <h1 className="homepage__heading">
+                  There are 91 movies which have won the Oscar for Best Picture.
+                </h1>
+                <h2>How many have you seen?</h2>
+                <ProgressBar progress={this.calculateProgress(movies)} />
+              </div>
+              <div className="homepage__widget-section">
+                <SeenFilterPanel />
+              </div>
             </div>
             <MovieList movies={movies} />
           </div>
