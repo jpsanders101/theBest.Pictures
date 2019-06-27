@@ -6,18 +6,24 @@ import PropTypes from 'prop-types';
 function SeenFilterPanel({ seenFilter }) {
   return (
     <div className="filter-panel">
-      <span className="filter-panel__label">Filters</span>
-      <SeenFilter
-        filter="seen"
-        displayText="Seen"
-        isSelected={seenFilter === 'seen'}
-      />
-      |
-      <SeenFilter
-        filter="unseen"
-        displayText="Yet to See"
-        isSelected={seenFilter === 'unseen'}
-      />
+      <h3 className="filter-panel__heading">Search & Filter</h3>
+      <div className="filter-panel__seen-filters">
+        <SeenFilter
+          filter="seen"
+          displayText="Seen"
+          isSelected={seenFilter === 'seen'}
+        />
+        |
+        <SeenFilter
+          filter="unseen"
+          displayText="Yet to See"
+          isSelected={seenFilter === 'unseen'}
+        />
+      </div>
+      <select className="filter-panel__genre-select" />
+      <input className="filter-panel__search" type="text" />
+      <input className="filter-panel__date-range" type="range" />
+      <input className="filter-panel__date-range" type="range" />
     </div>
   );
 }

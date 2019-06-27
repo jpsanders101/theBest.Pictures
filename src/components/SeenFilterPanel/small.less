@@ -1,9 +1,30 @@
 .filter-panel {
   margin: 20px 10px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.filter-panel__label {
+.filter-panel__heading {
   font-weight: bold;
   padding: 10px;
   font-size: 1.2em;
+  width: 100%;
+}
+
+.filter-panel__seen-filters {
+  flex: 0.5;
+}
+
+.filter-panel__genre-select {
+  flex: 0.5;
+}
+
+.filter-panel__date-range {
+  width: calc(50% - 4px);
+}
+
+.filter-panel__search {
+  box-sizing: content-box;
+  width: 100%;
+  margin: 30px 20px;
 }
