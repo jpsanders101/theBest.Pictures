@@ -27,7 +27,7 @@ class Homepage extends React.Component {
             <Spinner />
           ) : (
             <div className="homepage">
-              <div className="homepage__heading-container">
+              <div className="homepage__heading-section">
                 <h1 className="homepage__heading">
                   There are 91 movies which have won the Oscar for Best Picture.
                 </h1>
