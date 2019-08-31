@@ -1,71 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import RatingButton from '../RatingButton';
 
-export default class RatingButtonContainer extends React.Component {
-  constructor(props) {
-    super(props);
+export default function RatingButtonContainer(props) {
+  const [highlightButtonsUpto, setHighlightButtonsUpto] = useState(0);
+  const [clicked, setClicked] = useState(false);
 
-    this.state = {
-      highlightButtonsUpto: 0,
-      clicked: false
-    };
-
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleRatingClick = this.handleRatingClick.bind(this);
-  }
-
-  handleMouseEnter(e) {
-    if (!this.state.clicked) {
-      this.setState({
-        highlightButtonsUpto: e.currentTarget.dataset.value,
-        clicked: false
-      });
+  const handleMouseEnter = e => {
+    if (!clicked) {
+      setHighlightButtonsUpto(e.currentTarget.dataset.value);
+      setClicked(false);
     }
-  }
+  };
 
-  handleMouseLeave(e) {
-    if (!this.state.clicked) {
-      this.setState({ highlightButtonsUpto: 0, clicked: false });
+  const handleMouseLeave = e => {
+    if (!clicked) {
+      setHighlightButtonsUpto(0);
+      setClicked(false);
     }
-  }
+  };
 
-  handleRatingClick(e) {
+  const handleRatingClick = e => {
     e.preventDefault();
-    this.setState({
-      highlightButtonsUpto: e.target.value,
-      clicked: e.target.value
-    });
-    this.props.handleRatingClick(e.target.value);
-  }
+    setHighlightButtonsUpto(e.target.value);
+    setClicked(e.target.value);
+    props.handleRatingClick(e.target.value);
+  };
 
-  renderButtons(buttonQuantity = 5) {
+  const renderButtons = (buttonQuantity = 5) => {
     const buttons = [];
     for (let buttonCount = 1; buttonCount <= buttonQuantity; buttonCount++) {
-      const highlighted = buttonCount <= this.state.highlightButtonsUpto;
+      const highlighted = buttonCount <= highlightButtonsUpto;
       buttons.push(
         <RatingButton
           key={buttonCount}
           value={buttonCount}
-          onClick={this.handleRatingClick}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
+          onClick={handleRatingClick}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           highlighted={highlighted}
-          clicked={this.state.clicked}
+          clicked={clicked}
         />
       );
     }
     return buttons;
-  }
-
-  render() {
-    return (
-      <div className="review-form__rating-buttons" id="rating">
-        {this.renderButtons()}
-      </div>
-    );
-  }
+  };
+  return (
+    <div className="review-form__rating-buttons" id="rating">
+      {renderButtons()}
+    </div>
+  );
 }
 
 RatingButtonContainer.propTypes = {
