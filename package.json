@@ -21,7 +21,7 @@
     "cookie": "^0.3.1",
     "express": "4.16.3",
     "prop-types": "^15.6.1",
-    "react": "^16.3.2",
+    "react": "^16.9.0",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
