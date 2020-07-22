@@ -6,10 +6,10 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "prod": "NODE_ENV=production node tools/prodServer.js",
+    "prod": "NODE_ENV=production node ./server",
     "dev": "run-p serveDev lint:watch",
     "start": "npm run dev",
-    "serveDev": "NODE_ENV=development node tools/devServer.js",
+    "serveDev": "NODE_ENV=development node ./server",
     "lint": "node_modules/.bin/esw src tools",
     "lint:watch": "npm run lint -- --watch",
     "test": "jasmine"

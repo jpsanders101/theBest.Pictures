@@ -8,7 +8,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
   mode: 'production',
   devtool: 'cheap-eval-source-map',
-  entry: path.resolve(__dirname, '../src/index'),
+  entry: path.resolve(__dirname, '../../src/index'),
   target: 'web',
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -39,7 +39,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.join(__dirname, '../src'),
+        include: path.join(__dirname, '../../src'),
         loaders: ['babel-loader']
       },
       {
