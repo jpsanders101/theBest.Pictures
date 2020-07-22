@@ -1,4 +1,5 @@
 import http from 'http';
+import { bestPictureWinners } from '../api/bestPictureWinners';
 
 export const getMovies = () => {
   return new Promise((resolve, reject) => {
@@ -22,3 +23,6 @@ export const getMovies = () => {
     });
   });
 };
+
+export const getMoviesLocal = () =>
+  new Promise(resolve => resolve(bestPictureWinners));
