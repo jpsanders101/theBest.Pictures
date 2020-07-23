@@ -9,8 +9,12 @@ module.exports = app => {
   require('./buildTools/buildHtml');
 
   webpack(config).run((err, stats) => {
-    if (err || stats.hasErrors()) {
-      console.log(err || stats);
+    if (err) {
+      console.log(err);
+    }
+    if (stats.hasErrors()) {
+      const info = stats.toJson();
+      console.log(info.errors);
     }
     console.log('Finished building assets. TheBest.Pictures is ready to view.');
   });

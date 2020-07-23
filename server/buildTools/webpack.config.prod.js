@@ -11,7 +11,7 @@ module.exports = {
   entry: path.resolve(__dirname, '../../src/index'),
   target: 'web',
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../../dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -47,7 +47,7 @@ module.exports = {
         loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|gif)$/,
         loader: 'file-loader'
       }
     ]
