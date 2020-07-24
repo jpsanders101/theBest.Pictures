@@ -6,7 +6,7 @@ fs.readFile('src/index.html', 'utf-8', (error, markup) => {
     console.log(error);
   }
   const $ = cheerio.load(markup);
-  $('head').prepend('<link rel="stylesheet" href="style.css">');
+  $('head').prepend('<link rel="stylesheet" href="/style.css">');
   if (!fs.existsSync('dist')) {
     fs.mkdirSync('dist');
   }
