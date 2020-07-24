@@ -1,12 +1,11 @@
-const config = require('./buildTools/webpack.config.prod');
+const config = require('../buildTools/webpack.config.prod');
 const webpack = require('webpack');
 const express = require('express');
-const path = require('path');
 
 module.exports = app => {
   console.log('Building assets...');
 
-  require('./buildTools/buildHtml');
+  require('../buildTools/buildHtml');
 
   webpack(config).run((err, stats) => {
     if (err) {
@@ -26,8 +25,4 @@ module.exports = app => {
   });
 
   app.use(express.static('dist'));
-
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../dist/index.html'));
-  });
 };

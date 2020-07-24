@@ -1,6 +1,5 @@
 const webpack = require('webpack');
-const path = require('path');
-const config = require('./buildTools/webpack.config.dev');
+const config = require('../buildTools/webpack.config.dev');
 
 module.exports = app => {
   const compiler = webpack(config);
@@ -12,8 +11,4 @@ module.exports = app => {
     })
   );
   app.use(require('webpack-hot-middleware')(compiler));
-
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../src/index.html'));
-  });
 };
