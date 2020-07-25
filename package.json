@@ -9,7 +9,7 @@
     "prod": "NODE_ENV=production node ./server",
     "dev": "run-p serveDev lint:watch",
     "start": "npm run dev",
-    "serveDev": "NODE_ENV=development node ./server",
+    "serveDev": "NODE_ENV=development nodemon ./server",
     "lint": "node_modules/.bin/esw src tools",
     "lint:watch": "npm run lint -- --watch",
     "test": "jasmine"
@@ -22,6 +22,7 @@
     "dotenv": "^8.2.0",
     "express": "4.16.3",
     "mongoose": "^5.9.25",
+    "nodemon": "^2.0.4",
     "prop-types": "^15.6.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
