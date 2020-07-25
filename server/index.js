@@ -1,4 +1,6 @@
+require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
 const envRoutes = require('./envRoutes');
 const path = require('path');
 const { PRODUCTION } = require('../tools/envConstants');
@@ -6,6 +8,16 @@ const { PRODUCTION } = require('../tools/envConstants');
 /* eslint-disable no-console */
 
 require('./buildTools/startMessage');
+
+mongoose.connect(
+  process.env.CONNECTION_STRING,
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDb connection error:'));
+db.once('open', function() {
+  console.log('Successfully connected to MongoDb');
+});
 
 const port = process.env.PORT || 3000;
 const environment = process.env.NODE_ENV;
