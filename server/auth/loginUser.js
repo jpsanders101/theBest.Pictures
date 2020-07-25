@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
-const getUser = require('./getUser');
 const jwt = require('jsonwebtoken');
+const getUser = require('./getUser');
 
 const loginUser = async (email, password) => {
   const { _id, password: hashedPassword } = await getUser({ email });

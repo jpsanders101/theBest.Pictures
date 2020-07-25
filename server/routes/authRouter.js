@@ -1,9 +1,10 @@
 const express = require('express');
-const router = express.Router();
-const createUser = require('./createUser');
-const loginUser = require('./loginUser');
-const { EMAIL_TAKEN } = require('./errorMessages');
 const mongoose = require('mongoose');
+const createUser = require('../auth/createUser');
+const loginUser = require('../auth/loginUser');
+const { EMAIL_TAKEN } = require('../errorMessages');
+
+const router = express.Router();
 
 router.post('/user', async (req, res) => {
   const { email, password } = req.body;

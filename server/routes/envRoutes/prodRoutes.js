@@ -1,11 +1,11 @@
-const config = require('../buildTools/webpack.config.prod');
 const webpack = require('webpack');
 const express = require('express');
+const config = require('../../buildTools/webpack.config.prod');
 
 module.exports = app => {
   console.log('Building assets...');
 
-  require('../buildTools/buildHtml');
+  require('../../buildTools/buildHtml');
 
   webpack(config).run((err, stats) => {
     if (err) {

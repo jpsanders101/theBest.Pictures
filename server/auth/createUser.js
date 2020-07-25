@@ -1,6 +1,6 @@
 const getUser = require('./getUser');
-const { EMAIL_TAKEN } = require('./errorMessages');
-const User = require('./models/User');
+const { EMAIL_TAKEN } = require('../errorMessages');
+const User = require('../models/User');
 const hashPassword = require('./hashPassword');
 
 const createUser = async (email, password) => {
