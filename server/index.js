@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const envRoutes = require('./envRoutes');
 const path = require('path');
 const { PRODUCTION } = require('../tools/envConstants');
+const authRouter = require('./authRouter');
 
 /* eslint-disable no-console */
 
@@ -32,6 +33,8 @@ app.listen(port, function(err) {
     console.log(`Now listening on PORT ${port}`.bgGreen);
   }
 });
+app.use(express.json());
+app.use('/auth', authRouter);
 
 app.get('*', function(req, res) {
   res.sendFile(
