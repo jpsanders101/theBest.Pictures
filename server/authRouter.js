@@ -1,18 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const createUser = require('./createUser');
+const loginUser = require('./loginUser');
 const { EMAIL_TAKEN } = require('./errorMessages');
 const mongoose = require('mongoose');
 
 router.post('/user', async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
-
-  if (!email || !password) {
-    res.sendStatus(400);
-  }
   try {
     await createUser(email, password);
+    const token = await loginUser(email, password);
+    res.status(201).json(token);
   } catch (err) {
     if (err.message === EMAIL_TAKEN) {
       res.status(400).send(EMAIL_TAKEN);
@@ -20,10 +18,9 @@ router.post('/user', async (req, res) => {
     if (err instanceof mongoose.Error.ValidationError) {
       res.status(400).send(err.message);
     }
-
+    console.log(err);
     res.sendStatus(500);
   }
-  res.statusStatus(201);
 });
 
 module.exports = router;

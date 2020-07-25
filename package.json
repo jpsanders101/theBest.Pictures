@@ -17,10 +17,12 @@
   "author": "Jon Sanders",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "classnames": "^2.2.5",
     "cookie": "^0.3.1",
     "dotenv": "^8.2.0",
     "express": "4.16.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.25",
     "nodemon": "^2.0.4",
     "prop-types": "^15.6.1",

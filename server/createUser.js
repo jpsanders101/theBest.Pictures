@@ -1,15 +1,17 @@
-const getUserByEmail = require('./getUserByEmail');
-const { EMAIL_TAKEN, VALIDATION_ERROR } = require('./errorMessages');
+const getUser = require('./getUser');
+const { EMAIL_TAKEN } = require('./errorMessages');
 const User = require('./models/User');
+const hashPassword = require('./hashPassword');
 
 const createUser = async (email, password) => {
   console.log('[createUser]');
-  const existingUser = await getUserByEmail(email);
+  const existingUser = await getUser({ email });
   if (existingUser) {
     throw new Error(EMAIL_TAKEN);
   }
-  const newUser = new User({ email, password });
-  await newUser.save();
+  const hashedPassword = await hashPassword(password);
+  const newUser = new User({ email, password: hashedPassword });
+  return newUser.save();
 };
 
 module.exports = createUser;
