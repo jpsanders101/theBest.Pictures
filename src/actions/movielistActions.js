@@ -17,7 +17,6 @@ export const loadMovies = () => {
     dispatch(beginAjaxCall(1));
     return getMoviesLocal()
       .then(movies => {
-        console.log(movies);
         dispatch(loadMoviesSuccess(movies));
       })
       .then(() => {

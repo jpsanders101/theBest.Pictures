@@ -1,12 +1,10 @@
+/* eslint-disable no-console */
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const envRoutes = require('./envRoutes');
 const path = require('path');
 const { PRODUCTION } = require('../tools/envConstants');
-const authRouter = require('./authRouter');
-
-/* eslint-disable no-console */
+const authRouter = require('./routes/auth');
 
 require('./buildTools/startMessage');
 
@@ -23,8 +21,7 @@ db.once('open', function() {
 const port = process.env.PORT || 3000;
 const environment = process.env.NODE_ENV;
 const app = express();
-
-envRoutes[environment](app);
+app.use(require(`./routes/${environment}`));
 
 app.listen(port, function(err) {
   if (err) {
