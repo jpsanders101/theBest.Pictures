@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 require('dotenv').config();
+const fs = require('fs');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const handlebars = require('handlebars');
 const { PRODUCTION } = require('../tools/envConstants');
 const authRouter = require('./routes/auth');
 const auth = require('./auth');
@@ -35,11 +37,17 @@ app.listen(port, function(err) {
 app.use(express.json());
 app.use(cookieParser());
 app.use('/auth', authRouter);
+
+const source = fs
+  .readFileSync(path.resolve(__dirname, './index.hbs'))
+  .toString();
+
+const template = handlebars.compile(source);
+
 app.get('*', auth, function(req, res) {
-  res.sendFile(
-    path.join(
-      __dirname,
-      `../${environment === PRODUCTION ? 'dist' : 'src'}/index.html`
-    )
-  );
+  const html = template({
+    production: environment === PRODUCTION,
+    initialState: 'initialState'
+  });
+  res.send(html);
 });
