@@ -8,7 +8,8 @@ const cookieParser = require('cookie-parser');
 const handlebars = require('handlebars');
 const { PRODUCTION } = require('../tools/envConstants');
 const authRouter = require('./routes/auth');
-const auth = require('./auth');
+const auth = require('./middleware/auth');
+const user = require('./middleware/user');
 
 require('./buildTools/startMessage');
 
@@ -44,10 +45,15 @@ const source = fs
 
 const template = handlebars.compile(source);
 
-app.get('*', auth, function(req, res) {
+app.use((_, res, next) => {
+  res.initialState = {};
+  return next();
+});
+
+app.get('*', auth, user, function(_, res) {
   const html = template({
     production: environment === PRODUCTION,
-    initialState: 'initialState'
+    initialState: JSON.stringify(res.initialState)
   });
   res.send(html);
 });
