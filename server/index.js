@@ -3,8 +3,10 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const { PRODUCTION } = require('../tools/envConstants');
 const authRouter = require('./routes/auth');
+const auth = require('./auth');
 
 require('./buildTools/startMessage');
 
@@ -31,9 +33,9 @@ app.listen(port, function(err) {
   }
 });
 app.use(express.json());
+app.use(cookieParser());
 app.use('/auth', authRouter);
-
-app.get('*', function(req, res) {
+app.get('*', auth, function(req, res) {
   res.sendFile(
     path.join(
       __dirname,

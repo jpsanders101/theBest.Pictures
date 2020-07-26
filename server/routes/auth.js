@@ -11,7 +11,8 @@ router.post('/user', async (req, res) => {
   try {
     await createUser(email, password);
     const token = await loginUser(email, password);
-    res.status(201).json(token);
+    res.cookie('auth', token);
+    res.sendStatus(201);
   } catch (err) {
     handleError(res, err);
   }
@@ -21,7 +22,8 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
     const token = await loginUser(email, password);
-    res.json(token);
+    res.cookie('auth', token);
+    res.sendStatus(200);
   } catch (err) {
     handleError(res, err);
   }
