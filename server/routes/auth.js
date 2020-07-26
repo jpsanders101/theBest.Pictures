@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const createUser = require('../auth/createUser');
 const loginUser = require('../auth/loginUser');
 const handleError = require('../handleError');
