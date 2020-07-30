@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import LandingPage from '../LandingPage';
 import { connect } from 'react-redux';
-
+import LoginModal from '../LoginModal';
 class BasePage extends React.Component {
   constructor(props) {
     super(props);
@@ -14,14 +14,18 @@ class BasePage extends React.Component {
     ) : (
       <React.Fragment>
         <Header />
-        <main className="base-page">{this.props.children}</main>
+        <main className="base-page">
+          {this.props.showLoginModal && <LoginModal />}
+          <div className="page-content">{this.props.children}</div>
+        </main>
       </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  showLandingPage: state.app.showLandingPage
+  showLandingPage: state.app.showLandingPage,
+  showLoginModal: state.app.showLoginModal
 });
 
 export default connect(mapStateToProps)(BasePage);

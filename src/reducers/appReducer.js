@@ -6,7 +6,8 @@ const initialState = {
   showLandingPage: !cookie.parse(document.cookie).seen_landing,
   filters: {
     seen: 'none'
-  }
+  },
+  showLoginModal: false
 };
 
 export default (state = initialState, action) => {
@@ -17,6 +18,8 @@ export default (state = initialState, action) => {
       return { ...state, errorState: false };
     case types.DISMISS_LANDING_PAGE:
       return { ...state, showLandingPage: false };
+    case types.TOGGLE_LOGIN_MODAL:
+      return { ...state, showLoginModal: !state.showLoginModal };
     case types.APPLY_SEEN_FILTER:
       const filter =
         action.value === state.filters.seen ? 'none' : action.value;
