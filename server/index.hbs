@@ -11,6 +11,9 @@
     data-initial-state={{initialState}}
   >
     <div id="app"></div>
+    <script>
+      window._initialState = JSON.parse(document.getElementsByTagName('body')[0].dataset.initialState)
+    </script>
     <script src="/bundle.js"></script>
   </body>
 </html>
