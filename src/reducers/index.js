@@ -2,13 +2,13 @@ import ajaxCalls from './ajaxCallReducer';
 import { combineReducers } from 'redux';
 import movies from './movielistReducer';
 import app from './appReducer';
-import user from './userReducer';
+import auth from './authReducer';
 
 const rootReducer = combineReducers({
   ajaxCalls,
   movies,
   app,
-  user
+  auth
 });
 
 export default rootReducer;

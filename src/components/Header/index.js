@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAuthenticated } from '../../reducers/userReducer';
+import { getAuthenticated, getEmail } from '../../reducers/authReducer';
 import { toggleLoginModal } from '../../actions/appActions';
 
-function Header({ authenticated, toggleLoginModal }) {
+function Header({ authenticated, toggleLoginModal, email }) {
   const handleLoginModalClick = e => {
     e.preventDefault();
     toggleLoginModal();
@@ -18,7 +18,11 @@ function Header({ authenticated, toggleLoginModal }) {
         <Link to="/about" className="header__link header_about-link">
           About
         </Link>
-        {!authenticated && (
+        {authenticated ? (
+          <a href="/user" className="header__link header_login-link">
+            {email}
+          </a>
+        ) : (
           <a
             href=""
             onClick={handleLoginModalClick}
@@ -33,7 +37,8 @@ function Header({ authenticated, toggleLoginModal }) {
 }
 
 const mapStateToProps = state => ({
-  authenticated: getAuthenticated(state)
+  authenticated: getAuthenticated(state),
+  email: getEmail(state)
 });
 
 const mapDispatchToProps = dispatch => ({
