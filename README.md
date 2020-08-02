@@ -53,6 +53,5 @@ $ npm t
 
 To apply Prettier rules across the project:
 
-1.  Install Prettier globally (`$ npm install -g prettier`)
-2.  Navigate to the root of this directory.
-3.  `$ prettier --write "**/*.js"`
+1.  Navigate to the root of this directory.
+2.  `$ npm run lint:fix`

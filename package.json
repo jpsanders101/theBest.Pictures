@@ -12,6 +12,7 @@
     "serveDev": "NODE_ENV=development nodemon ./server",
     "lint": "node_modules/.bin/esw src tools",
     "lint:watch": "npm run lint -- --watch",
+    "lint:fix": "npx prettier --write '**/*.js' '**/*.json'",
     "test": "jasmine"
   },
   "author": "Jon Sanders",
