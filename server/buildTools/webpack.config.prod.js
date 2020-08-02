@@ -13,17 +13,17 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../../dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true
+        sourceMap: true,
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({ debug: true }),
@@ -32,24 +32,24 @@ module.exports = {
       filename: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.js$|\.css$/,
-      minRatio: 0.8
-    })
+      minRatio: 0.8,
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.js$/,
         include: path.join(__dirname, '../../src'),
-        loaders: ['babel-loader']
+        loaders: ['babel-loader'],
       },
       {
         test: /(\.less)$/,
-        loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
+        loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'file-loader'
-      }
-    ]
-  }
+        loader: 'file-loader',
+      },
+    ],
+  },
 };

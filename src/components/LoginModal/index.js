@@ -12,7 +12,7 @@ function LoginModal({ dispatchLogin }) {
           await dispatchLogin(values);
         }}
       >
-        {props => (
+        {(props) => (
           <form className="login-modal" onSubmit={props.handleSubmit}>
             <input
               onChange={props.handleChange}
@@ -35,10 +35,7 @@ function LoginModal({ dispatchLogin }) {
 }
 
 const mapDispatchToProps = {
-  dispatchLogin
+  dispatchLogin,
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(LoginModal);
+export default connect(null, mapDispatchToProps)(LoginModal);

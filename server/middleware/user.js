@@ -10,7 +10,7 @@ const user = async (req, res, next) => {
 
   res.initialState.user = {
     ...(res.initialState.user && res.initialState.user),
-    email
+    email,
   };
   next();
 };

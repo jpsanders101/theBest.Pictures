@@ -4,7 +4,7 @@ proxyquire.noCallThru();
 
 let appReducer;
 
-const createAppReducer = cookie => {
+const createAppReducer = (cookie) => {
   return (appReducer = proxyquire(
     '../../../src/reducers/appReducer',
     {},
@@ -20,7 +20,7 @@ describe('App Reducer', () => {
     it('SHOULD return correct initial state', () => {
       expect(appReducer(undefined, {})).toEqual({
         errorState: false,
-        showLandingPage: true
+        showLandingPage: true,
       });
     });
   });
@@ -31,7 +31,7 @@ describe('App Reducer', () => {
     it('SHOULD return correct initial state', () => {
       expect(appReducer(undefined, {})).toEqual({
         errorState: false,
-        showLandingPage: true
+        showLandingPage: true,
       });
     });
   });

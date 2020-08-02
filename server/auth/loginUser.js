@@ -10,7 +10,7 @@ const loginUser = async (email, password) => {
     throw new Error(INCORRECT_PASSWORD);
   }
   const token = await jwt.sign({ _id }, process.env.TOKEN_SECRET, {
-    expiresIn: '10800s'
+    expiresIn: '10800s',
   });
   return token;
 };

@@ -5,9 +5,9 @@ const initialState = {
   errorState: false,
   showLandingPage: !cookie.parse(document.cookie).seen_landing,
   filters: {
-    seen: 'none'
+    seen: 'none',
   },
-  showLoginModal: false
+  showLoginModal: false,
 };
 
 export default (state = initialState, action) => {

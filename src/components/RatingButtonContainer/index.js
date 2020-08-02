@@ -6,21 +6,21 @@ export default function RatingButtonContainer(props) {
   const [highlightButtonsUpto, setHighlightButtonsUpto] = useState(0);
   const [clicked, setClicked] = useState(false);
 
-  const handleMouseEnter = e => {
+  const handleMouseEnter = (e) => {
     if (!clicked) {
       setHighlightButtonsUpto(e.currentTarget.dataset.value);
       setClicked(false);
     }
   };
 
-  const handleMouseLeave = e => {
+  const handleMouseLeave = (e) => {
     if (!clicked) {
       setHighlightButtonsUpto(0);
       setClicked(false);
     }
   };
 
-  const handleRatingClick = e => {
+  const handleRatingClick = (e) => {
     e.preventDefault();
     setHighlightButtonsUpto(e.target.value);
     setClicked(e.target.value);
@@ -53,5 +53,5 @@ export default function RatingButtonContainer(props) {
 }
 
 RatingButtonContainer.propTypes = {
-  handleRatingClick: PropTypes.func.isRequired
+  handleRatingClick: PropTypes.func.isRequired,
 };

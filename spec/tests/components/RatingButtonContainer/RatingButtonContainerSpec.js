@@ -4,7 +4,7 @@ import proxyquire from 'proxyquire';
 
 proxyquire.noCallThru();
 
-const ratingButtonMock = props => {};
+const ratingButtonMock = (props) => {};
 
 const RatingButtonContainer = proxyquire(
   '../../../../src/components/RatingButtonContainer',
@@ -25,7 +25,7 @@ describe('RatingButtonContainer', () => {
         ratingButton = wrapper.find(ratingButtonMock).at(2);
         ratingButtonValue = ratingButton.props().value;
         ratingButton.simulate('mouseEnter', {
-          currentTarget: { dataset: { value: ratingButtonValue } }
+          currentTarget: { dataset: { value: ratingButtonValue } },
         });
       });
       it('SHOULD highlight all buttons up to the one selected', () => {
@@ -42,11 +42,11 @@ describe('RatingButtonContainer', () => {
         .at(ratingButtonValue)
         .simulate('click', {
           preventDefault: () => {},
-          target: { value: ratingButtonValue }
+          target: { value: ratingButtonValue },
         });
     });
     it('SHOULD pass value of clicked button as "clicked" prop', () => {
-      wrapper.find(ratingButtonMock).forEach(button => {
+      wrapper.find(ratingButtonMock).forEach((button) => {
         expect(button.props().clicked).toEqual(ratingButtonValue);
       });
     });
@@ -55,7 +55,7 @@ describe('RatingButtonContainer', () => {
         ratingButton = wrapper.find(ratingButtonMock).at(1);
         ratingButtonValue = ratingButton.props().value;
         ratingButton.simulate('mouseEnter', {
-          target: { value: ratingButtonValue }
+          target: { value: ratingButtonValue },
         });
       });
       it('SHOULD highlight all buttons up to the one clicked', () => {
@@ -68,7 +68,7 @@ describe('RatingButtonContainer', () => {
         ratingButtonValue = ratingButton.props().value;
         ratingButton.simulate('click', {
           preventDefault: () => {},
-          target: { value: ratingButtonValue }
+          target: { value: ratingButtonValue },
         });
       });
       it('SHOULD highlight all buttons up to the second button clicked', () => {

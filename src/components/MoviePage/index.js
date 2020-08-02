@@ -51,28 +51,25 @@ class MoviePage extends React.Component {
 MoviePage.propTypes = {
   movie: PropTypes.object,
   actions: PropTypes.object.isRequired,
-  isLoading: PropTypes.bool.isRequired
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
   let movie = {
     ...state.movies.find(
-      movie => movie.releaseYear === parseInt(ownProps.match.params.id)
-    )
+      (movie) => movie.releaseYear === parseInt(ownProps.match.params.id)
+    ),
   };
   return {
     movie: movie,
-    isLoading: state.ajaxCalls > 0
+    isLoading: state.ajaxCalls > 0,
   };
 };
 
-const mapDispatchtoProps = dispatch => {
+const mapDispatchtoProps = (dispatch) => {
   return {
-    actions: bindActionCreators(movielistActions, dispatch)
+    actions: bindActionCreators(movielistActions, dispatch),
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchtoProps
-)(MoviePage);
+export default connect(mapStateToProps, mapDispatchtoProps)(MoviePage);

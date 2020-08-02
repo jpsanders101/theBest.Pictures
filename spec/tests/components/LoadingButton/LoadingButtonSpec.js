@@ -7,16 +7,16 @@ describe('Connected LoadingButton', () => {
   it('should map correct state to props', () => {
     const store = configureStore();
     const initialState = {
-      ajaxCalls: 0
+      ajaxCalls: 0,
     };
     const props = {
       store: store(initialState),
-      value: 'Seen'
+      value: 'Seen',
     };
     const wrapper = shallow(<ConnectedLoadingButton {...props} />);
     const expectedProps = {
       value: 'Seen',
-      isLoading: false
+      isLoading: false,
     };
     expect(wrapper.props()).toEqual(jasmine.objectContaining(expectedProps));
   });
@@ -26,7 +26,7 @@ describe('LoadingButton', () => {
     const LoadingButton = ConnectedLoadingButton.WrappedComponent;
     const props = {
       value: 'Seen',
-      isLoading: true
+      isLoading: true,
     };
     const wrapper = shallow(<LoadingButton {...props} />);
     it('should contain the className "loading"', () => {
@@ -37,7 +37,7 @@ describe('LoadingButton', () => {
     const LoadingButton = ConnectedLoadingButton.WrappedComponent;
     const props = {
       value: 'Seen',
-      isLoading: false
+      isLoading: false,
     };
     const wrapper = shallow(<LoadingButton {...props} />);
     it('should not contain the className "loading"', () => {

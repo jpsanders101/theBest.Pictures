@@ -3,11 +3,11 @@ import {
   BEGIN_LOGIN,
   SET_LOGIN_ERROR,
   END_LOGIN,
-  SET_AUTHENTICATED
+  SET_AUTHENTICATED,
 } from '../actions/constants';
 
-export const getAuthenticated = state => get(state, 'auth.authenticated');
-export const getEmail = state => get(state, 'auth.email');
+export const getAuthenticated = (state) => get(state, 'auth.authenticated');
+export const getEmail = (state) => get(state, 'auth.email');
 const initialState = get(window, '_initialState.user', {});
 console.log(initialState);
 
@@ -17,7 +17,7 @@ const authReducer = (state = initialState, { type, value }) => {
       return {
         ...state,
         authenticated: true,
-        email: value.email
+        email: value.email,
       };
   }
   return { ...state };

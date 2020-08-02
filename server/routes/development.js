@@ -9,7 +9,7 @@ const compiler = webpack(config);
 router.use(
   require('webpack-dev-middleware')(compiler, {
     noInfo: true,
-    publicPath: config.output.publicPath
+    publicPath: config.output.publicPath,
   })
 );
 router.use(require('webpack-hot-middleware')(compiler));

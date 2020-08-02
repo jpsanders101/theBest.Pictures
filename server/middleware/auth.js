@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
   if (!auth) {
     res.initialState.user = {
       ...(res.initialState.user && res.initialState.user),
-      authenticated: false
+      authenticated: false,
     };
     return next();
   }
@@ -19,7 +19,7 @@ const auth = async (req, res, next) => {
   if (!jwtResponse) {
     res.initialState.user = {
       ...(res.initialState.user && res.initialState.user),
-      authenticated: false
+      authenticated: false,
     };
     return next();
   }
@@ -27,7 +27,7 @@ const auth = async (req, res, next) => {
   res._id = _id;
   res.initialState.user = {
     ...(res.initialState.user && res.initialState.user),
-    authenticated: true
+    authenticated: true,
   };
   next();
 };

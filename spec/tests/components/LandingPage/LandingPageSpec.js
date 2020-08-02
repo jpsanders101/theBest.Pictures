@@ -19,7 +19,7 @@ describe('<LandingPage />', () => {
     beforeEach(() => {
       wrapper
         .find('.landing-page__button')
-        .simulate('click', { preventDefault: () => { } });
+        .simulate('click', { preventDefault: () => {} });
     });
     it('SHOULD call the dismissLandingPage prop', () => {
       expect(dismissLandingPageSpy).toHaveBeenCalled();

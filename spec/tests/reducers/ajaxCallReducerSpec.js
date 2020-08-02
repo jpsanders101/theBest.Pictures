@@ -6,7 +6,7 @@ describe('Ajax Call Reducer', () => {
       expect(
         ajaxCallReducer(0, {
           type: 'BEGIN_AJAX_CALL',
-          ajaxCalls: 1
+          ajaxCalls: 1,
         })
       ).toEqual(1);
     });
@@ -16,7 +16,7 @@ describe('Ajax Call Reducer', () => {
       expect(
         ajaxCallReducer(1, {
           type: 'END_AJAX_CALL',
-          ajaxCalls: 1
+          ajaxCalls: 1,
         })
       ).toEqual(0);
     });
@@ -26,7 +26,7 @@ describe('Ajax Call Reducer', () => {
       expect(
         ajaxCallReducer(0, {
           type: 'SOMETHING_ELSE',
-          ajaxCalls: 1
+          ajaxCalls: 1,
         })
       ).toEqual(0);
     });

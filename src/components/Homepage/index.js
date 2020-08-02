@@ -14,7 +14,7 @@ class Homepage extends React.Component {
 
   calculateProgress(movies) {
     return Math.floor(
-      (movies.filter(movie => movie.seen).length / movies.length) * 100
+      (movies.filter((movie) => movie.seen).length / movies.length) * 100
     );
   }
 
@@ -48,13 +48,13 @@ class Homepage extends React.Component {
 
 Homepage.propTypes = {
   movies: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool.isRequired
+  isLoading: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     isLoading: state.ajaxCalls > 0,
-    movies: state.movies
+    movies: state.movies,
   };
 };
 

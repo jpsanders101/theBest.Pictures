@@ -4,10 +4,10 @@ import { shallow } from 'enzyme';
 
 proxyquire.noCallThru();
 
-const mockFilter = props => {};
+const mockFilter = (props) => {};
 
 const FilterPanel = proxyquire('../../../../src/components/FilterPanel', {
-  '../Filter': mockFilter
+  '../Filter': mockFilter,
 }).default;
 
 describe('FilterPanel', () => {
@@ -16,7 +16,7 @@ describe('FilterPanel', () => {
     beforeEach(() => {
       props = {
         seenFilterOnClickHandler: () => {},
-        filter: 'seen'
+        filter: 'seen',
       };
       wrapper = shallow(<FilterPanel {...props} />);
     });
@@ -31,7 +31,7 @@ describe('FilterPanel', () => {
     beforeEach(() => {
       props = {
         seenFilterOnClickHandler: () => {},
-        filter: 'unseen'
+        filter: 'unseen',
       };
       wrapper = shallow(<FilterPanel {...props} />);
     });

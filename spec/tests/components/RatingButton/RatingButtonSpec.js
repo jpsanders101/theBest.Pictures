@@ -15,7 +15,7 @@ describe('RatingButton', () => {
       onMouseEnter: onEnterSpy,
       onMouseLeave: onLeaveSpy,
       value: 1,
-      clicked: false
+      clicked: false,
     };
     wrapper = shallow(<RatingButton {...props} />);
     button = wrapper.find('.review-section__review-button');
@@ -50,7 +50,7 @@ describe('RatingButton', () => {
         onMouseEnter: onEnterSpy,
         onMouseLeave: onLeaveSpy,
         value: 1,
-        clicked: false
+        clicked: false,
       };
       wrapper = shallow(<RatingButton {...props} />);
       button = wrapper.find('.review-section__review-button');
@@ -69,7 +69,7 @@ describe('RatingButton', () => {
         onMouseEnter: onEnterSpy,
         onMouseLeave: onLeaveSpy,
         value: 1,
-        clicked: '1'
+        clicked: '1',
       };
       wrapper = shallow(<RatingButton {...props} />);
       button = wrapper.find('.review-section__review-button');
@@ -89,7 +89,7 @@ describe('RatingButton', () => {
         onMouseEnter: onEnterSpy,
         onMouseLeave: onLeaveSpy,
         value: 1,
-        clicked: '2'
+        clicked: '2',
       };
       wrapper = shallow(<RatingButton {...props} />);
     });

@@ -18,7 +18,7 @@ MovieItem.propTypes = {
   name: PropTypes.string.isRequired,
   releaseYear: PropTypes.number.isRequired,
   seen: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default MovieItem;

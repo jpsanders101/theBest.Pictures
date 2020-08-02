@@ -11,7 +11,7 @@ class ReviewForm extends React.Component {
 
     this.state = {
       rating: props.movie.rating,
-      review: props.movie.review || ''
+      review: props.movie.review || '',
     };
 
     this.handleReviewChange = this.handleReviewChange.bind(this);
@@ -29,8 +29,8 @@ class ReviewForm extends React.Component {
     const review = {
       ...this.state,
       ...{
-        releaseYear: this.props.movie.releaseYear
-      }
+        releaseYear: this.props.movie.releaseYear,
+      },
     };
     this.props.saveReview(review);
   }
@@ -74,18 +74,15 @@ class ReviewForm extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  errorState: state.app.errorState
+const mapStateToProps = (state) => ({
+  errorState: state.app.errorState,
 });
 
 ReviewForm.propTypes = {
   actions: PropTypes.object,
   movie: PropTypes.object,
   errorState: PropTypes.bool.isRequired,
-  saveReview: PropTypes.func.isRequired
+  saveReview: PropTypes.func.isRequired,
 };
 
-export default connect(
-  mapStateToProps,
-  { saveReview }
-)(ReviewForm);
+export default connect(mapStateToProps, { saveReview })(ReviewForm);

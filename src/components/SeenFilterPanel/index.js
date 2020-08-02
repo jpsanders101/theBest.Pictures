@@ -29,9 +29,9 @@ function SeenFilterPanel({ seenFilter }) {
 }
 
 SeenFilterPanel.propTypes = {
-  seenFilter: PropTypes.string.isRequired
+  seenFilter: PropTypes.string.isRequired,
 };
 
-export default connect(state => ({
-  seenFilter: state.app.filters.seen
+export default connect((state) => ({
+  seenFilter: state.app.filters.seen,
 }))(SeenFilterPanel);

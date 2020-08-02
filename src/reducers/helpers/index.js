@@ -1,6 +1,6 @@
 export function saveReview(state, review) {
   const movieIndex = state.findIndex(
-    movie => movie.releaseYear === review.releaseYear
+    (movie) => movie.releaseYear === review.releaseYear
   );
   const stateCopy = [...state];
   stateCopy[movieIndex].seen = true;

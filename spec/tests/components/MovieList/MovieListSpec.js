@@ -5,24 +5,24 @@ import { moviesData } from '../../../data';
 
 proxyquire.noCallThru();
 
-const mockMovieItem = props => <div>MovieItem</div>;
+const mockMovieItem = (props) => <div>MovieItem</div>;
 
 const MovieList = proxyquire('../../../../src/components/MovieList', {
-  '../MovieItem': mockMovieItem
+  '../MovieItem': mockMovieItem,
 }).default.WrappedComponent;
 
 describe('MovieList', () => {
   let props, wrapper, moviesProp;
   describe('GIVEN there are unseen pictures', () => {
     beforeEach(() => {
-      moviesProp = moviesData.map(movie => {
+      moviesProp = moviesData.map((movie) => {
         return { ...movie };
       });
       moviesProp[0].seen = true;
 
       props = {
         markAsSeen: () => {},
-        movies: moviesProp
+        movies: moviesProp,
       };
       wrapper = shallow(<MovieList {...props} />);
     });
@@ -34,7 +34,7 @@ describe('MovieList', () => {
   });
   describe('GIVEN there are no unseen pictures', () => {
     beforeEach(() => {
-      moviesProp = moviesData.map(movie => {
+      moviesProp = moviesData.map((movie) => {
         return { ...movie };
       });
       moviesProp[0].seen = true;
@@ -42,7 +42,7 @@ describe('MovieList', () => {
       moviesProp[2].seen = true;
       props = {
         markAsSeen: () => {},
-        movies: moviesProp
+        movies: moviesProp,
       };
       wrapper = shallow(<MovieList {...props} />);
     });

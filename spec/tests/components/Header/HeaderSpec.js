@@ -4,10 +4,10 @@ import { shallow } from 'enzyme';
 
 proxyquire.noCallThru();
 
-const mockLink = props => {};
+const mockLink = (props) => {};
 
 const Header = proxyquire('../../../../src/components/Header', {
-  'react-router-dom': { Link: mockLink }
+  'react-router-dom': { Link: mockLink },
 }).default;
 
 describe('Header', () => {
