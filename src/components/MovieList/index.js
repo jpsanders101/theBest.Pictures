@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem';
 import { connect } from 'react-redux';
 import { markAsSeen } from '../../actions/movielistActions';
+import { NUMBER_OF_MOVIES } from '../../actions/constants.js';
 
 function MovieList(props) {
-  const NUMBER_OF_MOVIES = 92;
+  const { reviews } = props;
 
   const handleMovieClick = movieName => {
     const movieList = [...props.movies];
@@ -20,6 +21,7 @@ function MovieList(props) {
     const movieItems = [];
     for (let i = 1; i <= NUMBER_OF_MOVIES; i++) {
       const movieData = require(`../../content/movies/${i}.json`);
+      const seen = !!reviews.find(review => review.awardNumber === i);
       movieItems.push(
         <MovieItem
           key={i}
@@ -27,7 +29,7 @@ function MovieList(props) {
           name={movieData.title}
           onClick={handleMovieClick}
           releaseYear={movieData.releaseYear}
-          seen={false}
+          seen={seen}
         />
       );
     }
@@ -44,12 +46,13 @@ function MovieList(props) {
 MovieList.propTypes = {
   filters: PropTypes.shape({ seen: PropTypes.string }).isRequired,
   markAsSeen: PropTypes.func.isRequired,
-  movies: PropTypes.array.isRequired
+  reviews: PropTypes.array.isRequired
 };
 
 export default connect(
   state => ({
-    filters: state.app.filters
+    filters: state.app.filters,
+    reviews: state.reviews
   }),
   { markAsSeen }
 )(MovieList);

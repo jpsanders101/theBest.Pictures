@@ -6,20 +6,20 @@ import { connect } from 'react-redux';
 import Spinner from '../Spinner';
 import BasePage from '../BasePage';
 import SeenFilterPanel from '../SeenFilterPanel';
+import { NUMBER_OF_MOVIES } from '../../actions/constants';
 
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  calculateProgress(movies) {
-    return Math.floor(
-      (movies.filter(movie => movie.seen).length / movies.length) * 100
-    );
+  calculateProgress() {
+    const { reviews } = this.props;
+    return Math.floor((reviews.length / NUMBER_OF_MOVIES) * 100);
   }
 
   render() {
-    const { isLoading, movies } = this.props;
+    const { isLoading } = this.props;
     return (
       <BasePage>
         {isLoading ? (
@@ -29,16 +29,17 @@ class Homepage extends React.Component {
             <div className="homepage__heading-section">
               <div className="homepage__title-section">
                 <h1 className="homepage__heading">
-                  There are 91 movies which have won the Oscar for Best Picture.
+                  There are {NUMBER_OF_MOVIES} movies which have won the Oscar
+                  for Best Picture.
                 </h1>
                 <h2>How many have you seen?</h2>
-                <ProgressBar progress={this.calculateProgress(movies)} />
+                <ProgressBar progress={this.calculateProgress()} />
               </div>
               <div className="homepage__widget-section">
                 <SeenFilterPanel />
               </div>
             </div>
-            <MovieList movies={movies} />
+            <MovieList />
           </div>
         )}
       </BasePage>
@@ -47,14 +48,14 @@ class Homepage extends React.Component {
 }
 
 Homepage.propTypes = {
-  movies: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
   return {
     isLoading: state.ajaxCalls > 0,
-    movies: state.movies
+    reviews: state.reviews
   };
 };
 

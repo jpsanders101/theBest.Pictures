@@ -12,3 +12,5 @@ export const BEGIN_LOGIN = 'BEGIN_LOGIN';
 export const END_LOGIN = 'END_LOGIN';
 export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
 export const SET_AUTHENTICATED = 'SET_AUTHENTICATED';
+
+export const NUMBER_OF_MOVIES = 92;
