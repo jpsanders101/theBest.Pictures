@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   ajaxCalls,
   movies,
   app,
-  auth
+  auth,
 });
 
 export default rootReducer;
