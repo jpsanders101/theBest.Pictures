@@ -2,7 +2,7 @@ export const reviewData = {
   name: 'Wings',
   releaseYear: 1927,
   review: 'A classic!',
-  rating: 2,
+  rating: 2
 };
 
 export const moviesData = [
@@ -13,7 +13,7 @@ export const moviesData = [
     seen: false,
     rating: null,
     review: null,
-    synopsis: 'Movie synopsis',
+    synopsis: 'Movie synopsis'
   },
   {
     name: 'The Broadway Melody',
@@ -22,7 +22,7 @@ export const moviesData = [
     seen: false,
     rating: null,
     review: null,
-    synopsis: 'Movie synopsis',
+    synopsis: 'Movie synopsis'
   },
   {
     name: 'All Quiet On the Western Front',
@@ -31,8 +31,8 @@ export const moviesData = [
     seen: false,
     rating: null,
     review: null,
-    synopsis: 'Movie synopsis',
-  },
+    synopsis: 'Movie synopsis'
+  }
 ];
 
 export const moviesDataAfterReview = [
@@ -43,7 +43,7 @@ export const moviesDataAfterReview = [
     seen: true,
     rating: 2,
     review: 'A classic!',
-    synopsis: 'Movie synopsis',
+    synopsis: 'Movie synopsis'
   },
   {
     name: 'The Broadway Melody',
@@ -52,7 +52,7 @@ export const moviesDataAfterReview = [
     seen: false,
     rating: null,
     review: null,
-    synopsis: 'Movie synopsis',
+    synopsis: 'Movie synopsis'
   },
   {
     name: 'All Quiet On the Western Front',
@@ -61,6 +61,6 @@ export const moviesDataAfterReview = [
     seen: false,
     rating: null,
     review: null,
-    synopsis: 'Movie synopsis',
-  },
+    synopsis: 'Movie synopsis'
+  }
 ];

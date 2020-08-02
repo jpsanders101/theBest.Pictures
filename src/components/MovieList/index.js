@@ -7,9 +7,9 @@ import { markAsSeen } from '../../actions/movielistActions';
 function MovieList(props) {
   const NUMBER_OF_MOVIES = 90;
 
-  const handleMovieClick = (movieName) => {
+  const handleMovieClick = movieName => {
     const movieList = [...props.movies];
-    let index = movieList.findIndex((movie) => {
+    let index = movieList.findIndex(movie => {
       return movie.name === movieName;
     });
     movieList[index].seen = true;
@@ -44,12 +44,12 @@ function MovieList(props) {
 MovieList.propTypes = {
   filters: PropTypes.shape({ seen: PropTypes.string }).isRequired,
   markAsSeen: PropTypes.func.isRequired,
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.array.isRequired
 };
 
 export default connect(
-  (state) => ({
-    filters: state.app.filters,
+  state => ({
+    filters: state.app.filters
   }),
   { markAsSeen }
 )(MovieList);

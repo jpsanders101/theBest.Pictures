@@ -19,7 +19,7 @@ describe('<Routes/>', () => {
     const expectedRoutes = [
       { exact: true, path: '/', component: Homepage },
       { exact: true, path: '/about', component: About },
-      { exact: undefined, path: '/movie/:id', component: MoviePage },
+      { exact: undefined, path: '/movie/:id', component: MoviePage }
     ];
     routeComponents.forEach((routeComponent, nthRoute) => {
       const expectedProps = expectedRoutes[nthRoute];

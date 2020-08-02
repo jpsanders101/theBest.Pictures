@@ -8,7 +8,7 @@ export default function ProgressBar(props) {
       <div
         className="progress-bar__filler--completed"
         style={{
-          flex: `0 1 ${props.progress}%`,
+          flex: `0 1 ${props.progress}%`
         }}
       />
       <div className="progress-bar__filler--remaining" />
@@ -17,5 +17,5 @@ export default function ProgressBar(props) {
 }
 
 ProgressBar.propTypes = {
-  progress: PropTypes.number.isRequired,
+  progress: PropTypes.number.isRequired
 };

@@ -12,7 +12,7 @@ describe('SeenMarker', () => {
     const props = {
       name: MOVIE_NAME,
       onClick: onClickSpy,
-      seen: true,
+      seen: true
     };
     wrapper = shallow(<SeenMarker {...props} />);
   });
@@ -28,7 +28,7 @@ describe('SeenMarker', () => {
       const props = {
         name: MOVIE_NAME,
         onClick: onClickSpy,
-        seen: false,
+        seen: false
       };
       wrapper = shallow(<SeenMarker {...props} />);
     });

@@ -6,13 +6,13 @@ import proxyquire from 'proxyquire';
 
 proxyquire.noCallThru();
 
-const seenMarkerMock = (props) => {};
-const linkMock = (props) => {};
+const seenMarkerMock = props => {};
+const linkMock = props => {};
 const onClick = () => {};
 
 const MovieItem = proxyquire('../../../../src/components/MovieItem', {
   '../SeenMarker': seenMarkerMock,
-  'react-router-dom': { Link: linkMock },
+  'react-router-dom': { Link: linkMock }
 }).default;
 
 describe('MovieItem', () => {
@@ -22,12 +22,12 @@ describe('MovieItem', () => {
       name: 'Wings',
       releaseYear: 1927,
       seen: false,
-      onClick: onClick,
+      onClick: onClick
     };
     expectedProps = {
       name: 'Wings',
       onClick: onClick,
-      seen: false,
+      seen: false
     };
     wrapper = shallow(<MovieItem {...props} />);
   });
@@ -41,6 +41,11 @@ describe('MovieItem', () => {
     expect(wrapper.find(linkMock).props().to).toEqual('/movie/1927');
   });
   it('SHOULD pass correct picture title to the Link', () => {
-    expect(wrapper.find(linkMock).children().text()).toEqual('Wings');
+    expect(
+      wrapper
+        .find(linkMock)
+        .children()
+        .text()
+    ).toEqual('Wings');
   });
 });

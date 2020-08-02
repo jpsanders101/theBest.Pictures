@@ -1,6 +1,6 @@
 const User = require('../models/User');
 
-const getUser = async (query) => {
+const getUser = async query => {
   console.log('[getUser]');
   let user;
   try {

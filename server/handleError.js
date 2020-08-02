@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {
   EMAIL_TAKEN,
   INCORRECT_PASSWORD,
-  MISSING_EMAIL_PASSWORD,
+  MISSING_EMAIL_PASSWORD
 } = require('./errorMessages');
 
 const handleError = (res, error) => {
@@ -13,7 +13,7 @@ const handleError = (res, error) => {
   return res.sendStatus(500);
 };
 
-const is400 = (error) => {
+const is400 = error => {
   return (
     [EMAIL_TAKEN, INCORRECT_PASSWORD, MISSING_EMAIL_PASSWORD].includes(
       error.message

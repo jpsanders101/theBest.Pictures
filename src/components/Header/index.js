@@ -5,7 +5,7 @@ import { getAuthenticated, getEmail } from '../../reducers/authReducer';
 import { toggleLoginModal } from '../../actions/appActions';
 
 function Header({ authenticated, toggleLoginModal, email }) {
-  const handleLoginModalClick = (e) => {
+  const handleLoginModalClick = e => {
     e.preventDefault();
     toggleLoginModal();
   };
@@ -36,12 +36,15 @@ function Header({ authenticated, toggleLoginModal, email }) {
   );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   authenticated: getAuthenticated(state),
-  email: getEmail(state),
+  email: getEmail(state)
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleLoginModal: () => dispatch(toggleLoginModal()),
+const mapDispatchToProps = dispatch => ({
+  toggleLoginModal: () => dispatch(toggleLoginModal())
 });
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

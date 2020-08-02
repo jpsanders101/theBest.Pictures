@@ -1,6 +1,6 @@
 import {
   beginAjaxCall,
-  endAjaxCall,
+  endAjaxCall
 } from '../../../src/actions/ajaxCallActions';
 
 describe('beginAjaxCall', () => {

@@ -5,14 +5,14 @@ import proxyquire from 'proxyquire';
 
 proxyquire.noCallThru();
 
-const spinnerMock = (props) => {};
-const movieListMock = (props) => {};
-const progressBarMock = (props) => {};
+const spinnerMock = props => {};
+const movieListMock = props => {};
+const progressBarMock = props => {};
 
 const ConnectedHomepage = proxyquire('../../../../src/components/Homepage', {
   '../MovieList': movieListMock,
   '../Spinner': spinnerMock,
-  '../ProgressBar': progressBarMock,
+  '../ProgressBar': progressBarMock
 }).default;
 
 describe('Connected Homepage', () => {
@@ -24,9 +24,9 @@ describe('Connected Homepage', () => {
       ajaxCalls: 0,
       movies: [
         {
-          seen: true,
-        },
-      ],
+          seen: true
+        }
+      ]
     };
     wrapper = shallow(<ConnectedHomepage store={store(initialState)} />);
     props = wrapper.props();
@@ -37,7 +37,7 @@ describe('Connected Homepage', () => {
       it('should pass the correct props from state', () => {
         const expectedProps = {
           isLoading: false,
-          movies: [{ seen: true }],
+          movies: [{ seen: true }]
         };
         expect(props).toEqual(jasmine.objectContaining(expectedProps));
       });
@@ -49,9 +49,9 @@ describe('Connected Homepage', () => {
           ajaxCalls: 1,
           movies: [
             {
-              seen: true,
-            },
-          ],
+              seen: true
+            }
+          ]
         };
         state = store(initialState);
         wrapper = shallow(<ConnectedHomepage store={state} />);
@@ -60,7 +60,7 @@ describe('Connected Homepage', () => {
       it('SHOULD pass the correct props from state', () => {
         const expectedProps = {
           isLoading: true,
-          movies: [{ seen: true }],
+          movies: [{ seen: true }]
         };
         expect(props).toEqual(jasmine.objectContaining(expectedProps));
       });
@@ -73,7 +73,7 @@ describe('Homepage', () => {
     beforeEach(() => {
       props = {
         isLoading: true,
-        movies: [{ seen: true }],
+        movies: [{ seen: true }]
       };
       Homepage = ConnectedHomepage.WrappedComponent;
       wrapper = shallow(<Homepage {...props} />);
@@ -89,7 +89,7 @@ describe('Homepage', () => {
     beforeEach(() => {
       props = {
         isLoading: false,
-        movies: [{ seen: true }, { seen: false }],
+        movies: [{ seen: true }, { seen: false }]
       };
       Homepage = ConnectedHomepage.WrappedComponent;
       wrapper = shallow(<Homepage {...props} />);
@@ -105,7 +105,7 @@ describe('Homepage', () => {
         props = {
           isLoading: false,
           movies: [{ seen: false }, { seen: false }],
-          actions: {},
+          actions: {}
         };
         Homepage = ConnectedHomepage.WrappedComponent;
         wrapper = shallow(<Homepage {...props} />);
@@ -119,7 +119,7 @@ describe('Homepage', () => {
         props = {
           isLoading: false,
           movies: [{ seen: true }, { seen: true }],
-          actions: {},
+          actions: {}
         };
         Homepage = ConnectedHomepage.WrappedComponent;
         wrapper = shallow(<Homepage {...props} />);

@@ -13,13 +13,16 @@ const user = require('./middleware/user');
 
 require('./buildTools/startMessage');
 
-mongoose.connect(process.env.CONNECTION_STRING, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.CONNECTION_STRING,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDb connection error:'));
-db.once('open', function () {
+db.once('open', function() {
   console.log('Successfully connected to MongoDb');
 });
 
@@ -28,7 +31,7 @@ const environment = process.env.NODE_ENV;
 const app = express();
 app.use(require(`./routes/${environment}`));
 
-app.listen(port, function (err) {
+app.listen(port, function(err) {
   if (err) {
     console.log(err);
   } else {
@@ -50,10 +53,10 @@ app.use((_, res, next) => {
   return next();
 });
 
-app.get('*', auth, user, function (_, res) {
+app.get('*', auth, user, function(_, res) {
   const html = template({
     production: environment === PRODUCTION,
-    initialState: JSON.stringify(res.initialState),
+    initialState: JSON.stringify(res.initialState)
   });
   res.send(html);
 });

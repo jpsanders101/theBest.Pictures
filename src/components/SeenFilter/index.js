@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { applySeenFilter } from '../../actions/appActions';
 
 function SeenFilter({ filter, displayText, isSelected, applySeenFilter }) {
-  const seenFilterOnClickHandler = (e) => {
+  const seenFilterOnClickHandler = e => {
     e.preventDefault();
     applySeenFilter(filter);
   };
@@ -21,7 +21,7 @@ function SeenFilter({ filter, displayText, isSelected, applySeenFilter }) {
       <label
         htmlFor={`${filter}-filter`}
         className={classnames('movie-list_filter', {
-          'movie-list__filter--selected': isSelected,
+          'movie-list__filter--selected': isSelected
         })}
         data-filter={filter}
         onClick={seenFilterOnClickHandler}
@@ -35,7 +35,7 @@ function SeenFilter({ filter, displayText, isSelected, applySeenFilter }) {
 SeenFilter.propTypes = {
   filter: PropTypes.string.isRequired,
   displayText: PropTypes.string.isRequired,
-  isSelected: PropTypes.bool.isRequired,
+  isSelected: PropTypes.bool.isRequired
 };
 
 export default connect(
@@ -43,6 +43,6 @@ export default connect(
   (dispatch, ownProps) => ({
     applySeenFilter: () => {
       dispatch(applySeenFilter(ownProps.filter));
-    },
+    }
   })
 )(SeenFilter);

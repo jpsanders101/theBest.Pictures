@@ -7,10 +7,10 @@ const saveReviewSpy = jasmine.createSpy('saveReviewSpy');
 const helpersMock = { saveReview: saveReviewSpy };
 
 const movielistReducer = proxyquire('../../../src/reducers/movielistReducer', {
-  './helpers': helpersMock,
+  './helpers': helpersMock
 }).default;
 
-const actionMovies = moviesData.map((movie) => {
+const actionMovies = moviesData.map(movie => {
   return { ...movie };
 });
 
@@ -20,7 +20,7 @@ describe('Movie List Reducer', () => {
       expect(
         movielistReducer(moviesData, {
           type: 'MARK_AS_SEEN',
-          movies: actionMovies,
+          movies: actionMovies
         })
       ).toEqual(actionMovies);
     });
@@ -30,7 +30,7 @@ describe('Movie List Reducer', () => {
       expect(
         movielistReducer(moviesData, {
           type: 'LOAD_MOVIES',
-          movies: actionMovies,
+          movies: actionMovies
         })
       ).toBe(actionMovies);
     });
@@ -39,7 +39,7 @@ describe('Movie List Reducer', () => {
     it('SHOULD return correctly updated state', () => {
       movielistReducer(moviesData, {
         type: 'SAVE_REVIEW',
-        review: 'Review',
+        review: 'Review'
       });
       expect(saveReviewSpy).toHaveBeenCalledWith(moviesData, 'Review');
     });
@@ -49,7 +49,7 @@ describe('Movie List Reducer', () => {
       expect(
         movielistReducer(moviesData, {
           type: 'SOMETHING_ELSE',
-          data: 'something else',
+          data: 'something else'
         })
       ).toBe(moviesData);
     });

@@ -4,47 +4,47 @@ import { beginAjaxCall, endAjaxCall } from './ajaxCallActions';
 import { setErrorState, removeErrorState } from './appActions';
 import { getMoviesLocal } from '../requests/get-movies';
 
-export const markAsSeen = (movies) => {
+export const markAsSeen = movies => {
   return { type: types.MARK_AS_SEEN, movies };
 };
 
-export const loadMoviesSuccess = (movies) => {
+export const loadMoviesSuccess = movies => {
   return { type: types.LOAD_MOVIES, movies };
 };
 
 export const loadMovies = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(beginAjaxCall(1));
     return getMoviesLocal()
-      .then((movies) => {
+      .then(movies => {
         dispatch(loadMoviesSuccess(movies));
       })
       .then(() => {
         dispatch(endAjaxCall(1));
       })
-      .catch((error) => {
+      .catch(error => {
         throw error;
       });
   };
 };
 
-export const saveReviewSuccess = (review) => {
+export const saveReviewSuccess = review => {
   return { type: types.SAVE_REVIEW, review };
 };
 
-export const saveReview = (review) => {
-  return (dispatch) => {
+export const saveReview = review => {
+  return dispatch => {
     dispatch(beginAjaxCall(1));
     return bestPictureWinnersApi
       .saveReview(review)
-      .then((review) => {
+      .then(review => {
         dispatch(saveReviewSuccess(review));
       })
       .then(() => {
         dispatch(endAjaxCall(1));
         dispatch(removeErrorState());
       })
-      .catch((error) => {
+      .catch(error => {
         dispatch(endAjaxCall(1));
         dispatch(setErrorState());
       });

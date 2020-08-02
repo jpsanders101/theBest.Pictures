@@ -23,9 +23,9 @@ class BasePage extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   showLandingPage: state.app.showLandingPage,
-  showLoginModal: state.app.showLoginModal,
+  showLoginModal: state.app.showLoginModal
 });
 
 export default connect(mapStateToProps)(BasePage);

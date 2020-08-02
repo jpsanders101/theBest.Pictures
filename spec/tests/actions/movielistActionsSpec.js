@@ -18,7 +18,7 @@ const removeErrorStateSpy = jasmine.createSpy('removeErrorStateSpy');
 const setErrorStateSpy = jasmine.createSpy('setErrorState');
 
 const bestPictureWinnersApiSpy = {
-  saveReview: saveReviewSpy,
+  saveReview: saveReviewSpy
 };
 
 const { markAsSeen, loadMovies, saveReview } = proxyquire(
@@ -26,14 +26,14 @@ const { markAsSeen, loadMovies, saveReview } = proxyquire(
   {
     './ajaxCallActions': {
       beginAjaxCall: beginAjaxCallSpy,
-      endAjaxCall: endAjaxCallSpy,
+      endAjaxCall: endAjaxCallSpy
     },
     '../api/bestPictureWinnersApi': bestPictureWinnersApiSpy,
     './appActions': {
       removeErrorState: removeErrorStateSpy,
-      setErrorState: setErrorStateSpy,
+      setErrorState: setErrorStateSpy
     },
-    '../requests/get-movies': { getMovies: getMoviesSpy },
+    '../requests/get-movies': { getMovies: getMoviesSpy }
   }
 );
 
@@ -61,7 +61,7 @@ describe('loadMovies', () => {
     afterEach(() => {
       dispatchSpy.calls.reset();
     });
-    it('SHOULD dispatch a beginAjaxCall action', (done) => {
+    it('SHOULD dispatch a beginAjaxCall action', done => {
       setImmediate(() => {
         expect(dispatchSpy).toHaveBeenCalledWith(
           jasmine.objectContaining(mockBeginAjaxCallAction)
@@ -69,7 +69,7 @@ describe('loadMovies', () => {
         done();
       });
     });
-    it('SHOULD dispatch an endAjaxCall action', (done) => {
+    it('SHOULD dispatch an endAjaxCall action', done => {
       setImmediate(() => {
         expect(dispatchSpy).toHaveBeenCalledWith(
           jasmine.objectContaining(mockEndAjaxCallAction)
@@ -83,11 +83,11 @@ describe('loadMovies', () => {
       getMoviesSpy.and.callFake(() => {
         return Promise.reject('API reject error');
       });
-      loadMovies()(dispatchSpy).catch((error) => {
+      loadMovies()(dispatchSpy).catch(error => {
         caughtError = error;
       });
     });
-    it('SHOULD throw an error', (done) => {
+    it('SHOULD throw an error', done => {
       setImmediate(() => {
         expect(caughtError).toEqual('API reject error');
         done();
@@ -107,32 +107,32 @@ describe('saveReview', () => {
       dispatchSpy.calls.reset();
       saveReviewSpy.calls.reset();
     });
-    it('SHOULD dispatch a beginAjaxCall action', (done) => {
+    it('SHOULD dispatch a beginAjaxCall action', done => {
       setImmediate(() => {
         saveReview(reviewData)(dispatchSpy);
         expect(beginAjaxCallSpy).toHaveBeenCalledWith(1);
         done();
       });
     });
-    it('SHOULD dispatch a saveReviewSuccess action', (done) => {
+    it('SHOULD dispatch a saveReviewSuccess action', done => {
       setImmediate(() => {
         expect(dispatchSpy).toHaveBeenCalledWith(
           jasmine.objectContaining({
             type: 'SAVE_REVIEW',
-            review: jasmine.objectContaining(reviewData),
+            review: jasmine.objectContaining(reviewData)
           })
         );
         done();
       });
     });
-    it('SHOULD dispatch an endAjaxCall action', (done) => {
+    it('SHOULD dispatch an endAjaxCall action', done => {
       setImmediate(() => {
         expect(dispatchSpy).toHaveBeenCalledWith(mockEndAjaxCallAction);
         expect(endAjaxCallSpy).toHaveBeenCalledWith(1);
         done();
       });
     });
-    it('SHOULD dispatch a removeErrorState action', (done) => {
+    it('SHOULD dispatch a removeErrorState action', done => {
       setImmediate(() => {
         expect(dispatchSpy).toHaveBeenCalledWith(mockRemoveErrorStateAction);
         expect(removeErrorStateSpy).toHaveBeenCalled();
@@ -144,19 +144,19 @@ describe('saveReview', () => {
         saveReviewSpy.and.callFake(() => {
           return Promise.reject('API rejection');
         });
-        saveReview(reviewData)(dispatchSpy).catch((error) => {
+        saveReview(reviewData)(dispatchSpy).catch(error => {
           caughtError = error;
         });
         mockSetErrorStateAction = { type: 'SET_ERROR_STATE' };
         setErrorStateSpy.and.returnValue(mockSetErrorStateAction);
       });
-      it('SHOULD dispatch a setErrorState action', (done) => {
+      it('SHOULD dispatch a setErrorState action', done => {
         setImmediate(() => {
           expect(dispatchSpy).toHaveBeenCalledWith(mockSetErrorStateAction);
           done();
         });
       });
-      it('SHOULD dispatch an endAjaxCall action', (done) => {
+      it('SHOULD dispatch an endAjaxCall action', done => {
         const mockAjaxCallAction = { type: 'END_AJAX_CALL', ajaxCalls: 1 };
         endAjaxCallSpy.and.returnValue(mockAjaxCallAction);
         setImmediate(() => {

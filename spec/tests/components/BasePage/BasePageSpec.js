@@ -8,7 +8,7 @@ describe('Connected BasePage', () => {
   it('SHOULD pass the correct props to the BasePage', () => {
     const store = configureStore();
     const initialState = {
-      app: { showLandingPage: true },
+      app: { showLandingPage: true }
     };
     const wrapper = shallow(<ConnectedBasePage store={store(initialState)} />);
     expect(wrapper.props().showLandingPage).toEqual(true);

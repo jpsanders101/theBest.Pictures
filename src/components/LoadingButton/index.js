@@ -13,7 +13,7 @@ class LoadingButton extends React.Component {
     return (
       <input
         className={classnames('review-form__button', {
-          'review-form__button--loading': isLoading,
+          'review-form__button--loading': isLoading
         })}
         type="submit"
         value={value}
@@ -24,12 +24,12 @@ class LoadingButton extends React.Component {
 
 LoadingButton.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    isLoading: state.ajaxCalls > 0,
+    isLoading: state.ajaxCalls > 0
   };
 };
 

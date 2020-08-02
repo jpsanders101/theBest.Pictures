@@ -4,10 +4,10 @@ import proxyquire from 'proxyquire';
 
 proxyquire.noCallThru();
 
-const mockReviewForm = (props) => {};
+const mockReviewForm = props => {};
 
 const ReviewForm = proxyquire('../../../../src/components/ReviewSection', {
-  '../ReviewForm': mockReviewForm,
+  '../ReviewForm': mockReviewForm
 }).default;
 
 describe('ReviewSection', () => {
@@ -16,14 +16,14 @@ describe('ReviewSection', () => {
   beforeEach(() => {
     const props = {
       movie: {},
-      actions: {},
+      actions: {}
     };
     wrapper = shallow(<ReviewForm {...props} />);
   });
   it('SHOULD render a ReviewForm with correct props', () => {
     const expectedProps = {
       movie: {},
-      actions: {},
+      actions: {}
     };
     expect(wrapper.find(mockReviewForm).props()).toEqual(
       jasmine.objectContaining(expectedProps)

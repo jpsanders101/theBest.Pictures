@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const login = async (emailAndPassword) => {
+const login = async emailAndPassword => {
   let response;
   try {
     response = await axios.post('/auth/login', emailAndPassword);

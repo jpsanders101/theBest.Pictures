@@ -6,12 +6,12 @@ import proxyquire from 'proxyquire';
 
 proxyquire.noCallThru();
 
-const reviewSectionMock = (props) => {};
-const spinnerMock = (props) => {};
+const reviewSectionMock = props => {};
+const spinnerMock = props => {};
 
 const ConnectedMoviePage = proxyquire('../../../../src/components/MoviePage', {
   '../ReviewSection': reviewSectionMock,
-  '../Spinner': spinnerMock,
+  '../Spinner': spinnerMock
 }).default;
 
 const store = configureStore();
@@ -26,22 +26,22 @@ describe('Connected MoviePage', () => {
           name: 'Wings',
           awardNumber: 1,
           releaseYear: 1927,
-          seen: false,
+          seen: false
         },
         {
           name: 'The Broadway Melody',
           awardNumber: 2,
           releaseYear: 1928,
-          seen: false,
+          seen: false
         },
         {
           name: 'All Quiet On the Western Front',
           awardNumber: 3,
           releaseYear: 1930,
-          seen: false,
-        },
+          seen: false
+        }
       ],
-      ajaxCalls: 0,
+      ajaxCalls: 0
     };
     props = { match: { params: { id: '1927' } } };
     wrapper = shallow(
@@ -55,9 +55,9 @@ describe('Connected MoviePage', () => {
           name: 'Wings',
           awardNumber: 1,
           releaseYear: 1927,
-          seen: false,
+          seen: false
         },
-        isLoading: false,
+        isLoading: false
       };
       expect(wrapper.props()).toEqual(jasmine.objectContaining(expectedProps));
     });
@@ -68,7 +68,7 @@ describe('Connected MoviePage', () => {
       'loadMoviesSuccess',
       'loadMovies',
       'saveReviewSuccess',
-      'saveReview',
+      'saveReview'
     ];
     it('SHOULD pass correct action creators to props', () => {
       expect(Object.keys(wrapper.props().actions)).toEqual(
@@ -84,19 +84,19 @@ describe('MoviePage', () => {
         name: 'Wings',
         awardNumber: 1,
         releaseYear: 1927,
-        seen: false,
+        seen: false
       },
       actions: {},
-      isLoading: false,
+      isLoading: false
     };
     expectedProps = {
       movie: {
         name: 'Wings',
         awardNumber: 1,
         releaseYear: 1927,
-        seen: false,
+        seen: false
       },
-      actions: {},
+      actions: {}
     };
     let MoviePage = ConnectedMoviePage.WrappedComponent;
     wrapper = shallow(<MoviePage {...props} />);
@@ -117,10 +117,10 @@ describe('MoviePage', () => {
           awardNumber: 1,
           releaseYear: 1927,
           seen: false,
-          review: 'Wings was bubbly',
+          review: 'Wings was bubbly'
         },
         actions: {},
-        isLoading: false,
+        isLoading: false
       };
       let MoviePage = ConnectedMoviePage.WrappedComponent;
       wrapper = shallow(<MoviePage {...props} />);
@@ -144,10 +144,10 @@ describe('MoviePage', () => {
           name: 'Wings',
           awardNumber: 1,
           releaseYear: 1927,
-          seen: false,
+          seen: false
         },
         actions: {},
-        isLoading: true,
+        isLoading: true
       };
       let MoviePage = ConnectedMoviePage.WrappedComponent;
       wrapper = shallow(<MoviePage {...props} />);

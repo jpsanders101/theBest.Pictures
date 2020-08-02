@@ -3,15 +3,15 @@ import { dismissLandingPage } from '../../actions/appActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     dismissLandingPage: () => {
       dispatch(dismissLandingPage());
-    },
+    }
   };
 };
-const LandingPage = (props) => {
-  const handleLandingButtonClick = (e) => {
+const LandingPage = props => {
+  const handleLandingButtonClick = e => {
     e.preventDefault();
     document.cookie = 'seen_landing=true';
     props.dismissLandingPage();
@@ -32,7 +32,10 @@ const LandingPage = (props) => {
 };
 
 LandingPage.propTypes = {
-  dismissLandingPage: PropTypes.func.isRequired,
+  dismissLandingPage: PropTypes.func.isRequired
 };
 
-export default connect(() => ({}), mapDispatchToProps)(LandingPage);
+export default connect(
+  () => ({}),
+  mapDispatchToProps
+)(LandingPage);

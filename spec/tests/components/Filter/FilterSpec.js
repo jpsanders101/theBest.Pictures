@@ -10,7 +10,7 @@ describe('Filter', () => {
       filter: 'seen',
       displayText: 'Seen',
       seenFilterOnClickHandler: filterSpy,
-      isSelected: false,
+      isSelected: false
     };
     wrapper = shallow(<Filter {...props} />);
   });
@@ -27,7 +27,7 @@ describe('Filter', () => {
         filter: 'seen',
         displayText: 'Seen',
         seenFilterOnClickHandler: filterSpy,
-        isSelected: true,
+        isSelected: true
       };
       wrapper = shallow(<Filter {...props} />);
     });

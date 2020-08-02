@@ -12,7 +12,7 @@ describe('ReviewForm', () => {
     review: MOVIE_REVIEW,
     name: MOVIE_NAME,
     rating: MOVIE_RATING,
-    releaseYear: RELEASE_YEAR,
+    releaseYear: RELEASE_YEAR
   } = reviewData;
   const ReviewForm = WrappedReviewForm.WrappedComponent;
 
@@ -23,7 +23,7 @@ describe('ReviewForm', () => {
     props = {
       saveReview: saveReviewSpy,
       movie: { review: '', name: MOVIE_NAME, releaseYear: RELEASE_YEAR },
-      errorState: false,
+      errorState: false
     };
     wrapper = shallow(<ReviewForm {...props} />);
   });
@@ -34,7 +34,12 @@ describe('ReviewForm', () => {
 
   describe('GIVEN there is no review for the current movie', () => {
     it('SHOULD render a button which displays "Save"', () => {
-      expect(wrapper.find(LoadingButton).first().props().value).toEqual('Save');
+      expect(
+        wrapper
+          .find(LoadingButton)
+          .first()
+          .props().value
+      ).toEqual('Save');
     });
   });
   describe('GIVEN a user has already submitted a review', () => {
@@ -42,15 +47,18 @@ describe('ReviewForm', () => {
       props.movie = {
         review: MOVIE_REVIEW,
         name: MOVIE_NAME,
-        releaseYear: RELEASE_YEAR,
+        releaseYear: RELEASE_YEAR
       };
       wrapper = shallow(<ReviewForm {...props} />);
     });
 
     it('SHOULD render a button which displays "Update"', () => {
-      expect(wrapper.find(LoadingButton).first().props().value).toEqual(
-        'Update'
-      );
+      expect(
+        wrapper
+          .find(LoadingButton)
+          .first()
+          .props().value
+      ).toEqual('Update');
     });
     describe('AND GIVEN there has been an error while submitting the review', () => {
       beforeEach(() => {
@@ -93,7 +101,7 @@ describe('ReviewForm', () => {
           jasmine.objectContaining({
             rating: undefined,
             review: MOVIE_REVIEW,
-            releaseYear: RELEASE_YEAR,
+            releaseYear: RELEASE_YEAR
           })
         );
       });
