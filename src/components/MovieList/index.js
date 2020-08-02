@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 import { markAsSeen } from '../../actions/movielistActions';
 
 function MovieList(props) {
-  const handleMovieClick = (movieName) => {
+  const NUMBER_OF_MOVIES = 90;
+
+  const handleMovieClick = movieName => {
     const movieList = [...props.movies];
-    let index = movieList.findIndex((movie) => {
+    let index = movieList.findIndex(movie => {
       return movie.name === movieName;
     });
     movieList[index].seen = true;
@@ -15,25 +17,21 @@ function MovieList(props) {
   };
 
   const renderMovieList = () => {
-    return props.movies
-      .filter((movie) => {
-        if (props.filters.seen === 'none') {
-          return true;
-        } else if (props.filters.seen === 'seen') {
-          return movie.seen;
-        } else if (props.filters.seen === 'unseen') {
-          return !movie.seen;
-        }
-      })
-      .map((movie) => (
+    const movieItems = [];
+    for (let i = 1; i <= NUMBER_OF_MOVIES; i++) {
+      const movieData = require(`../../content/movies/${i}.json`);
+      movieItems.push(
         <MovieItem
-          key={movie.awardNumber}
-          name={movie.name}
+          key={i}
+          awardNumber={i}
+          name={movieData.title}
           onClick={handleMovieClick}
-          releaseYear={movie.releaseYear}
-          seen={movie.seen}
+          releaseYear={movieData.releaseYear}
+          seen={false}
         />
-      ));
+      );
+    }
+    return movieItems;
   };
 
   return (
@@ -46,12 +44,12 @@ function MovieList(props) {
 MovieList.propTypes = {
   filters: PropTypes.shape({ seen: PropTypes.string }).isRequired,
   markAsSeen: PropTypes.func.isRequired,
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.array.isRequired
 };
 
 export default connect(
-  (state) => ({
-    filters: state.app.filters,
+  state => ({
+    filters: state.app.filters
   }),
   { markAsSeen }
 )(MovieList);

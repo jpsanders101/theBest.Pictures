@@ -21,7 +21,7 @@ class MoviePage extends React.Component {
           ) : (
             <div className="movie-page_content">
               <h1 className="movie-page__heading">
-                {this.props.movie.name}{' '}
+                {this.props.movie.title}{' '}
                 <span className="movie-page__year">
                   {`(${this.props.movie.releaseYear})`}
                 </span>
@@ -51,25 +51,26 @@ class MoviePage extends React.Component {
 MoviePage.propTypes = {
   movie: PropTypes.object,
   actions: PropTypes.object.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
-  let movie = {
-    ...state.movies.find(
-      (movie) => movie.releaseYear === parseInt(ownProps.match.params.id)
-    ),
-  };
+  const movieData = require(`../../content/movies/${
+    ownProps.match.params.id
+  }.json`);
   return {
-    movie: movie,
-    isLoading: state.ajaxCalls > 0,
+    movie: movieData,
+    isLoading: state.ajaxCalls > 0
   };
 };
 
-const mapDispatchtoProps = (dispatch) => {
+const mapDispatchtoProps = dispatch => {
   return {
-    actions: bindActionCreators(movielistActions, dispatch),
+    actions: bindActionCreators(movielistActions, dispatch)
   };
 };
 
-export default connect(mapStateToProps, mapDispatchtoProps)(MoviePage);
+export default connect(
+  mapStateToProps,
+  mapDispatchtoProps
+)(MoviePage);
