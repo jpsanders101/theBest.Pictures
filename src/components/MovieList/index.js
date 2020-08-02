@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { markAsSeen } from '../../actions/movielistActions';
 
 function MovieList(props) {
-  const NUMBER_OF_MOVIES = 90;
+  const NUMBER_OF_MOVIES = 92;
 
   const handleMovieClick = movieName => {
     const movieList = [...props.movies];
